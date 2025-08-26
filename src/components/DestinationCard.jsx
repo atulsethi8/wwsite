@@ -53,9 +53,20 @@ const DestinationCard = ({ destination, index }) => {
             <span>{destination.duration}</span>
           </div>
           
-                     <Link to="/contact#contact-form" className="btn-primary text-sm px-6 py-2">
-             View Itinerary
-           </Link>
+                     <Link 
+                       to="/contact" 
+                       onClick={() => {
+                         setTimeout(() => {
+                           const element = document.getElementById('contact-form');
+                           if (element) {
+                             element.scrollIntoView({ behavior: 'smooth' });
+                           }
+                         }, 100);
+                       }}
+                       className="btn-primary text-sm px-6 py-2"
+                     >
+                       View Itinerary
+                     </Link>
         </div>
       </div>
     </motion.div>
