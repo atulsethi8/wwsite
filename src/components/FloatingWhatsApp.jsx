@@ -11,7 +11,7 @@ const FloatingWhatsApp = () => {
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ duration: 0.5, delay: 1 }}
-      className="fixed bottom-6 right-6 z-50"
+      className="fixed bottom-6 right-4 md:right-6 z-50"
     >
       <motion.button
         whileHover={{ scale: 1.1 }}
@@ -23,10 +23,10 @@ const FloatingWhatsApp = () => {
         <MessageCircle className="h-6 w-6" />
         
         {/* Tooltip */}
-        <div className="absolute right-full mr-3 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+        <div className="absolute bottom-full mb-3 left-1/2 transform -translate-x-1/2 md:right-full md:left-auto md:mr-3 md:top-1/2 md:-translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
           <div className="bg-gray-900 text-white text-sm px-3 py-2 rounded-lg whitespace-nowrap">
             Chat with us on WhatsApp
-            <div className="absolute left-full top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-4 border-l-gray-900 border-t-2 border-t-transparent border-b-2 border-b-transparent"></div>
+            <div className="absolute top-full left-1/2 transform -translate-x-1/2 md:left-full md:top-1/2 md:-translate-y-1/2 w-0 h-0 border-t-4 border-t-gray-900 border-l-2 border-l-transparent border-r-2 border-r-transparent md:border-l-4 md:border-l-gray-900 md:border-t-2 md:border-t-transparent md:border-b-2 md:border-b-transparent"></div>
           </div>
         </div>
       </motion.button>
