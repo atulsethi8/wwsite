@@ -1,50 +1,101 @@
-import { motion } from 'framer-motion'
-import { Star, Quote } from 'lucide-react'
-import { googleReviews } from '../data/googleReviews'
+import { Star } from "lucide-react";
 
-const GoogleReviews = () => {
-  // Show only the first 3 reviews on homepage
-  const displayReviews = googleReviews.slice(0, 3)
+// 🔗 Your exact Google reviews URL
+const GOOGLE_REVIEWS_URL =
+  "https://www.google.com/search?kgmid=/g/11wnmq6793&hl=en-IN&q=Wander+Wyze+Holidays&shndl=30&shem=lcuae,lsptbl1c,sdl1pfh&source=sh/x/loc/osrp/m5/1&kgs=f33c1bdf7ecdfe72&utm_source=lcuae,lsptbl1c,sdl1pfh,sh/x/loc/osrp/m5/1#lrd=0x390d0181e6b3ed1b:0x58695912a3a6a8fe,1,,";
 
+// ✍️ Edit these 3 items to your favorite real reviews (text kept short for design)
+const TESTIMONIALS = [
+  {
+    name: "Client 1",
+    text:
+      "Flawless planning and super responsive throughout our Kenya safari. Lodges were top notch and transfers smooth!",
+    rating: 5,
+    when: "2 weeks ago",
+    avatar:
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" // optional
+  },
+  {
+    name: "Client 2",
+    text:
+      "Vietnam itinerary was perfectly paced for our parents. Indian meals arranged most days—huge plus!",
+    rating: 5,
+    when: "1 month ago",
+    avatar:
+      "https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=200&auto=format&fit=crop"
+  },
+  {
+    name: "Client 3",
+    text:
+      "Seamless Dubai combo—flights, hotel and activities bundled. We just showed up and enjoyed!",
+    rating: 5,
+    when: "3 months ago",
+    avatar:
+      "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=200&auto=format&fit=crop"
+  }
+];
+
+const Stars = ({ rating }) => (
+  <div className="flex gap-1">
+    {[1, 2, 3, 4, 5].map((i) => (
+      <Star
+        key={i}
+        className={`h-4 w-4 ${
+          i <= Math.round(rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+        }`}
+      />
+    ))}
+  </div>
+);
+
+export default function GoogleReviews() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {displayReviews.map((review, index) => (
-        <motion.div
-          key={review.id}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: index * 0.1 }}
-          viewport={{ once: true }}
-          className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300 border border-gray-100"
-        >
-          <div className="flex items-center mb-6">
-            <div className="flex space-x-1 mr-4">
-              {[...Array(review.rating)].map((_, i) => (
-                <Star key={i} className="h-4 w-4 text-yellow-500 fill-current" />
-              ))}
+    <>
+      {/* 3 clickable review cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {TESTIMONIALS.map((t, idx) => (
+          <a
+            key={idx}
+            href={GOOGLE_REVIEWS_URL}
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+            aria-label={`Read ${t.name}'s full review on Google`}
+            className="block group"
+          >
+            <div className="bg-white rounded-xl p-5 shadow-sm group-hover:shadow-md transition h-full">
+              <div className="flex items-center gap-3 mb-3">
+                <img
+                  src={t.avatar}
+                  alt={t.name}
+                  className="h-10 w-10 rounded-full object-cover"
+                  loading="lazy"
+                />
+                <div>
+                  <div className="font-semibold">{t.name}</div>
+                  <div className="text-xs text-gray-500">{t.when}</div>
+                </div>
+              </div>
+              <Stars rating={t.rating} />
+              <p className="text-gray-700 mt-3 line-clamp-6">{t.text}</p>
+              <span className="inline-block mt-4 text-sm text-primary-600 group-hover:underline">
+                Read on Google →
+              </span>
             </div>
-            <Quote className="h-6 w-6 text-primary-600" />
-          </div>
-          
-          <p className="text-gray-700 mb-6 italic leading-relaxed">
-            "{review.text}"
-          </p>
-          
-          <div className="flex items-center">
-            <img
-              src={review.profile_photo_url}
-              alt={review.author_name}
-              className="w-12 h-12 rounded-full object-cover mr-4"
-            />
-            <div>
-              <h4 className="font-semibold text-gray-900">{review.author_name}</h4>
-              <p className="text-sm text-gray-500">{review.location} • {review.relative_time_description}</p>
-            </div>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  )
-}
+          </a>
+        ))}
+      </div>
 
-export default GoogleReviews
+      {/* See all button */}
+      <div className="text-center mt-8">
+        <a
+          href={GOOGLE_REVIEWS_URL}
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+          className="inline-block btn-secondary px-6 py-3"
+        >
+          See all reviews on Google
+        </a>
+      </div>
+    </>
+  );
+}
