@@ -1,1 +1,7 @@
-/*    /index.html   200
+# Serve the three landing pages directly (no redirect)
+ /kenya-safari-packages      /kenya-safari-packages.html      200
+ /vietnam-tour-packages      /vietnam-tour-packages.html      200
+ /dubai-combo-deals          /dubai-combo-deals.html          200
+
+# (Keep this LAST) SPA fallback for everything else, if you need it
+ /*                             /index.html                    200
