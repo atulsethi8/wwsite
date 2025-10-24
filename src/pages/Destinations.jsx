@@ -166,6 +166,25 @@ const Destinations = () => {
           </motion.div>
         </div>
       </section>
+{/* Compare Packages quick links */}
+<section className="mt-0 mb-6">
+  <div className="container-custom">
+    <div className="flex flex-wrap gap-3 justify-center">
+      <a href="/kenya-safari-packages"
+         className="px-4 py-2 rounded-md bg-slate-800 text-gray-200 hover:bg-slate-700 transition">
+        Kenya Safari Packages
+      </a>
+      <a href="/vietnam-tour-packages"
+         className="px-4 py-2 rounded-md bg-slate-800 text-gray-200 hover:bg-slate-700 transition">
+        Vietnam Packages
+      </a>
+      <a href="/dubai-combo-deals"
+         className="px-4 py-2 rounded-md bg-slate-800 text-gray-200 hover:bg-slate-700 transition">
+        Dubai Combo Deals
+      </a>
+    </div>
+  </div>
+</section>
 
       {/* Categories */}
       <section className="section-padding bg-white">
