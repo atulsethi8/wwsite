@@ -61,7 +61,22 @@ const Footer = () => {
                   Contact
                 </Link>
               </li>
-            </ul>
+          <li>
+    <a href="/kenya-safari-packages" className="text-gray-300 hover:text-white transition-colors">
+      Kenya Safari
+    </a>
+  </li>
+  <li>
+    <a href="/vietnam-tour-packages" className="text-gray-300 hover:text-white transition-colors">
+      Vietnam
+    </a>
+  </li>
+  <li>
+    <a href="/dubai-combo-deals" className="text-gray-300 hover:text-white transition-colors">
+      Dubai
+    </a>
+  </li>
+       </ul>
           </div>
 
           {/* Contact Info */}
