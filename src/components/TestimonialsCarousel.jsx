@@ -1,44 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
-import { Star } from "lucide-react";
+// src/components/TestimonialsCarousel.jsx
+import React, { useEffect, useRef, useState } from "react";
 
-// Link to your Google Reviews page
-const GBP_URL =
-  "https://www.google.com/search?kgmid=/g/11wnmq6793&hl=en-IN&q=Wander+Wyze+Holidays&shndl=30&shem=lcuae,lsptbl1c,sdl1pfh&source=sh/x/loc/osrp/m5/1&kgs=f33c1bdf7ecdfe72&utm_source=lcuae,lsptbl1c,sdl1pfh,sh/x/loc/osrp/m5/1#lrd=0x390d0181e6b3ed1b:0x58695912a3a6a8fe,1,,,,";
-
-function Stars({ n = 5 }) {
-  return (
-    <div className="flex gap-1 justify-center">
-      {Array.from({ length: n }).map((_, i) => (
-        <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-      ))}
-    </div>
-  );
-}
-
-function Avatar({ name, photo }) {
-  if (photo) {
-    return (
-      <img
-        src={photo}
-        alt={name}
-        className="h-14 w-14 rounded-full ring-4 ring-white object-cover shadow-lg"
-      />
-    );
-  }
-  const initials = name
-    .split(" ")
-    .map((p) => p[0])
-    .slice(0, 2)
-    .join("")
-    .toUpperCase();
-  return
-    <div className="h-14 w-14 rounded-full ring-4 ring-white bg-primary-600 text-white grid place-items-center font-bold shadow-lg">
-      {initials}
-    </div>;
-}
-
-export default function TestimonialsCarousel() {
- const slides = [
+const slides = [
   {
     name: "Hema Jyala",
     pillar: "The Trust Builder",
@@ -81,101 +44,121 @@ export default function TestimonialsCarousel() {
   },
 ];
 
-    []
-  );
-
-  const [i, setI] = useState(0);
-  const go = (n) => setI((p) => (p + n + slides.length) % slides.length);
-
-  useEffect(() => {
-    const t = setInterval(() => go(1), 5000);
-    return () => clearInterval(t);
-  }, [slides.length]);
-
+function Stars({ value = 5 }) {
   return (
-    <section className="relative">
-      <div className="text-center mb-10">
-        <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-          <span className="text-primary-700">WHY CHOOSE US?</span>{" "}
-          <span className="text-gray-900">OUR CLIENTS SAY IT BEST.</span>
-        </h3>
-      </div>
-
-      <div className="relative max-w-5xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 items-stretch gap-6">
-          <Card minimized slide={slides[(i - 1 + slides.length) % slides.length]} />
-          <Card active slide={slides[i]} />
-          <Card minimized slide={slides[(i + 1) % slides.length]} />
-        </div>
-
-        <button
-          aria-label="Previous"
-          onClick={() => go(-1)}
-          className="hidden md:flex absolute left-[-14px] top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white/90 shadow hover:bg-white"
+    <div className="flex gap-1" aria-label={`${value} star rating`}>
+      {Array.from({ length: 5 }).map((_, i) => (
+        <svg
+          key={i}
+          className={`h-4 w-4 ${
+            i < value ? "fill-yellow-400 text-yellow-400" : "fill-gray-300 text-gray-300"
+          }`}
+          viewBox="0 0 20 20"
         >
-          <span className="m-auto text-xl">‹</span>
-        </button>
-        <button
-          aria-label="Next"
-          onClick={() => go(1)}
-          className="hidden md:flex absolute right-[-14px] top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white/90 shadow hover:bg-white"
-        >
-          <span className="m-auto text-xl">›</span>
-        </button>
-
-        <div className="flex justify-center gap-2 mt-6">
-          {slides.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setI(idx)}
-              aria-label={`Go to slide ${idx + 1}`}
-              className={`h-2.5 rounded-full transition-all ${
-                idx === i ? "w-8 bg-primary-600" : "w-2.5 bg-gray-300"
-              }`}
-            />
-          ))}
-        </div>
-
-        <div className="text-center mt-6">
-          <a
-            href={GBP_URL}
-            className="inline-flex items-center gap-2 text-primary-700 hover:underline font-semibold"
-            target="_blank"
-            rel="noopener"
-          >
-            Read more Google reviews
-          </a>
-        </div>
-      </div>
-    </section>
+          <path d="M10 15.27l-5.18 3.05 1.64-5.81L1 7.97l6-.52L10 2l3 5.45 6 .52-5.46 4.54 1.64 5.81z" />
+        </svg>
+      ))}
+    </div>
   );
 }
 
-function Card({ slide, active, minimized }) {
+export default function TestimonialsCarousel() {
+  const [index, setIndex] = useState(0);
+  const timerRef = useRef(null);
+
+  // Auto-advance every 6s (no scrollIntoView here, so it won't jump the page)
+  useEffect(() => {
+    timerRef.current = setInterval(() => {
+      setIndex((i) => (i + 1) % slides.length);
+    }, 6000);
+    return () => clearInterval(timerRef.current);
+  }, []);
+
+  const go = (i) => setIndex((i + slides.length) % slides.length);
+
   return (
-    <a
-      href={GBP_URL}
-      target="_blank"
-      rel="noopener"
-      className={`relative block rounded-2xl bg-white p-6 md:p-8 shadow-lg transition-all
-        ${active ? "scale-105 z-10" : "opacity-70"} 
-        ${minimized ? "md:mt-6" : ""}`}
-    >
-      <div className="absolute -top-7 left-1/2 -translate-x-1/2">
-        <Avatar name={slide.name} photo={slide.photo} />
+    <div className="relative mx-auto max-w-6xl">
+      {/* Big heading */}
+      <div className="text-center mb-10">
+        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900">
+          WHY CHOOSE US? <span className="text-primary-600">OUR CLIENTS SAY IT BEST.</span>
+        </h2>
       </div>
 
-      <div className="pt-6 text-center">
-        <div className="text-sm uppercase tracking-wide text-primary-700 font-extrabold">
-          {slide.pillar}
+      {/* Carousel */}
+      <div className="relative overflow-hidden">
+        <div
+          className="flex transition-transform duration-500 ease-out"
+          style={{ transform: `translateX(-${index * 100}%)`, width: `${slides.length * 100}%` }}
+        >
+          {slides.map((s, i) => (
+            <article
+              key={s.name + i}
+              className="w-full shrink-0 px-3 md:px-6"
+              aria-roledescription="slide"
+              aria-label={`${i + 1} of ${slides.length}`}
+            >
+              <div className="mx-auto max-w-3xl rounded-2xl bg-white shadow-xl ring-1 ring-black/5 p-6 sm:p-10 relative">
+                {/* Avatar */}
+                <div className="absolute -top-8 left-1/2 -translate-x-1/2">
+                  <img
+                    src={s.photo}
+                    alt={s.name}
+                    className="h-16 w-16 rounded-full object-cover ring-4 ring-white shadow-md"
+                    loading="lazy"
+                  />
+                </div>
+
+                {/* Header */}
+                <div className="pt-6 text-center">
+                  <div className="text-sm uppercase tracking-wide text-teal-600 font-semibold">
+                    {s.pillar}
+                  </div>
+                  <div className="mt-1 font-bold text-lg text-gray-900">{s.name}</div>
+                  <div className="mt-2 flex justify-center">
+                    <Stars value={s.rating} />
+                  </div>
+                </div>
+
+                {/* Body */}
+                <p className="mt-5 text-gray-700 leading-relaxed text-center">
+                  {s.text}
+                </p>
+              </div>
+            </article>
+          ))}
         </div>
-        <div className="mt-1 font-semibold">{slide.name}</div>
-        <div className="mt-1"><Stars n={slide.rating} /></div>
 
-        <blockquote className="mt-4 text-gray-700 leading-relaxed">
-          “{slide.text}”
-        </blockquote>
+        {/* Controls */}
+        <button
+          onClick={() => go(index - 1)}
+          className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/80 hover:bg-white shadow p-2"
+          aria-label="Previous testimonial"
+        >
+          ‹
+        </button>
+        <button
+          onClick={() => go(index + 1)}
+          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/80 hover:bg-white shadow p-2"
+          aria-label="Next testimonial"
+        >
+          ›
+        </button>
       </div>
-    </a>
+
+      {/* Dots */}
+      <div className="mt-6 flex justify-center gap-2">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => go(i)}
+            className={`h-2.5 w-2.5 rounded-full ${
+              i === index ? "bg-primary-600" : "bg-gray-300 hover:bg-gray-400"
+            }`}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
