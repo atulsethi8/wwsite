@@ -2,7 +2,9 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Hero from '../components/Hero'
 import DestinationCard from '../components/DestinationCard'
-import GoogleReviews from '../components/GoogleReviews'
+import TestimonialsCarousel from '../components/TestimonialsCarousel'
+...
+<TestimonialsCarousel />
 import { Star, Quote, ArrowRight, ExternalLink } from 'lucide-react'
 
 const Home = () => {
