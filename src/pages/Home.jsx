@@ -104,15 +104,12 @@ const Home = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="text-center mb-16"
+      className="text-center mb-12"
     >
-      <span className="tracking-widest text-xs font-semibold text-primary-600">
+      <h2 className="text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900">
         TESTIMONIALS
-      </span>
-      <h2 className="mt-2 text-4xl lg:text-5xl font-bold text-gray-900">
-        WHY CHOOSE US? OUR CLIENTS SAY IT BEST.
       </h2>
-      <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+      <p className="mt-3 text-lg lg:text-xl text-gray-600">
         Real words from real travelers—curated highlights from our Google reviews.
       </p>
     </motion.div>
