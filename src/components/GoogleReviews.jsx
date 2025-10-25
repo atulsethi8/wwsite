@@ -5,57 +5,52 @@ import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 const GOOGLE_REVIEWS_URL =
   "https://www.google.com/search?kgmid=/g/11wnmq6793&hl=en-IN&q=Wander+Wyze+Holidays&shndl=30&shem=lcuae,lsptbl1c,sdl1pfh&source=sh/x/loc/osrp/m5/1&kgs=f33c1bdf7ecdfe72&utm_source=lcuae,lsptbl1c,sdl1pfh,sh/x/loc/osrp/m5/1#lrd=0x390d0181e6b3ed1b:0x58695912a3a6a8fe,1,,";
 
-// ✍️ Replace with your real 5 reviews (keep text short for layout)
+// ⭐ If you want different star counts per review, change "rating"
 const TESTIMONIALS = [
   {
-    name: "Ritika A.",
-    when: "2 weeks ago",
+    pillar: "The Trust Builder",
+    author: "Hema Jyala",
+    location: "Maldives",
     rating: 5,
     text:
-      "Flawless Kenya safari planning! Great lodges and super smooth transfers. Highly recommended.",
-    avatar:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=120&auto=format&fit=crop"
+      "A huge thank you to Wander Wyze Holidays for arranging an absolutely flawless trip to Maldives! Every aspect of the journey, from the affordable air tickets to stunning accommodations to the thoughtfully curated activities, was handled with such precision and care. Your attention to detail and dedication to creating a personalized, stress-free experience made this vacation truly unforgettable. Highly recommended for anyone seeking a hassle-free, dream getaway at affordable prices!"
   },
   {
-    name: "Rahul S.",
-    when: "1 month ago",
+    pillar: "The Reliability Champion",
+    author: "Riddhi Khandelwal",
+    location: "Dubai",
     rating: 5,
     text:
-      "Vietnam itinerary was perfect for parents. Indian meals arranged most days—huge help.",
-    avatar:
-      "https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=120&auto=format&fit=crop"
+      "Absolutely amazing experience! Our Dubai trip was planned to perfection by Wander Wyze. Everything from airport transfers to hotel stays and sightseeing was super smooth and stress-free. We didn’t have to worry about a thing. Thanks for making it such a memorable and hassle-free trip. Highly recommended!"
   },
   {
-    name: "Nisha K.",
-    when: "3 months ago",
+    pillar: "The Personalization Powerhouse",
+    author: "Pawan Dabas",
+    location: "Australia & Singapore",
     rating: 5,
     text:
-      "Dubai combo deal was seamless—flights, hotel, activities. We just enjoyed. Great value!",
-    avatar:
-      "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=120&auto=format&fit=crop"
+      "WanderWyze is a brilliant travel curator, bespoke advice after customising our travel itinerary to Australia. Ravinder was helpful getting a Stayover in Singapore and was available for last minute changes on our activities and travel list. Personalisation is the way for travel as most other folks are doing automated itineraries. Best travel booking experience and will use them for all future travel plans."
   },
   {
-    name: "Manish P.",
-    when: "5 months ago",
+    pillar: "The Value Proposition",
+    author: "Mayank Awasthi",
+    location: "",
     rating: 5,
     text:
-      "Super responsive team. Clear pricing and honest advice. Will book again for Africa.",
-    avatar:
-      "https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=120&auto=format&fit=crop"
+      "Excellent service....No one can match their rates and the deals they offer."
   },
   {
-    name: "Shreya D.",
-    when: "6 months ago",
+    pillar: "The Professional Seal",
+    author: "Jaikrit Singh Rawat",
+    location: "Azerbaijan",
     rating: 5,
     text:
-      "Loved the custom touches—birthday surprise and a perfect room view. Thank you Wander Wyze!",
-    avatar:
-      "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=120&auto=format&fit=crop"
+      "I had an amazing experience booking my Azerbaijan trip through Wander Wyze!! The process was seamless and everything was well organised, from the itinerary to the accommodations. Their professionalism and attention to detail made the trip unforgettable. Highly recommend their services for a hassle free travel experience!"
   }
 ];
 
 const Stars = ({ rating }) => (
-  <div className="flex gap-1">
+  <div className="flex gap-1" aria-label={`${rating} out of 5 stars`}>
     {[1,2,3,4,5].map(i => (
       <Star
         key={i}
@@ -113,9 +108,16 @@ export default function GoogleReviews() {
 
   return (
     <>
+      {/* Big heading above the carousel */}
+      <div className="text-center mb-10">
+        <h3 className="text-2xl md:text-3xl font-extrabold tracking-wide text-gray-900">
+          WHY CHOOSE US? OUR CLIENTS SAY IT BEST.
+        </h3>
+      </div>
+
       {/* Carousel shell */}
       <div className="relative">
-        {/* Prev / Next */}
+        {/* Prev / Next (desktop) */}
         <button
           type="button"
           aria-label="Previous reviews"
@@ -148,19 +150,26 @@ export default function GoogleReviews() {
               target="_blank"
               rel="nofollow noopener noreferrer"
               className="snap-start shrink-0 w-[85%] sm:w-[60%] md:w-[45%] lg:w-[32%] block group"
-              aria-label={`Read ${t.name}'s full review on Google`}
+              aria-label={`Read ${t.author}'s full review on Google`}
             >
               <div className="bg-white rounded-xl p-5 shadow-sm group-hover:shadow-md transition h-full">
-                <div className="flex items-center gap-3 mb-3">
-                  <img src={t.avatar} alt={t.name} className="h-10 w-10 rounded-full object-cover" loading="lazy" />
-                  <div>
-                    <div className="font-semibold">{t.name}</div>
-                    <div className="text-xs text-gray-500">{t.when}</div>
-                  </div>
+                {/* Pillar / point */}
+                <div className="text-sm font-semibold text-primary-700 tracking-wide mb-2">
+                  {t.pillar}
                 </div>
+
+                {/* Stars */}
                 <Stars rating={t.rating} />
-                <p className="text-gray-700 mt-3 line-clamp-6">{t.text}</p>
-                <span className="inline-block mt-4 text-sm text-primary-600 group-hover:underline">
+
+                {/* Review text */}
+                <p className="text-gray-700 mt-3 line-clamp-8">{t.text}</p>
+
+                {/* Reviewer line */}
+                <div className="mt-4 text-sm text-gray-600">
+                  — {t.author}{t.location ? ` (${t.location})` : ""}
+                </div>
+
+                <span className="inline-block mt-3 text-sm text-primary-600 group-hover:underline">
                   Read on Google →
                 </span>
               </div>
@@ -170,7 +179,7 @@ export default function GoogleReviews() {
       </div>
 
       {/* CTA */}
-      <div className="text-center mt-6">
+      <div className="text-center mt-8">
         <a
           href={GOOGLE_REVIEWS_URL}
           target="_blank"
