@@ -38,49 +38,49 @@ function Avatar({ name, photo }) {
 }
 
 export default function TestimonialsCarousel() {
-  const slides = useMemo(
-    () => [
-      {
-        name: "Hema Jyala",
-        pillar: "The Trust Builder",
-        rating: 5,
-        text:
-          "A huge thank you to Wander Wyze Holidays for arranging an absolutely flawless trip to Maldives! Every aspect—from affordable air tickets to stunning stays and curated activities—was handled with precision and care. Highly recommended for a hassle-free, dream getaway at great prices!",
-        photo: "/images/reviews/hema.jpg", // leave "" to use initials
-      },
-      {
-        name: "Riddhi Khandelwal",
-        pillar: "The Reliability Champion",
-        rating: 5,
-        text:
-          "Absolutely amazing experience! Our Dubai trip was planned to perfection. Everything from airport transfers to hotel stays and sightseeing was super smooth and stress-free. We didn’t have to worry about a thing. Highly recommended!",
-        photo: "/images/reviews/riddhi.jpg",
-      },
-      {
-        name: "Pawan Dabas",
-        pillar: "The Personalization Powerhouse",
-        rating: 5,
-        text:
-          "Wander Wyze curated a bespoke Australia trip, added a Singapore stayover and handled last-minute changes like a pro. Personalisation beats generic automated itineraries. Best booking experience—will use them for every future trip.",
-        photo: "/images/reviews/pawan.jpg",
-      },
-      {
-        name: "Mayank Awasthi",
-        pillar: "The Value Proposition",
-        rating: 5,
-        text:
-          "Excellent service. No one can match their rates and the deals they offer.",
-        photo: "/images/reviews/mayank.jpg",
-      },
-      {
-        name: "Jaikrit Singh Rawat",
-        pillar: "The Professional Seal",
-        rating: 5,
-        text:
-          "Amazing experience booking my Azerbaijan trip through Wander Wyze! Seamless process and well-organised itinerary & stays. Professionalism and attention to detail made it unforgettable.",
-        photo: "/images/reviews/jaikrit.jpg",
-      },
-    ],
+ const slides = [
+  {
+    name: "Hema Jyala",
+    pillar: "The Trust Builder",
+    rating: 5,
+    text:
+      "A huge thank you to Wander Wyze Holidays for arranging an absolutely flawless trip to Maldives! Every aspect of the journey, from the affordable air tickets to stunning accommodations to the thoughtfully curated activities, was handled with such precision and care. Your attention to detail and dedication to creating a personalized, stress-free experience made this vacation truly unforgettable. Highly recommended for anyone seeking a hassle-free, dream getaway at affordable prices!",
+    photo: "/images/reviews/hema.jpg",
+  },
+  {
+    name: "Riddhi Khandelwal",
+    pillar: "The Reliability Champion",
+    rating: 5,
+    text:
+      "Absolutely amazing experience! Our Dubai trip was planned to perfection by Wander Wyze. Everything from airport transfers to hotel stays and sightseeing was super smooth and stress-free. We didn’t have to worry about a thing. Thanks for making it such a memorable and hassle-free trip. Highly recommended!",
+    photo: "/images/reviews/riddhi.jpg",
+  },
+  {
+    name: "Pawan Dabas",
+    pillar: "The Personalization Powerhouse",
+    rating: 5,
+    text:
+      "WanderWyze is a brilliant travel curator, bespoke advice after customising our travel itinerary to Australia. Ravinder was helpful getting a Stayover in Singapore and was available for last minute changes on our activities and travel list. Personalisation is the way for travel as most other folks are doing automated itineraries. Best travel booking experience and will use them for all future travel plans.",
+    photo: "/images/reviews/pawan.jpg",
+  },
+  {
+    name: "Mayank Awasthi",
+    pillar: "The Value Proposition",
+    rating: 5,
+    text:
+      "Excellent service... No one can match their rates and the deals they offer.",
+    photo: "/images/reviews/mayank.jpg",
+  },
+  {
+    name: "Jaikrit Singh Rawat",
+    pillar: "The Professional Seal",
+    rating: 5,
+    text:
+      "I had an amazing experience booking my Azerbaijan trip through Wander Wyze! The process was seamless and everything was well organised, from the itinerary to the accommodations. Their professionalism and attention to detail made the trip unforgettable. Highly recommend their services for a hassle-free travel experience!",
+    photo: "/images/reviews/jaikrit.jpg",
+  },
+];
+
     []
   );
 
