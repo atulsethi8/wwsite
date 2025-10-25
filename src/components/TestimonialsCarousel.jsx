@@ -24,6 +24,15 @@ const slides = [
     photo: '/images/reviews/riddhi-khandelwal.png',
   },
   {
+  name: 'Bhavya Bhardwaj',
+  location: 'Dubai',
+  title: 'The Ultimate Experience Creator',
+  stars: 5,
+  text:
+    'Traveling with Wander Wyze Holidays was one of the best decisions I’ve ever made! The entire trip was so thoughtfully curated — every hotel, activity, and destination felt handpicked just for us. It wasn’t just a holiday, it was an experience.\n\nWhat I appreciated most was how smooth and stress-free everything was. From airport pickups to guided tours, everything ran like clockwork. And whenever we had a question or needed a change in plans, the team responded instantly and helped with a smile.\n\nThey truly care about their clients and go the extra mile to ensure comfort, safety, and joy throughout the journey. Whether you’re a seasoned traveler or planning your first getaway, I wholeheartedly recommend Wander Wyze Holidays.\n\nAlready dreaming about the next adventure with them!',
+  photo: '/images/reviews/bhavya-bhardwaj.png',
+},
+  {
     name: 'Pawan Dabas',
     location: 'Australia & Singapore',
     title: 'The Personalization Powerhouse!',
