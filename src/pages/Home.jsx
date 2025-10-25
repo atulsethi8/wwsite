@@ -97,27 +97,29 @@ const Home = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="section-padding bg-gray-50">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              WHY CHOOSE US? OUR CLIENTS SAY IT BEST.
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Real words from real travelers—curated highlights from our Google
-              reviews.
-            </p>
-          </motion.div>
+<section className="section-padding bg-gray-50">
+  <div className="container-custom">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="text-center mb-16"
+    >
+      <span className="tracking-widest text-xs font-semibold text-primary-600">
+        TESTIMONIALS
+      </span>
+      <h2 className="mt-2 text-4xl lg:text-5xl font-bold text-gray-900">
+        WHY CHOOSE US? OUR CLIENTS SAY IT BEST.
+      </h2>
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Real words from real travelers—curated highlights from our Google reviews.
+      </p>
+    </motion.div>
 
-          <TestimonialsCarousel />
-        </div>
-      </section>
+    <TestimonialsCarousel />
+  </div>
+</section>
 
       {/* CTA Section */}
       <section className="section-padding bg-gradient-to-r from-primary-600 to-teal-600">
