@@ -1,7 +1,6 @@
 import { useState, useMemo } from "react";
 import { Star } from "lucide-react";
 
-// one place to edit your google reviews link
 const GOOGLE_REVIEWS_URL =
   "https://www.google.com/search?kgmid=/g/11wnmq6793&hl=en-IN&q=Wander+Wyze+Holidays&shndl=30&shem=lcuae,lsptbl1c,sdl1pfh&source=sh/x/loc/osrp/m5/1&kgs=f33c1bdf7ecdfe72&utm_source=lcuae,lsptbl1c,sdl1pfh,sh/x/loc/osrp/m5/1#lrd=0x390d0181e6b3ed1b:0x58695912a3a6a8fe,1";
 
@@ -69,7 +68,6 @@ const slides = [
 ];
 
 export default function TestimonialsCarousel() {
-  // show 3 cards per “page”
   const pageSize = 3;
   const [page, setPage] = useState(0);
 
@@ -79,18 +77,16 @@ export default function TestimonialsCarousel() {
       out.push(slides.slice(i, i + pageSize));
     }
     return out;
-  }, []);
+  }, []); // stable pages, dataset static
 
   const next = () => setPage((p) => (p + 1) % pages.length);
   const prev = () => setPage((p) => (p - 1 + pages.length) % pages.length);
 
   return (
     <div className="container-custom">
-      {/* NOTE: we intentionally DO NOT render any internal headings here
-          so the page only shows the single header from Home.jsx */}
+      {/* Internal headings intentionally omitted to avoid duplicate page headers */}
 
       <div className="relative">
-        {/* Left / Right buttons */}
         <button
           aria-label="Previous testimonials"
           onClick={prev}
@@ -106,14 +102,12 @@ export default function TestimonialsCarousel() {
           ▶
         </button>
 
-        {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {pages[page].map((s) => (
             <article
               key={s.id}
               className="bg-white rounded-2xl shadow-md border border-gray-200 p-6 relative"
             >
-              {/* avatar circle (shows initials if image fails) */}
               <div className="absolute -top-8 left-1/2 -translate-x-1/2">
                 <div className="h-16 w-16 rounded-full ring-4 ring-white shadow overflow-hidden flex items-center justify-center bg-gray-100 text-gray-500 font-semibold">
                   {s.img ? (
@@ -123,9 +117,16 @@ export default function TestimonialsCarousel() {
                       className="h-full w-full object-cover"
                       loading="lazy"
                       onError={(e) => {
-                        e.currentTarget.style.display = "none";
-                        e.currentTarget.parentElement!.textContent =
-                          s.name.split(" ").map((w) => w[0]).slice(0, 2).join("");
+                        // Fallback to initials if the image can't load
+                        const parent = e.currentTarget.parentElement;
+                        if (parent) {
+                          parent.removeChild(e.currentTarget);
+                          parent.textContent = s.name
+                            .split(" ")
+                            .map((w) => w[0])
+                            .slice(0, 2)
+                            .join("");
+                        }
                       }}
                     />
                   ) : (
@@ -151,7 +152,7 @@ export default function TestimonialsCarousel() {
 
                 <p className="mt-2 text-primary-600 font-semibold">{s.title}</p>
 
-                {/* review text (no quotes) */}
+                {/* Trim long text and add ellipsis; no decorative quotes */}
                 <p className="mt-3 text-gray-700">
                   {s.text.length > 420 ? s.text.slice(0, 420) + "…" : s.text}
                 </p>
@@ -169,7 +170,6 @@ export default function TestimonialsCarousel() {
           ))}
         </div>
 
-        {/* Dots */}
         <div className="mt-6 flex justify-center gap-2">
           {pages.map((_, i) => (
             <button
