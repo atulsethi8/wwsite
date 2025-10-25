@@ -13,7 +13,7 @@ const slides = [
     rating: 5,
     img: "/images/testimonials/hema-jyala.png",
     text:
-      "A huge thank you to Wander Wyze Holidays for arranging an absolutely flawless trip to Maldives! Every aspect of the journey, from the affordable air tickets to stunning accommodations to the thoughtfully curated activities, was handled with excellence. Highly recommended for stress-free travel!"
+      "A huge thank you to Wander Wyze Holidays for arranging an absolutely flawless trip to Maldives! Every aspect of the journey, from the affordable air tickets to stunning accommodations to the thoughtfully curated activities, was handled with such precision and care. Your attention to detail and dedication to creating a personalized, stress-free experience made this vacation truly unforgettable. Highly recommended for anyone seeking a hassle-free, dream getaway at affordable prices!"
   },
   {
     id: "riddhi",
@@ -33,7 +33,7 @@ const slides = [
     rating: 5,
     img: "/images/testimonials/pawan-dabas.png",
     text:
-      "WanderWyze is a brilliant travel curator, bespoke advice after customising our itinerary to Australia. Ravinder got us a stayover in Singapore and was available for last-minute changes. Personalisation is the way—best booking experience; will use them for all future plans."
+      "WanderWyze is a brilliant travel curator, bespoke advice after customising our travel itinerary to Australia. Ravinder was helpful getting a Stayover in Singapore and was available for last minute changes on our activities and travel list. Personalisation is the way for travel as most other folks are doing automated itineraries. Best travel booking experience and will use them for all future travel plans."
   },
   {
     id: "mayank",
@@ -43,7 +43,7 @@ const slides = [
     rating: 5,
     img: "/images/testimonials/mayank-awasthi.png",
     text:
-      "Excellent service. No one can match their rates and the deals they offer."
+      "Excellent service....No one can match their rates and the deals they offer."
   },
   {
     id: "jaikrit",
@@ -53,7 +53,7 @@ const slides = [
     rating: 5,
     img: "/images/testimonials/jaikrit-singh-rawat.png",
     text:
-      "Amazing experience booking Azerbaijan with Wander Wyze! Seamless planning, well-organised itinerary and stays. Professional, detail-oriented, and truly hassle-free. Highly recommend!"
+      "I had an amazing experience booking my Azerbaijan trip through Wander Wyze!! The process was seamless and everything was well organised, from the itinerary to the accommodations. Their professionalism and attention to detail made the trip unforgettable. Highly recommend their services for a hassle free travel experience!"
   },
   {
     id: "bhavya",
@@ -63,7 +63,7 @@ const slides = [
     rating: 5,
     img: "/images/testimonials/bhavya-bhardwaj.png",
     text:
-      "Traveling with Wander Wyze Holidays was one of the best decisions I’ve made! Thoughtfully curated hotels, activities and routes—it wasn’t just a holiday, it was an experience. Everything ran like clockwork and the team helped instantly whenever needed. Wholeheartedly recommend!"
+      "Made Memories That Will Last a Lifetime! Traveling with Wander Wyze Holidays was one of the best decisions I’ve ever made! The entire trip was so thoughtfully curated — every hotel, activity, and destination felt handpicked just for us. It wasn’t just a holiday, it was an experience. What I appreciated most was how smooth and stress-free everything was. From airport pickups to guided tours, everything ran like clockwork. And whenever we had a question or needed a change in plans, the team responded instantly and helped with a smile. They truly care about their clients and go the extra mile to ensure comfort, safety, and joy throughout the journey. Whether you’re a seasoned traveler or planning your first getaway, I wholeheartedly recommend Wander Wyze Holidays. Already dreaming about the next adventure with them!"
   }
 ];
 
@@ -77,15 +77,13 @@ export default function TestimonialsCarousel() {
       out.push(slides.slice(i, i + pageSize));
     }
     return out;
-  }, []); // stable pages, dataset static
+  }, []);
 
   const next = () => setPage((p) => (p + 1) % pages.length);
   const prev = () => setPage((p) => (p - 1 + pages.length) % pages.length);
 
   return (
     <div className="container-custom">
-      {/* Internal headings intentionally omitted to avoid duplicate page headers */}
-
       <div className="relative">
         <button
           aria-label="Previous testimonials"
@@ -117,7 +115,6 @@ export default function TestimonialsCarousel() {
                       className="h-full w-full object-cover"
                       loading="lazy"
                       onError={(e) => {
-                        // Fallback to initials if the image can't load
                         const parent = e.currentTarget.parentElement;
                         if (parent) {
                           parent.removeChild(e.currentTarget);
@@ -152,9 +149,18 @@ export default function TestimonialsCarousel() {
 
                 <p className="mt-2 text-primary-600 font-semibold">{s.title}</p>
 
-                {/* Trim long text and add ellipsis; no decorative quotes */}
-                <p className="mt-3 text-gray-700">
-                  {s.text.length > 420 ? s.text.slice(0, 420) + "…" : s.text}
+                {/* EXACT 5 lines with ellipsis – no quotes, no manual trimming */}
+                <p
+                  className="mt-3 text-gray-700"
+                  style={{
+                    display: "-webkit-box",
+                    WebkitBoxOrient: "vertical",
+                    WebkitLineClamp: 5,
+                    overflow: "hidden"
+                  }}
+                  title={s.text}
+                >
+                  {s.text}
                 </p>
 
                 <a
@@ -163,7 +169,7 @@ export default function TestimonialsCarousel() {
                   rel="noopener"
                   className="mt-4 inline-block text-primary-600 hover:text-primary-700 font-semibold"
                 >
-                  Read all reviews on Google
+                  Read full review on Google
                 </a>
               </div>
             </article>
