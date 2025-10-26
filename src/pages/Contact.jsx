@@ -30,13 +30,13 @@ const Contact = () => {
       icon: Phone,
       title: "Phone",
       details: "+91 9833834836",
-      link: "tel:+919833834836"
+      link: "tel:+919833834836 / +919718010101"
     },
     {
       icon: Mail,
       title: "Email",
-      details: "ravi@wanderwyze.com",
-      link: "mailto:ravi@wanderwyze.com"
+      details: "info@wanderwyze.com",
+      link: "mailto:info@wanderwyze.com"
     },
     {
       icon: MapPin,
