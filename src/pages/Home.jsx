@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import Hero from "../components/Hero";
 import DestinationCard from "../components/DestinationCard";
+import TestimonialsCarousel from "../components/TestimonialsCarousel"; // <- add back
 
 const Home = () => {
   const featuredDestinations = [
@@ -95,6 +96,31 @@ const Home = () => {
               <ArrowRight className="h-5 w-5" />
             </Link>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section id="testimonials" className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-10"
+          >
+            <p className="uppercase tracking-widest text-sm text-primary-600 mb-3">
+              Testimonials
+            </p>
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Why Choose Us? Our Clients Say It Best.
+            </h2>
+            <p className="text-lg text-gray-600">
+              Real words from real travelers—curated highlights from our Google reviews.
+            </p>
+          </motion.div>
+
+          <TestimonialsCarousel />
         </div>
       </section>
 
