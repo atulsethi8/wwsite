@@ -17,7 +17,7 @@ const Destinations = () => {
       rating: "4.9",
       duration: "6 Days",
       category: "Beach",
-      // If/when you create a Maldives page in /public, add: url: "/maldives-5n6d"
+      url: "/maldives-paradise"
     },
     {
       id: 2,
@@ -45,7 +45,7 @@ const Destinations = () => {
       rating: "4.7",
       duration: "7 Days",
       category: "Cultural",
-      // Add url later when you create a Bali page (e.g., "/bali-6n7d")
+      url: "/bali-cultural-journey"
     },
     {
       id: 4,
@@ -87,6 +87,7 @@ const Destinations = () => {
       rating: "4.7",
       duration: "7 Days",
       category: "Adventure",
+      url: "/ladakh-adventure"
     },
     {
       id: 7,
@@ -100,6 +101,7 @@ const Destinations = () => {
       rating: "4.8",
       duration: "6 Days",
       category: "Family",
+      url: "/thailand-family-fun"
     },
     {
       id: 8,
@@ -113,6 +115,7 @@ const Destinations = () => {
       rating: "4.7",
       duration: "4 Days",
       category: "City",
+      url: "/singapore-city-break"
     },
     {
       id: 9,
@@ -126,6 +129,7 @@ const Destinations = () => {
       rating: "4.9",
       duration: "10 Days",
       category: "Adventure",
+      url: "/switzerland-alpine-magic"
     }
   ]
 
@@ -185,7 +189,7 @@ const Destinations = () => {
               Explore Our Destinations
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              From tropical paradises to cultural wonders, discover handpicked destinations
+              From tropical paradises to cultural wonders, discover handpicked destinations 
               perfect for Indian families and couples
             </p>
           </motion.div>
@@ -196,22 +200,13 @@ const Destinations = () => {
       <section className="mt-0 mb-6">
         <div className="container-custom">
           <div className="flex flex-wrap gap-3 justify-center">
-            <a
-              href="/kenya-safari-packages"
-              className="px-4 py-2 rounded-md bg-slate-800 text-gray-200 hover:bg-slate-700 transition"
-            >
+            <a href="/kenya-safari-packages" className="px-4 py-2 rounded-md bg-slate-800 text-gray-200 hover:bg-slate-700 transition">
               Kenya Safari Packages
             </a>
-            <a
-              href="/vietnam-tour-packages"
-              className="px-4 py-2 rounded-md bg-slate-800 text-gray-200 hover:bg-slate-700 transition"
-            >
+            <a href="/vietnam-tour-packages" className="px-4 py-2 rounded-md bg-slate-800 text-gray-200 hover:bg-slate-700 transition">
               Vietnam Packages
             </a>
-            <a
-              href="/dubai-combo-deals"
-              className="px-4 py-2 rounded-md bg-slate-800 text-gray-200 hover:bg-slate-700 transition"
-            >
+            <a href="/dubai-combo-deals" className="px-4 py-2 rounded-md bg-slate-800 text-gray-200 hover:bg-slate-700 transition">
               Dubai Combo Deals
             </a>
           </div>
@@ -232,8 +227,8 @@ const Destinations = () => {
               <button
                 key={category}
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                  index === 0
-                    ? 'bg-primary-600 text-white'
+                  index === 0 
+                    ? 'bg-primary-600 text-white' 
                     : 'bg-gray-100 text-gray-700 hover:bg-primary-100 hover:text-primary-600'
                 }`}
               >
@@ -292,6 +287,7 @@ const Destinations = () => {
                 viewport={{ once: true }}
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
               >
+                {/* Image */}
                 <div className="relative h-48 overflow-hidden">
                   <img
                     src={itinerary.image}
@@ -303,11 +299,12 @@ const Destinations = () => {
                   </div>
                 </div>
 
+                {/* Content */}
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-2">
                     {itinerary.name}
                   </h3>
-
+                  
                   <div className="flex items-center space-x-2 text-sm text-gray-600 mb-3">
                     <Calendar className="h-4 w-4" />
                     <span>{itinerary.duration}</span>
@@ -325,8 +322,8 @@ const Destinations = () => {
                     </ul>
                   </div>
 
-                  <Link
-                    to="/contact#contact-form"
+                  <Link 
+                    to="/contact#contact-form" 
                     className="w-full btn-primary text-sm py-2 flex items-center justify-center space-x-2"
                   >
                     <span>Get Quote</span>
@@ -346,8 +343,8 @@ const Destinations = () => {
             <p className="text-gray-600 mb-6">
               All itineraries include flights, hotels, transfers, and guided tours
             </p>
-            <Link
-              to="/contact#contact-form"
+            <Link 
+              to="/contact#contact-form" 
               className="btn-secondary text-lg px-8 py-4 inline-flex items-center space-x-2"
             >
               <span>Contact for Customization</span>
@@ -371,10 +368,7 @@ const Destinations = () => {
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               We specialize in custom itineraries. Let us create the perfect journey for your specific needs and preferences.
             </p>
-            <Link
-              to="/contact#contact-form"
-              className="bg-white text-primary-600 hover:bg-gray-50 font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl inline-block"
-            >
+            <Link to="/contact#contact-form" className="bg-white text-primary-600 hover:bg-gray-50 font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl inline-block">
               Request Custom Itinerary
             </Link>
           </motion.div>
