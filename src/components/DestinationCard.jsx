@@ -1,70 +1,71 @@
-import { motion } from 'framer-motion'
-import { MapPin, Star, Clock } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Clock, MapPin, Star } from "lucide-react";
 
 const DestinationCard = ({ destination, index }) => {
+  const {
+    name,
+    location,
+    description,
+    image,
+    price,
+    rating,
+    duration,
+    url, // NEW: static itinerary page (in /public)
+  } = destination;
+
+  const linkTarget = url || "/contact#contact-form";
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: index * 0.1 }}
-      viewport={{ once: true }}
-      className="group relative overflow-hidden bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+    <div
+      className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+      style={{ animationDelay: `${index * 100}ms` }}
     >
-      {/* Image Container */}
-      <div className="relative h-64 overflow-hidden">
-        <img
-          src={destination.image}
-          alt={destination.name}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-        
-        {/* Price Badge */}
-        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-primary-600 px-3 py-1 rounded-sm text-sm font-semibold">
-          ₹{destination.price}
+      {/* Image */}
+      <a href={linkTarget}>
+        <div className="relative h-56 overflow-hidden">
+          <img src={image} alt={name} className="w-full h-full object-cover" />
+          {price && (
+            <div className="absolute top-4 right-4 bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+              ₹{price}
+            </div>
+          )}
         </div>
-        
-        {/* Rating */}
-        <div className="absolute bottom-4 left-4 flex items-center space-x-1">
-          <Star className="h-4 w-4 text-yellow-400 fill-current" />
-          <span className="text-white text-sm font-semibold">{destination.rating}</span>
-        </div>
-      </div>
+      </a>
 
       {/* Content */}
       <div className="p-6">
-        <div className="mb-4">
-          <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors duration-300">
-            {destination.name}
-          </h3>
-          <div className="flex items-center text-gray-600 mb-3">
-            <MapPin className="h-4 w-4 mr-1" />
-            <span className="text-sm">{destination.location}</span>
-          </div>
-          <p className="text-gray-600 text-sm leading-relaxed mb-4">
-            {destination.description}
-          </p>
-        </div>
-        
-        <div className="flex items-center justify-between">
-          <div className="flex items-center text-gray-500 text-sm">
-            <Clock className="h-4 w-4 mr-1" />
-            <span>{destination.duration}</span>
-          </div>
-          
-                     // replace ONLY the CTA Link line in DestinationCard.jsx
-<Link
-  to={destination.viewLink || "/contact#contact-form"}
-  className="btn-primary px-6 py-3"
->
-  View Itinerary
-</Link>
+        <a href={linkTarget} className="no-underline">
+          <h3 className="text-xl font-bold text-gray-900 mb-2">{name}</h3>
+        </a>
 
+        <div className="flex items-center text-gray-600 text-sm mb-3 space-x-4">
+          <span className="inline-flex items-center space-x-1">
+            <MapPin className="h-4 w-4" />
+            <span>{location}</span>
+          </span>
+          {rating && (
+            <span className="inline-flex items-center space-x-1">
+              <Star className="h-4 w-4 text-yellow-500" />
+              <span>{rating}</span>
+            </span>
+          )}
+          {duration && (
+            <span className="inline-flex items-center space-x-1">
+              <Clock className="h-4 w-4" />
+              <span>{duration}</span>
+            </span>
+          )}
+        </div>
+
+        <p className="text-gray-600 mb-6">{description}</p>
+
+        <div className="flex justify-between items-center">
+          <a href={linkTarget} className="btn-primary px-5 py-3">
+            View Itinerary
+          </a>
         </div>
       </div>
-    </motion.div>
-  )
-}
+    </div>
+  );
+};
 
-export default DestinationCard
+export default DestinationCard;
