@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import DestinationCard from '../components/DestinationCard'
-import { Search, Filter, Calendar, Users, MapPin } from 'lucide-react'
+import { Calendar } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const Destinations = () => {
@@ -9,100 +9,123 @@ const Destinations = () => {
       id: 1,
       name: "Maldives Paradise",
       location: "Maldives",
-      description: "Crystal clear waters, pristine beaches, and overwater villas for the ultimate romantic getaway. Perfect for honeymooners and couples seeking luxury.",
-      image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      description:
+        "Crystal clear waters, pristine beaches, and overwater villas for the ultimate romantic getaway. Perfect for honeymooners and couples seeking luxury.",
+      image:
+        "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       price: "85,000",
       rating: "4.9",
       duration: "6 Days",
-      category: "Beach"
+      category: "Beach",
+      // If/when you create a Maldives page in /public, add: url: "/maldives-5n6d"
     },
     {
       id: 2,
       name: "Kenya Safari Adventure",
       location: "Kenya",
-      description: "Experience the thrill of wildlife safaris in the heart of Africa's most beautiful landscapes. See the Big Five in their natural habitat.",
-      image: "https://images.unsplash.com/photo-1549366021-9f761d450615?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      description:
+        "Experience the thrill of wildlife safaris in the heart of Africa's most beautiful landscapes. See the Big Five in their natural habitat.",
+      image:
+        "https://images.unsplash.com/photo-1549366021-9f761d450615?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       price: "1,25,000",
       rating: "4.8",
       duration: "8 Days",
-      category: "Adventure"
+      category: "Adventure",
+      url: "/kenya-safari-packages"
     },
     {
       id: 3,
       name: "Bali Cultural Journey",
       location: "Indonesia",
-      description: "Immerse yourself in Balinese culture, temples, and tropical paradise. Perfect for families seeking cultural experiences and relaxation.",
-      image: "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      description:
+        "Immerse yourself in Balinese culture, temples, and tropical paradise. Perfect for families seeking cultural experiences and relaxation.",
+      image:
+        "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       price: "65,000",
       rating: "4.7",
       duration: "7 Days",
-      category: "Cultural"
+      category: "Cultural",
+      // Add url later when you create a Bali page (e.g., "/bali-6n7d")
     },
     {
       id: 4,
       name: "Dubai Luxury Experience",
       location: "UAE",
-      description: "Experience the perfect blend of modern luxury and traditional Arabian culture. From desert safaris to world-class shopping.",
-      image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      description:
+        "Experience the perfect blend of modern luxury and traditional Arabian culture. From desert safaris to world-class shopping.",
+      image:
+        "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       price: "95,000",
       rating: "4.8",
       duration: "5 Days",
-      category: "Luxury"
+      category: "Luxury",
+      url: "/dubai-combo-deals"
     },
     {
       id: 5,
       name: "Vietnam Discovery",
       location: "Vietnam",
-      description: "Explore the rich history, delicious cuisine, and stunning landscapes of Vietnam. From Hanoi to Ho Chi Minh City.",
-      image: "https://images.unsplash.com/photo-1528127269322-539801943592?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      description:
+        "Explore the rich history, delicious cuisine, and stunning landscapes of Vietnam. From Hanoi to Ho Chi Minh City.",
+      image:
+        "https://images.unsplash.com/photo-1528127269322-539801943592?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       price: "55,000",
       rating: "4.6",
       duration: "8 Days",
-      category: "Cultural"
+      category: "Cultural",
+      url: "/vietnam-tour-packages"
     },
     {
       id: 6,
       name: "Ladakh Adventure",
       location: "India",
-      description: "Discover the mystical landscapes of Ladakh, from high-altitude lakes to ancient monasteries in the Himalayas.",
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      description:
+        "Discover the mystical landscapes of Ladakh, from high-altitude lakes to ancient monasteries in the Himalayas.",
+      image:
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       price: "45,000",
       rating: "4.7",
       duration: "7 Days",
-      category: "Adventure"
+      category: "Adventure",
     },
     {
       id: 7,
       name: "Thailand Family Fun",
       location: "Thailand",
-      description: "Perfect family destination with beautiful beaches, cultural sites, and exciting activities for all ages.",
-      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      description:
+        "Perfect family destination with beautiful beaches, cultural sites, and exciting activities for all ages.",
+      image:
+        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       price: "75,000",
       rating: "4.8",
       duration: "6 Days",
-      category: "Family"
+      category: "Family",
     },
     {
       id: 8,
       name: "Singapore City Break",
       location: "Singapore",
-      description: "Modern city-state offering world-class attractions, shopping, and dining. Perfect for short family getaways.",
-      image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      description:
+        "Modern city-state offering world-class attractions, shopping, and dining. Perfect for short family getaways.",
+      image:
+        "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       price: "60,000",
       rating: "4.7",
       duration: "4 Days",
-      category: "City"
+      category: "City",
     },
     {
       id: 9,
       name: "Switzerland Alpine Magic",
       location: "Switzerland",
-      description: "Breathtaking Alpine scenery, charming villages, and world-class skiing. Perfect for adventure and relaxation.",
-      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      description:
+        "Breathtaking Alpine scenery, charming villages, and world-class skiing. Perfect for adventure and relaxation.",
+      image:
+        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       price: "1,50,000",
       rating: "4.9",
       duration: "10 Days",
-      category: "Adventure"
+      category: "Adventure",
     }
   ]
 
@@ -115,7 +138,8 @@ const Destinations = () => {
       duration: "6 Days / 5 Nights",
       highlights: ["Overwater Villa", "Private Beach Dinner", "Spa Treatment", "Sunset Cruise"],
       price: "₹85,000",
-      image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image:
+        "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: 2,
@@ -123,7 +147,8 @@ const Destinations = () => {
       duration: "7 Days / 6 Nights",
       highlights: ["Temple Tours", "Beach Activities", "Cultural Shows", "Adventure Sports"],
       price: "₹65,000",
-      image: "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image:
+        "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: 3,
@@ -131,7 +156,8 @@ const Destinations = () => {
       duration: "5 Days / 4 Nights",
       highlights: ["Desert Safari", "Burj Khalifa", "Shopping Tour", "Dhow Cruise"],
       price: "₹95,000",
-      image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image:
+        "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: 4,
@@ -139,8 +165,9 @@ const Destinations = () => {
       duration: "8 Days / 7 Nights",
       highlights: ["Game Drives", "Masai Village", "Lake Nakuru", "Amboseli"],
       price: "₹1,25,000",
-      image: "https://images.unsplash.com/photo-1549366021-9f761d450615?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    }
+      image:
+        "https://images.unsplash.com/photo-1549366021-9f761d450615?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    },
   ]
 
   return (
@@ -158,33 +185,38 @@ const Destinations = () => {
               Explore Our Destinations
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              From tropical paradises to cultural wonders, discover handpicked destinations 
+              From tropical paradises to cultural wonders, discover handpicked destinations
               perfect for Indian families and couples
             </p>
-            
-            
           </motion.div>
         </div>
       </section>
-{/* Compare Packages quick links */}
-<section className="mt-0 mb-6">
-  <div className="container-custom">
-    <div className="flex flex-wrap gap-3 justify-center">
-      <a href="/kenya-safari-packages"
-         className="px-4 py-2 rounded-md bg-slate-800 text-gray-200 hover:bg-slate-700 transition">
-        Kenya Safari Packages
-      </a>
-      <a href="/vietnam-tour-packages"
-         className="px-4 py-2 rounded-md bg-slate-800 text-gray-200 hover:bg-slate-700 transition">
-        Vietnam Packages
-      </a>
-      <a href="/dubai-combo-deals"
-         className="px-4 py-2 rounded-md bg-slate-800 text-gray-200 hover:bg-slate-700 transition">
-        Dubai Combo Deals
-      </a>
-    </div>
-  </div>
-</section>
+
+      {/* Quick links to static pages */}
+      <section className="mt-0 mb-6">
+        <div className="container-custom">
+          <div className="flex flex-wrap gap-3 justify-center">
+            <a
+              href="/kenya-safari-packages"
+              className="px-4 py-2 rounded-md bg-slate-800 text-gray-200 hover:bg-slate-700 transition"
+            >
+              Kenya Safari Packages
+            </a>
+            <a
+              href="/vietnam-tour-packages"
+              className="px-4 py-2 rounded-md bg-slate-800 text-gray-200 hover:bg-slate-700 transition"
+            >
+              Vietnam Packages
+            </a>
+            <a
+              href="/dubai-combo-deals"
+              className="px-4 py-2 rounded-md bg-slate-800 text-gray-200 hover:bg-slate-700 transition"
+            >
+              Dubai Combo Deals
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* Categories */}
       <section className="section-padding bg-white">
@@ -200,8 +232,8 @@ const Destinations = () => {
               <button
                 key={category}
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                  index === 0 
-                    ? 'bg-primary-600 text-white' 
+                  index === 0
+                    ? 'bg-primary-600 text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-primary-100 hover:text-primary-600'
                 }`}
               >
@@ -260,7 +292,6 @@ const Destinations = () => {
                 viewport={{ once: true }}
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
               >
-                {/* Image */}
                 <div className="relative h-48 overflow-hidden">
                   <img
                     src={itinerary.image}
@@ -272,12 +303,11 @@ const Destinations = () => {
                   </div>
                 </div>
 
-                {/* Content */}
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-2">
                     {itinerary.name}
                   </h3>
-                  
+
                   <div className="flex items-center space-x-2 text-sm text-gray-600 mb-3">
                     <Calendar className="h-4 w-4" />
                     <span>{itinerary.duration}</span>
@@ -295,8 +325,8 @@ const Destinations = () => {
                     </ul>
                   </div>
 
-                  <Link 
-                    to="/contact#contact-form" 
+                  <Link
+                    to="/contact#contact-form"
                     className="w-full btn-primary text-sm py-2 flex items-center justify-center space-x-2"
                   >
                     <span>Get Quote</span>
@@ -316,8 +346,8 @@ const Destinations = () => {
             <p className="text-gray-600 mb-6">
               All itineraries include flights, hotels, transfers, and guided tours
             </p>
-            <Link 
-              to="/contact#contact-form" 
+            <Link
+              to="/contact#contact-form"
               className="btn-secondary text-lg px-8 py-4 inline-flex items-center space-x-2"
             >
               <span>Contact for Customization</span>
@@ -341,7 +371,10 @@ const Destinations = () => {
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               We specialize in custom itineraries. Let us create the perfect journey for your specific needs and preferences.
             </p>
-            <Link to="/contact#contact-form" className="bg-white text-primary-600 hover:bg-gray-50 font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl inline-block">
+            <Link
+              to="/contact#contact-form"
+              className="bg-white text-primary-600 hover:bg-gray-50 font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl inline-block"
+            >
               Request Custom Itinerary
             </Link>
           </motion.div>
