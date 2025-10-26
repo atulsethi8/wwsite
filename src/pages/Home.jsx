@@ -11,36 +11,44 @@ const Home = () => {
     id: 1,
     name: "Maldives Paradise",
     location: "Maldives",
-    description: "...",
-    image: "...",
+    description:
+      "Crystal clear waters, pristine beaches, and overwater villas for the ultimate romantic getaway.",
+    image:
+      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     price: "85,000",
     rating: "4.9",
     duration: "6 Days",
-    viewLink: "/maldives-tour-packages"          // <— (create this page next)
+    // If you made a Maldives page, put it here; otherwise it will fall back to contact.
+    url: "/maldives-5n6d"
   },
   {
     id: 2,
     name: "Kenya Safari Adventure",
     location: "Kenya",
-    description: "...",
-    image: "...",
+    description:
+      "Experience the thrill of wildlife safaris in the heart of Africa's most beautiful landscapes.",
+    image:
+      "https://images.unsplash.com/photo-1549366021-9f761d450615?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     price: "1,25,000",
     rating: "4.8",
     duration: "8 Days",
-    viewLink: "/kenya-safari-packages"            // <— already live
+    url: "/kenya-safari-packages"
   },
   {
     id: 3,
     name: "Bali Cultural Journey",
     location: "Indonesia",
-    description: "...",
-    image: "...",
+    description:
+      "Immerse yourself in Balinese culture, temples, and tropical paradise for families.",
+    image:
+      "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     price: "65,000",
     rating: "4.7",
     duration: "7 Days",
-    viewLink: "/bali-tour-packages"               // <— create this page next
+    url: "/bali-6n7d"
   }
-]
+];
+
 
   return (
     <div>
