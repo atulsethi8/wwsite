@@ -1,142 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <!-- Base SEO -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wander Wyze Holidays | Tailor-Made Trips & Holiday Packages</title>
-  <meta name="description" content="Wander Wyze Holidays crafts tailor-made trips and great-value holiday packages. Explore Kenya Safaris, Vietnam Tours, and Dubai Holidays with expert planning." />
-  <link rel="canonical" href="https://www.wanderwyze.com/" />
-  <link rel="icon" href="/images/favicon.png" type="image/png" />
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Wander Wyze Holidays" />
-  <meta property="og:description" content="Tailor-made trips • Great value • Honest advice." />
-  <meta property="og:url" content="https://www.wanderwyze.com/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://www.wanderwyze.com/images/og-home.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Styles -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    body { font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#222; }
-    .hero{background:linear-gradient(to bottom,rgba(0,0,0,.45),rgba(0,0,0,.45)),url('/images/hero-collage.jpg') center/cover no-repeat;}
-    .btn{background:#00a67d;color:#fff;padding:10px 22px;border-radius:10px}
-    .btn:hover{background:#008b69}
-    .card{background:#fff;border-radius:18px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
-  </style>
-
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"TravelAgency",
-    "name":"Wander Wyze Holidays",
-    "url":"https://www.wanderwyze.com/",
-    "email":"ravi@wanderwyze.com",
-    "telephone":"+91 98338 34836",
-    "logo":"https://www.wanderwyze.com/images/logo.png",
-    "sameAs": []
-  }
-  </script>
-</head>
-<body class="bg-gray-50">
-
-  <!-- HERO -->
-  <header class="hero h-[72vh] flex flex-col items-center justify-center text-center text-white px-6">
-    <h1 class="text-5xl md:text-6xl font-extrabold mb-3">Wander Wyze Holidays</h1>
-    <p class="text-lg md:text-xl mb-6">Tailor-made trips • Great value • Honest advice</p>
-    <a class="btn" href="https://wa.me/919833834836?text=Hi%20Wander%20Wyze!%20Help%20me%20plan%20a%20trip.">Chat on WhatsApp</a>
-  </header>
-
-  <!-- TOP DESTINATIONS -->
-  <section class="max-w-6xl mx-auto py-14 px-6">
-    <h2 class="text-3xl font-bold text-center mb-8">Popular Experiences</h2>
-    <div class="grid md:grid-cols-3 gap-7">
-      <a class="card p-6 block hover:shadow-xl transition" href="/kenya-safari-packages">
-        <h3 class="text-xl font-semibold mb-2">🐘 Kenya Safaris</h3>
-        <p>Masai Mara, Big-5 drives & custom lodges.</p>
-      </a>
-      <a class="card p-6 block hover:shadow-xl transition" href="/vietnam-tour-packages">
-        <h3 class="text-xl font-semibold mb-2">🌿 Vietnam Tours</h3>
-        <p>Hanoi, Halong Bay, Ninh Binh — curated routes.</p>
-      </a>
-      <a class="card p-6 block hover:shadow-xl transition" href="/dubai-combo-deals">
-        <h3 class="text-xl font-semibold mb-2">🏙️ Dubai Holidays</h3>
-        <p>City tour, Desert Safari, Dhow Cruise combos.</p>
-      </a>
-    </div>
-  </section>
-
-  <!-- QUICK ENQUIRY -->
-  <section class="bg-gray-100 py-14">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-6">Get a Quick Quote</h2>
-      <form name="home-quote" method="POST" data-netlify="true" action="/thank-you.html" class="grid gap-4">
-        <input type="hidden" name="form-name" value="home-quote">
-        <input class="p-3 rounded-lg border" type="text" name="name" placeholder="Your Name" required>
-        <input class="p-3 rounded-lg border" type="email" name="email" placeholder="Your Email" required>
-        <input class="p-3 rounded-lg border" type="tel" name="phone" placeholder="Your Phone" required>
-        <textarea class="p-3 rounded-lg border" name="message" placeholder="Where do you want to go?"></textarea>
-        <button class="btn mt-2" type="submit">Submit</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="bg-gray-900 text-white text-center py-8">
-    <p class="text-lg">🌍 Wander Wyze Holidays — “Your Journey, Our Expertise.”</p>
-    <p>📧 ravi@wanderwyze.com | 📱 +91 98338 34836</p>
-    <p class="text-sm mt-2">© 2025 Wander Wyze Holidays. All rights reserved.</p>
-  </footer>
-
-  <!-- GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QP11YBY48H"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-QP11YBY48H');
-  </script>
-
-  <!-- WhatsApp click tracking -->
-  <script>
-    document.querySelectorAll('a[href*="wa.me"],a[href*="whatsapp.com"]').forEach(b=>{
-      b.addEventListener('click',()=> gtag('event','whatsapp_click',{event_category:'Lead',event_label:window.location.pathname}));
-    });
-  </script>
-
-  <!-- Add-to-Mailchimp via secure Netlify Function (optional but recommended) -->
-  <script>
-    async function wwAddToMailchimp(form){
-      try{
-        const body={ email:form.email?.value||'', name:form.name?.value||'', phone:form.phone?.value||'' };
-        fetch('/.netlify/functions/add-to-mailchimp',{
-          method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)
-        }).catch(()=>{});
-      }catch(e){ console.log('mc add skipped', e); }
-    }
-  </script>
-
-  <!-- Auto-reply email trigger (MailerSend via Netlify Function) -->
-  <script>
-    async function wwAutoReply(form, pageName){
-      try{
-        const body={ name:form.name?.value||'', email:form.email?.value||'', phone:form.phone?.value||'', page:pageName };
-        fetch('/.netlify/functions/auto-reply',{
-          method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)
-        }).catch(()=>{});
-      }catch(e){ console.log('auto-reply skipped', e); }
-    }
-    document.addEventListener('DOMContentLoaded', ()=>{
-      document.querySelectorAll('form[data-netlify]').forEach(f=>{
-        f.addEventListener('submit', ()=>{
-          wwAddToMailchimp(f);               // secure Mailchimp add (if function is set up)
-          wwAutoReply(f, window.location.pathname); // MailerSend welcome email
-        });
-      });
-    });
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Wander Wyze Holidays - Crafting Unique Travel Experiences for Families & Couples" />
+    <meta name="keywords" content="travel agency, holidays, family travel, couples travel, custom itineraries" />
+    <title>Wander Wyze Holidays - Crafting Unique Travel Experiences</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
