@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 🧭 META & SEO -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vietnam Tour Packages | Wander Wyze Holidays</title>
@@ -16,23 +15,20 @@
   <link rel="canonical" href="https://www.wanderwyze.com/vietnam-tour-packages">
   <link rel="icon" href="/images/favicon.png" type="image/png" />
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
   <style>
-    body { font-family: 'Poppins', sans-serif; color: #222; }
-    .hero { background: url('/images/vietnam-banner.jpg') center/cover no-repeat; }
-    .btn-primary { background: #00a67d; color: #fff; padding: 10px 25px; border-radius: 8px; }
-    .btn-primary:hover { background: #008b69; }
+    body { font-family: 'Poppins', sans-serif; color:#222; }
+    .hero { background:url('/images/vietnam-banner.jpg') center/cover no-repeat; }
+    .btn-primary { background:#00a67d; color:#fff; padding:10px 25px; border-radius:8px; }
+    .btn-primary:hover { background:#008b69; }
   </style>
 </head>
-
 <body class="bg-gray-50">
 
   <!-- 🌄 HERO SECTION -->
   <section class="hero h-[75vh] flex flex-col justify-center items-center text-center text-white bg-black/50">
     <h1 class="text-5xl font-bold mb-3">Vietnam Tour Packages 🇻🇳</h1>
     <p class="text-lg mb-6">Explore Hanoi, Halong Bay & beyond with Wander Wyze Holidays</p>
-    <a href="https://wa.me/919833834836?text=Hi%20Wander%20Wyze!%20I%20want%20a%20quote%20for%20Vietnam%20Tour%20Packages." 
-       class="btn-primary">Get Free Quote on WhatsApp</a>
+    <a href="https://wa.me/919833834836?text=Hi%20Wander%20Wyze!%20I%20want%20a%20quote%20for%20Vietnam%20Tour%20Packages." class="btn-primary">Get Free Quote on WhatsApp</a>
   </section>
 
   <!-- 🗺️ PACKAGE HIGHLIGHTS -->
@@ -86,51 +82,70 @@
     </div>
   </section>
 
-  <!-- 📞 CONTACT FOOTER -->
+  <!-- 📞 FOOTER -->
   <footer class="bg-gray-900 text-white text-center py-8">
     <p class="text-lg">🌍 Wander Wyze Holidays — “Your Journey, Our Expertise.”</p>
     <p>📧 ravi@wanderwyze.com | 📱 +91 98338 34836</p>
     <p class="text-sm mt-2">© 2025 Wander Wyze Holidays. All rights reserved.</p>
   </footer>
 
-  <!-- 📊 GOOGLE ANALYTICS (replace with your GA4 ID) -->
-  <!-- 📊 GOOGLE ANALYTICS (Live) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QP11YBY48H"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-QP11YBY48H');
-</script>
-
-
-  <!-- 💬 TRACK WHATSAPP CLICKS -->
+  <!-- 📊 GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QP11YBY48H"></script>
   <script>
-    document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        gtag('event', 'whatsapp_click', { 'event_category': 'Lead', 'event_label': window.location.pathname });
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QP11YBY48H');
+  </script>
+
+  <!-- 💬 WHATSAPP TRACKING -->
+  <script>
+    document.querySelectorAll('a[href*="wa.me"],a[href*="whatsapp.com"]').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        gtag('event','whatsapp_click',{event_category:'Lead',event_label:window.location.pathname});
       });
     });
   </script>
 
-  <!-- ❓FAQ SCHEMA for Rich Results -->
+  <!-- ❓FAQ SCHEMA -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is included in Vietnam tour packages?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Our Vietnam packages include hotels, daily breakfast, airport transfers, sightseeing tours, and optional cruises at Halong Bay." }
-      },
-      {
-        "@type": "Question",
-        "name": "When is the best time to visit Vietnam?",
-        "acceptedAnswer": { "@type": "Answer", "text": "The best time to visit Vietnam is from November to April when the weather is pleasant and ideal for sightseeing and beach activities." }
-      }
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What is included in Vietnam tour packages?","acceptedAnswer":{"@type":"Answer","text":"Our Vietnam packages include hotels, daily breakfast, airport transfers, sightseeing tours, and optional cruises at Halong Bay."}},
+      {"@type":"Question","name":"When is the best time to visit Vietnam?","acceptedAnswer":{"@type":"Answer","text":"The best time to visit Vietnam is from November to April when the weather is pleasant and ideal for sightseeing and beach activities."}}
     ]
   }
+  </script>
+
+  <!-- 💌 MAILCHIMP INTEGRATION -->
+  <script>
+  async function subscribeToMailchimp(form){
+    const data={
+      email_address:form.email.value,
+      status:"subscribed",
+      merge_fields:{
+        FNAME:form.name?.value||"",
+        PHONE:form.phone?.value||""
+      }
+    };
+    try{
+      const res=await fetch("https://us6.api.mailchimp.com/3.0/lists/b99293d8c7/members",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+          "Authorization":"apikey 696066bfd5cb379874fa23d3dc2b50d8-us6"
+        },
+        body:JSON.stringify(data)
+      });
+      if(res.ok){console.log("✅ Added to Mailchimp");}
+      else{console.log("❌ Mailchimp error:",await res.text());}
+    }catch(err){console.error("Mailchimp connection failed:",err);}
+  }
+  document.querySelectorAll("form[data-netlify]").forEach(form=>{
+    form.addEventListener("submit",()=>subscribeToMailchimp(form));
+  });
   </script>
 
 </body>
