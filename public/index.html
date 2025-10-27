@@ -1,33 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Base SEO -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wander Wyze Holidays | Tailor-Made Trips & Holiday Packages</title>
-  <meta name="description" content="Wander Wyze Holidays crafts tailor-made trips and value holiday packages. Explore Kenya Safaris, Vietnam Tours, and Dubai Holidays with expert planning.">
+  <meta name="description" content="Wander Wyze Holidays crafts tailor-made trips and great-value holiday packages. Explore Kenya Safaris, Vietnam Tours, and Dubai Holidays with expert planning." />
+  <link rel="canonical" href="https://www.wanderwyze.com/" />
+  <link rel="icon" href="/images/favicon.png" type="image/png" />
+
+  <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Wander Wyze Holidays" />
-  <meta property="og:description" content="Tailor-made trips & value packages. Kenya • Vietnam • Dubai." />
-  <meta property="og:image" content="https://www.wanderwyze.com/images/og-home.jpg" />
+  <meta property="og:description" content="Tailor-made trips • Great value • Honest advice." />
   <meta property="og:url" content="https://www.wanderwyze.com/" />
   <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://www.wanderwyze.com/">
-  <link rel="icon" href="/images/favicon.png" type="image/png" />
+  <meta property="og:image" content="https://www.wanderwyze.com/images/og-home.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styles -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    body { font-family: 'Poppins', sans-serif; color:#222; }
-    .hero{background:linear-gradient( to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45) ), url('/images/hero-collage.jpg') center/cover no-repeat;}
+    body { font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#222; }
+    .hero{background:linear-gradient(to bottom,rgba(0,0,0,.45),rgba(0,0,0,.45)),url('/images/hero-collage.jpg') center/cover no-repeat;}
     .btn{background:#00a67d;color:#fff;padding:10px 22px;border-radius:10px}
     .btn:hover{background:#008b69}
     .card{background:#fff;border-radius:18px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
   </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"TravelAgency",
+    "name":"Wander Wyze Holidays",
+    "url":"https://www.wanderwyze.com/",
+    "email":"ravi@wanderwyze.com",
+    "telephone":"+91 98338 34836",
+    "logo":"https://www.wanderwyze.com/images/logo.png",
+    "sameAs": []
+  }
+  </script>
 </head>
 <body class="bg-gray-50">
 
   <!-- HERO -->
-  <header class="hero h-[70vh] flex flex-col items-center justify-center text-center text-white px-6">
-    <h1 class="text-5xl font-extrabold mb-3">Wander Wyze Holidays</h1>
-    <p class="text-lg mb-6">Tailor-made trips • Great value • Honest advice</p>
-    <a class="btn" href="https://wa.me/919833834836?text=Hi%20Wander%20Wyze!%20I%20want%20help%20planning%20a%20trip.">Chat on WhatsApp</a>
+  <header class="hero h-[72vh] flex flex-col items-center justify-center text-center text-white px-6">
+    <h1 class="text-5xl md:text-6xl font-extrabold mb-3">Wander Wyze Holidays</h1>
+    <p class="text-lg md:text-xl mb-6">Tailor-made trips • Great value • Honest advice</p>
+    <a class="btn" href="https://wa.me/919833834836?text=Hi%20Wander%20Wyze!%20Help%20me%20plan%20a%20trip.">Chat on WhatsApp</a>
   </header>
 
   <!-- TOP DESTINATIONS -->
@@ -74,8 +94,10 @@
   <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QP11YBY48H"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date()); gtag('config', 'G-QP11YBY48H');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QP11YBY48H');
   </script>
 
   <!-- WhatsApp click tracking -->
@@ -85,17 +107,34 @@
     });
   </script>
 
-  <!-- Auto-reply trigger (MailerSend via Netlify Function) -->
+  <!-- Add-to-Mailchimp via secure Netlify Function (optional but recommended) -->
+  <script>
+    async function wwAddToMailchimp(form){
+      try{
+        const body={ email:form.email?.value||'', name:form.name?.value||'', phone:form.phone?.value||'' };
+        fetch('/.netlify/functions/add-to-mailchimp',{
+          method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)
+        }).catch(()=>{});
+      }catch(e){ console.log('mc add skipped', e); }
+    }
+  </script>
+
+  <!-- Auto-reply email trigger (MailerSend via Netlify Function) -->
   <script>
     async function wwAutoReply(form, pageName){
       try{
-        const body={name:form.name?.value||'',email:form.email?.value||'',phone:form.phone?.value||'',page:pageName};
-        fetch('/.netlify/functions/auto-reply',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).catch(()=>{});
-      }catch(e){console.log('auto-reply skipped',e);}
+        const body={ name:form.name?.value||'', email:form.email?.value||'', phone:form.phone?.value||'', page:pageName };
+        fetch('/.netlify/functions/auto-reply',{
+          method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)
+        }).catch(()=>{});
+      }catch(e){ console.log('auto-reply skipped', e); }
     }
-    document.addEventListener('DOMContentLoaded',()=>{
+    document.addEventListener('DOMContentLoaded', ()=>{
       document.querySelectorAll('form[data-netlify]').forEach(f=>{
-        f.addEventListener('submit',()=> wwAutoReply(f, window.location.pathname));
+        f.addEventListener('submit', ()=>{
+          wwAddToMailchimp(f);               // secure Mailchimp add (if function is set up)
+          wwAutoReply(f, window.location.pathname); // MailerSend welcome email
+        });
       });
     });
   </script>
