@@ -1,16 +1,16 @@
+# Netlify config for Wander Wyze
+
 [build]
-  publish = "dist"
-  command = "npm run build"
+  # Your static site files live in /public
+  publish = "public"
 
-[build.environment]
-  NODE_VERSION = "18"
+[functions]
+  # Tell Netlify where our serverless functions live
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
 
+# (Optional) Keep pretty URLs working if needed
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/.netlify/functions/*"
+  to = "/.netlify/functions/:splat"
   status = 200
-
-[dev]
-  command = "npm run dev"
-  port = 3000
-  publish = "dist"
