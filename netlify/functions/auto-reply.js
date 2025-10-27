@@ -22,7 +22,7 @@ exports.handler = async (event) => {
         <p style="margin-top:12px;">Page: ${page || '-'}</p>
         <p>🌍 <em>Your Journey, Our Expertise.</em></p>
         <p>Warm Regards,<br><strong>Ravinder Singh</strong><br>
-        📧 <a href="mailto:ravi@wanderwyze.com">ravi@wanderwyze.com</a> | 📱 +91&nbsp;98338&nbsp;34836</p>
+        📧 <a href="mailto:info@wanderwyze.com">info@wanderwyze.com</a> | 📱 +91&nbsp;98338&nbsp;34836</p>
       </div>`;
 
     const payload = {
