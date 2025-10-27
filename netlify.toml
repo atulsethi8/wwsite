@@ -1,16 +1,22 @@
-# Netlify config for Wander Wyze
-
 [build]
-  # Your static site files live in /public
   publish = "public"
 
 [functions]
-  # Tell Netlify where our serverless functions live
   directory = "netlify/functions"
   node_bundler = "esbuild"
 
-# (Optional) Keep pretty URLs working if needed
+# pretty URLs for your three pages
 [[redirects]]
-  from = "/.netlify/functions/*"
-  to = "/.netlify/functions/:splat"
+  from = "/vietnam-tour-packages"
+  to   = "/vietnam-tour-packages.html"
+  status = 200
+
+[[redirects]]
+  from = "/dubai-combo-deals"
+  to   = "/dubai-combo-deals.html"
+  status = 200
+
+[[redirects]]
+  from = "/kenya-safari-packages"
+  to   = "/kenya-safari-packages.html"
   status = 200
