@@ -108,5 +108,27 @@
 </form>
 
     </div>
+    <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('ww-contact-form');
+    if (!form) return;
+    form.addEventListener('submit', () => {
+      try {
+        const data = {
+          name:  form.querySelector('[name="name"]')?.value || '',
+          email: form.querySelector('[name="email"]')?.value || '',
+          phone: form.querySelector('[name="phone"]')?.value || '',
+          page:  '/contact'
+        };
+        fetch('/.netlify/functions/auto-reply', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        }).catch(()=>{});
+      } catch(e) {}
+    });
+  });
+</script>
+
 </body>
 </html>
