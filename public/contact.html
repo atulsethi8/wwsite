@@ -90,67 +90,23 @@
             <p>Ready to start your journey? Get in touch with us!</p>
         </div>
 
-        <form class="contact-form" name="contact" method="POST" data-netlify="true">
-            <input type="hidden" name="form-name" value="contact" />
-            
-            <div class="form-group">
-                <label for="name">Full Name *</label>
-                <input type="text" id="name" name="name" required>
-            </div>
+        <form name="contact"
+      id="ww-contact-form"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      action="/thank-you.html">
+  <input type="hidden" name="form-name" value="contact" />
+  <p class="hidden"><label>Don’t fill this out: <input name="bot-field" /></label></p>
 
-            <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input type="email" id="email" name="email" required>
-            </div>
+  <input type="text"  name="name"    placeholder="Your full name" required />
+  <input type="email" name="email"   placeholder="your@email.com" required />
+  <input type="tel"   name="phone"   placeholder="+91 98XXXXXXXX" />
+  <textarea name="message" rows="6" placeholder="Tell us about your dream trip…" required></textarea>
 
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone">
-            </div>
+  <button type="submit">Send Message</button>
+</form>
 
-            <div class="form-group">
-                <label for="destination">Destination Interest</label>
-                <select id="destination" name="destination">
-                    <option value="">Select a destination</option>
-                    <option value="europe">Europe</option>
-                    <option value="asia">Asia</option>
-                    <option value="americas">Americas</option>
-                    <option value="africa">Africa</option>
-                    <option value="australia">Australia/Oceania</option>
-                    <option value="multiple">Multiple Destinations</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="travelers">Number of Travelers</label>
-                <select id="travelers" name="travelers">
-                    <option value="">Select number</option>
-                    <option value="1-2">1-2 people</option>
-                    <option value="3-5">3-5 people</option>
-                    <option value="6-10">6-10 people</option>
-                    <option value="10+">10+ people</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="budget">Budget Range</label>
-                <select id="budget" name="budget">
-                    <option value="">Select budget</option>
-                    <option value="budget">Budget ($1,000-$3,000)</option>
-                    <option value="mid-range">Mid-range ($3,000-$7,000)</option>
-                    <option value="luxury">Luxury ($7,000+)</option>
-                    <option value="custom">Custom budget</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="message">Message *</label>
-                <textarea id="message" name="message" placeholder="Tell us about your dream trip, travel dates, special requirements, or any questions you have..." required></textarea>
-            </div>
-
-            <button type="submit" class="submit-btn">Send Message</button>
-        </form>
     </div>
 </body>
 </html>
