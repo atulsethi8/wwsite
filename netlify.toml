@@ -1,11 +1,14 @@
+# ===== Netlify configuration for wanderwyze.com =====
+
 [build]
+  # Your static files live here
   publish = "public"
 
 [functions]
-  directory = "netlify/functions"
+  directory    = "netlify/functions"
   node_bundler = "esbuild"
 
-# pretty URLs for your three pages
+# ---------- Pretty URLs for destination pages ----------
 [[redirects]]
   from = "/vietnam-tour-packages"
   to   = "/vietnam-tour-packages.html"
@@ -20,3 +23,23 @@
   from = "/kenya-safari-packages"
   to   = "/kenya-safari-packages.html"
   status = 200
+
+# ---------- Make /contact open the Contact section on the homepage ----------
+[[redirects]]
+  from = "/contact"
+  to   = "/#contact"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/contact.html"
+  to   = "/#contact"
+  status = 200
+  force = true
+
+# (Optional) send anything unknown to the homepage (SPA-style fallback)
+# Uncomment if you ever need it.
+# [[redirects]]
+#   from = "/*"
+#   to   = "/index.html"
+#   status = 200
