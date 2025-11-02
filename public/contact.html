@@ -129,6 +129,59 @@
     });
   });
 </script>
+<!-- Hidden Netlify form to register "contact" -->
+<form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="text" name="name">
+  <input type="email" name="email">
+  <input type="tel" name="phone">
+  <textarea name="message"></textarea>
+</form>
+
+<script>
+(function () {
+  // Find the visible form on the contact page
+  var contactSection = document.querySelector('#contact');
+  var visibleForm = contactSection ? contactSection.querySelector('form') : document.querySelector('form');
+  if (!visibleForm) return;
+
+  // Make sure fields have names Netlify expects
+  function ensureName(sel, name){
+    var el = visibleForm.querySelector(sel);
+    if (el && !el.name) el.name = name;
+  }
+  ensureName('input[type="text"], input[name="name"]', 'name');
+  ensureName('input[type="email"], input[name="email"]', 'email');
+  ensureName('input[type="tel"], input[name="phone"]', 'phone');
+  ensureName('textarea, textarea[name="message"]', 'message');
+
+  function encode(d){return Object.keys(d).map(function(k){return encodeURIComponent(k)+'='+encodeURIComponent(d[k]);}).join('&');}
+
+  // Intercept submit → send to Netlify → go to thank-you
+  visibleForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name    = (visibleForm.querySelector('[name="name"]')    || {}).value || '';
+    var email   = (visibleForm.querySelector('[name="email"]')   || {}).value || '';
+    var phone   = (visibleForm.querySelector('[name="phone"]')   || {}).value || '';
+    var message = (visibleForm.querySelector('[name="message"]') || {}).value || '';
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name':'contact', name:name, email:email, phone:phone, message:message, page: window.location.pathname })
+    })
+    .then(function(){
+      // optional auto-reply
+      fetch('/.netlify/functions/auto-reply', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name:name, email:email, phone:phone, page:'/contact' })
+      }).catch(function(){});
+      window.location.href = '/thank-you.html';
+    })
+    .catch(function(){ window.location.href = '/thank-you.html'; });
+  }, { passive:false });
+})();
+</script>
 
 </body>
 </html>
