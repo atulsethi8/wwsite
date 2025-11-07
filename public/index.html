@@ -72,6 +72,14 @@
   </style>
 </head>
 <body>
+<!-- Netlify form template (hidden) — guarantees detection -->
+<form name="contact" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text"    name="name" />
+  <input type="email"   name="email" />
+  <input type="tel"     name="phone" />
+  <textarea name="message"></textarea>
+  <input type="hidden"  name="form-name" value="contact" />
+</form>
 
   <!-- NAV -->
   <div class="nav">
