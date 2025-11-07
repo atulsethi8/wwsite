@@ -210,7 +210,7 @@
     </div>
   </footer>
 
-  <!-- WhatsApp floating button -->
+   <!-- WhatsApp floating button -->
   <a class="wa-fab" href="https://wa.me/919833834836" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">🟢</a>
 
   <!-- Optional: lightweight auto-reply trigger to your Netlify Function -->
@@ -235,59 +235,54 @@
       });
     });
   </script>
-  </script>
 
-<!-- START: Netlify contact bridge -->
-<form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
-  <input type="text" name="name">
-  <input type="email" name="email">
-  <input type="tel" name="phone">
-  <textarea name="message"></textarea>
-</form>
-
-<script>
-  (function () {
-    var contactSection = document.querySelector('#contact');
-    var visibleForm = contactSection ? contactSection.querySelector('form') : document.querySelector('form');
-    if (!visibleForm) return;
-
-    function ensureName(sel, name){
-      var el = visibleForm.querySelector(sel);
-      if (el && !el.name) el.name = name;
+  <!-- START: Netlify contact bridge -->
+  <script>
+  (function(){
+    function encode(data){
+      return Object.keys(data).map(function(k){
+        return encodeURIComponent(k)+'='+encodeURIComponent(data[k]);
+      }).join('&');
     }
-    ensureName('input[type="text"], input[name="name"]', 'name');
-    ensureName('input[type="email"], input[name="email"]', 'email');
-    ensureName('input[type="tel"], input[name="phone"]', 'phone');
-    ensureName('textarea, textarea[name="message"]', 'message');
 
-    function encode(d){return Object.keys(d).map(function(k){return encodeURIComponent(k)+'='+encodeURIComponent(d[k]);}).join('&');}
+    var f = document.getElementById('ww-contact-form');
+    if(!f) return;
 
-    visibleForm.addEventListener('submit', function (e) {
+    f.addEventListener('submit', function(e){
       e.preventDefault();
-      var name    = (visibleForm.querySelector('[name="name"]')    || {}).value || '';
-      var email   = (visibleForm.querySelector('[name="email"]')   || {}).value || '';
-      var phone   = (visibleForm.querySelector('[name="phone"]')   || {}).value || '';
-      var message = (visibleForm.querySelector('[name="message"]') || {}).value || '';
+
+      var visibleForm = f;
+      var name    = (visibleForm.querySelector('[name="name"]')   || {}).value || '';
+      var email   = (visibleForm.querySelector('[name="email"]')  || {}).value || '';
+      var phone   = (visibleForm.querySelector('[name="phone"]')  || {}).value || '';
+      var message = (visibleForm.querySelector('[name="message"]')|| {}).value || '';
 
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name':'contact', name:name, email:email, phone:phone, message:message, page: window.location.pathname })
-      }).then(function(){
+        body: encode({
+          'form-name':'contact',
+          name:name,
+          email:email,
+          phone:phone,
+          message:message,
+          page: window.location.pathname
+        })
+      })
+      .then(function(){
+        /* optional auto-reply ping */
         fetch('/.netlify/functions/auto-reply', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          method:'POST',
+          headers:{ 'Content-Type':'application/json' },
           body: JSON.stringify({ name:name, email:email, phone:phone, page:'/contact' })
         }).catch(function(){});
+
         window.location.href = '/thank-you.html';
-      }).catch(function(){ window.location.href = '/thank-you.html'; });
+      })
+      .catch(function(){ window.location.href = '/thank-you.html'; });
     }, { passive:false });
   })();
-</script>
-<!-- END: Netlify contact bridge -->
-
-</body>
-</html>
-
+  </script>
+  <!-- END: Netlify contact bridge -->
 </body>
 </html>
