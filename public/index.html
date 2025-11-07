@@ -1,85 +1,77 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Wander Wyze Holidays — Tailor-made Trips</title>
-  <meta name="description" content="Wander Wyze Holidays — bespoke trips, great value, honest advice. Kenya safaris, Vietnam tours, Dubai holiday combos.">
+  <meta name="description" content="Wander Wyze Holidays — bespoke trips, great value, honest advice. Kenya safaris, Vietnam tours, and Dubai holiday combos." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root{
-      --bg:#0f172a;          /* slate-900 */
-      --panel:#111827;       /* gray-900 */
-      --text:#e5e7eb;        /* gray-200 */
-      --muted:#9ca3af;       /* gray-400 */
-      --brand:#00a67d;       /* teal-ish */
-      --brand-2:#14b8a6;     /* teal-500 */
-      --card:#1f2937;        /* gray-800 */
-      --border:#2a3343;      /* slate-700 */
+      --bg:#0b1220;          /* page bg */
+      --panel:#0f172a;       /* strips */
+      --text:#e5e7eb;        /* text */
+      --muted:#9ca3af;       /* muted text */
+      --brand:#00a67d;       /* primary */
+      --brand-2:#14b8a6;     /* primary alt */
+      --card:#111827;        /* card */
+      --border:#223049;      /* border */
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:#0b1220;color:var(--text);font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;line-height:1.6}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
     a{color:var(--brand-2);text-decoration:none}
     a:hover{text-decoration:underline}
     .container{max-width:1140px;margin:0 auto;padding:0 20px}
-    /* navbar */
-    .nav{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.85);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--border)}
+
+    /* NAVBAR */
+    .nav{position:sticky;top:0;z-index:40;background:rgba(11,18,32,.85);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--border)}
     .nav-inner{display:flex;align-items:center;gap:24px;height:64px}
-    .brand{font-weight:800;font-size:20px;letter-spacing:.2px}
+    .brand{font-weight:800;font-size:20px;letter-spacing:.2px;white-space:nowrap}
     .brand em{color:var(--brand);font-style:normal}
     .nav-links{margin-left:auto;display:flex;gap:22px}
     .nav-links a{color:var(--text)}
     .nav-links a:hover{color:#fff}
-    /* hero */
-    .hero{background:linear-gradient(180deg, #1b2436 0%, #0b1220 100%);padding:72px 0 40px;border-bottom:1px solid var(--border)}
+
+    /* HERO */
+    .hero{background:linear-gradient(180deg,#141c2c 0%, #0b1220 100%);padding:76px 0 48px;border-bottom:1px solid var(--border)}
     .hero h1{font-size:42px;line-height:1.15;margin:0 0 12px;font-weight:800;letter-spacing:.2px}
-    .hero p{color:var(--muted);margin:0 0 20px}
-    .btn{display:inline-flex;align-items:center;gap:10px;background:var(--brand);color:#041d16;padding:12px 18px;border-radius:10px;border:1px solid #19d3a4;font-weight:700}
+    .hero p{color:var(--muted);margin:0 0 22px}
+    .btn{display:inline-flex;align-items:center;gap:10px;background:var(--brand);color:#06281f;padding:12px 18px;border-radius:10px;border:1px solid #19d3a4;font-weight:700}
     .btn:hover{transform:translateY(-1px)}
-    /* experiences */
+
+    /* SECTIONS */
     .section{padding:56px 0;border-bottom:1px solid var(--border)}
     h2{font-size:28px;margin:0 0 18px}
+
+    /* CARDS */
     .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
     .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px}
     .card h3{margin:0 0 6px}
     .card p{margin:0 0 12px;color:var(--muted)}
-    .card a{display:inline-flex;gap:8px;align-items:center;background:#0d1627;border:1px solid var(--border);padding:8px 12px;border-radius:10px}
-    .card a:hover{border-color:#3b465b}
-    /* contact */
-    .contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px}
-    form label{display:block;margin:10px 0 6px;color:var(--muted);font-size:14px}
-    input,textarea{width:100%;background:#0d1627;border:1px solid var(--border);color:#dbe2ee;border-radius:10px;padding:12px 14px;font-size:16px}
-    textarea{min-height:140px;resize:vertical}
-    .submit{margin-top:12px;display:inline-flex;gap:10px;align-items:center;background:var(--brand);color:#041d16;padding:12px 18px;border-radius:10px;border:1px solid #19d3a4;font-weight:700;cursor:pointer}
-    .submit:hover{transform:translateY(-1px)}
-    .contact-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px}
-    .ct-row{display:flex;align-items:center;gap:10px;margin:10px 0}
+    .card a.cta{display:inline-flex;gap:8px;align-items:center;background:#0c1425;border:1px solid var(--border);padding:8px 12px;border-radius:10px}
+    .card a.cta:hover{border-color:#3b495f;text-decoration:none}
+
+    /* ABOUT */
     .muted{color:var(--muted)}
-    /* footer */
+
+    /* FOOTER */
     footer{background:#0a111e;border-top:1px solid var(--border);padding:36px 0 60px}
     .foot-grid{display:grid;grid-template-columns:2fr 1fr 1.2fr;gap:24px}
     .sub{display:flex;gap:10px;margin-top:12px}
-    .sub input{flex:1}
+    .sub input{flex:1;background:#0c1425;border:1px solid var(--border);color:#dbe2ee;border-radius:10px;padding:10px 12px}
     .wa-fab{position:fixed;right:18px;bottom:18px;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#25D366;color:#052d17;border:none;box-shadow:0 8px 24px rgba(0,0,0,.35);text-decoration:none;font-weight:900}
+
     @media (max-width:960px){
       .cards{grid-template-columns:1fr}
-      .contact-grid{grid-template-columns:1fr}
       .foot-grid{grid-template-columns:1fr}
       .hero h1{font-size:34px}
+      .nav-links{gap:16px}
     }
   </style>
 </head>
 <body>
-<!-- Netlify form template (hidden) — guarantees detection -->
-<form name="contact" netlify netlify-honeypot="bot-field" hidden>
-  <input type="text"    name="name" />
-  <input type="email"   name="email" />
-  <input type="tel"     name="phone" />
-  <textarea name="message"></textarea>
-  <input type="hidden"  name="form-name" value="contact" />
-</form>
 
   <!-- NAV -->
   <div class="nav">
@@ -89,7 +81,7 @@
         <a href="#home">Home</a>
         <a href="#experiences">Destinations</a>
         <a href="#about">About Us</a>
-        <a href="#contact">Contact</a>
+        <a href="/contact">Contact</a>
       </nav>
     </div>
   </div>
@@ -111,76 +103,34 @@
         <div class="card">
           <h3>Kenya Safaris</h3>
           <p>Masai Mara, Big-5 drives & custom lodges.</p>
-          <a href="/kenya-safari-packages.html">View Kenya Packages →</a>
+          <a class="cta" href="/kenya-safari-packages.html">View Kenya Packages →</a>
         </div>
         <div class="card">
           <h3>Vietnam Tours</h3>
           <p>Hanoi, Halong Bay, Ninh Binh — curated routes.</p>
-          <a href="/vietnam-tour-packages.html">View Vietnam Packages →</a>
+          <a class="cta" href="/vietnam-tour-packages.html">View Vietnam Packages →</a>
         </div>
         <div class="card">
           <h3>Dubai Holidays</h3>
           <p>City tour, Desert Safari, Dhow Cruise combos.</p>
-          <a href="/dubai-combo-deals.html">View Dubai Deals →</a>
+          <a class="cta" href="/dubai-combo-deals.html">View Dubai Deals →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT (short) -->
+  <!-- ABOUT -->
   <section id="about" class="section">
     <div class="container">
       <h2>About Us</h2>
       <p class="muted">
         We craft bespoke travel experiences for discerning travellers, with transparent advice and reliable ground partners.
-        You get curated itineraries, excellent value, and end-to-end assistance.
+        Expect curated itineraries, excellent value, and end-to-end assistance across Africa, Asia, and the Middle East.
       </p>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2>Send us a Message</h2>
-      <div class="contact-grid">
-        <!-- Netlify-enabled form -->
-        <div>
-          <form name="contact"
-                id="ww-contact-form"
-                method="POST"
-                data-netlify="true"
-                netlify-honeypot="bot-field"
-                action="/thank-you.html">
-            <input type="hidden" name="form-name" value="contact" />
-            <p class="hidden" style="display:none;"><label>Don’t fill this out: <input name="bot-field" /></label></p>
-
-            <label for="name">Full Name *</label>
-            <input id="name" name="name" type="text" placeholder="Your full name" required />
-
-            <label for="email">Email Address *</label>
-            <input id="email" name="email" type="email" placeholder="your@email.com" required />
-
-            <label for="phone">Phone</label>
-            <input id="phone" name="phone" type="tel" placeholder="+91 98XXXXXXXX" />
-
-            <label for="message">Message *</label>
-            <textarea id="message" name="message" rows="6" placeholder="Tell us about your dream trip…" required></textarea>
-
-            <button class="submit" type="submit">Send Message</button>
-          </form>
-        </div>
-
-        <!-- Contact card -->
-        <aside class="contact-card">
-          <h3>Contact Information</h3>
-          <div class="ct-row">📞 +91 9833834836</div>
-          <div class="ct-row">✉️ <a href="mailto:info@wanderwyze.com">info@wanderwyze.com</a></div>
-          <div class="ct-row">📍 255 2nd floor, Aggarwal Plaza, Sector-14, Rohini, Delhi-110085</div>
-          <div style="margin-top:12px">
-            <a class="btn" href="https://wa.me/919833834836" target="_blank" rel="noopener">Chat on WhatsApp</a>
-          </div>
-        </aside>
-      </div>
+      <p>
+        Have questions? <a href="/contact">Send us a message</a> or ping us on
+        <a href="https://wa.me/919833834836" target="_blank" rel="noopener">WhatsApp</a>.
+      </p>
     </div>
   </section>
 
@@ -200,7 +150,7 @@
         <div><a href="#home">Home</a></div>
         <div><a href="#experiences">Destinations</a></div>
         <div><a href="#about">About Us</a></div>
-        <div><a href="#contact">Contact</a></div>
+        <div><a href="/contact">Contact</a></div>
         <div><a href="/kenya-safari-packages.html">Kenya Safari</a></div>
         <div><a href="/vietnam-tour-packages.html">Vietnam</a></div>
         <div><a href="/dubai-combo-deals.html">Dubai</a></div>
@@ -209,88 +159,18 @@
         <h4 style="margin:0 0 10px">Contact</h4>
         <div class="muted">📞 +91 9833834836</div>
         <div class="muted">✉️ <a href="mailto:ravi@wanderwyze.com">ravi@wanderwyze.com</a></div>
+        <div class="muted">✉️ <a href="mailto:info@wanderwyze.com">info@wanderwyze.com</a></div>
         <div class="muted">📍 255 2nd floor, Aggarwal Plaza,<br/>Sector-14, Rohini, Delhi-110085</div>
         <div class="sub">
-          <input type="email" placeholder="Enter your email" />
+          <input type="email" placeholder="Enter your email" aria-label="Email for updates" />
           <button class="btn" type="button">Subscribe</button>
         </div>
       </div>
     </div>
   </footer>
 
-   <!-- WhatsApp floating button -->
+  <!-- WhatsApp floating button -->
   <a class="wa-fab" href="https://wa.me/919833834836" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">🟢</a>
 
-  <!-- Optional: lightweight auto-reply trigger to your Netlify Function -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const form = document.getElementById('ww-contact-form');
-      if (!form) return;
-      form.addEventListener('submit', () => {
-        try {
-          const data = {
-            name:  form.querySelector('[name="name"]')?.value || '',
-            email: form.querySelector('[name="email"]')?.value || '',
-            phone: form.querySelector('[name="phone"]')?.value || '',
-            page:  '/#contact'
-          };
-          fetch('/.netlify/functions/auto-reply', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-          }).catch(()=>{});
-        } catch(e) {}
-      });
-    });
-  </script>
-
-  <!-- START: Netlify contact bridge -->
-  <script>
-  (function(){
-    function encode(data){
-      return Object.keys(data).map(function(k){
-        return encodeURIComponent(k)+'='+encodeURIComponent(data[k]);
-      }).join('&');
-    }
-
-    var f = document.getElementById('ww-contact-form');
-    if(!f) return;
-
-    f.addEventListener('submit', function(e){
-      e.preventDefault();
-
-      var visibleForm = f;
-      var name    = (visibleForm.querySelector('[name="name"]')   || {}).value || '';
-      var email   = (visibleForm.querySelector('[name="email"]')  || {}).value || '';
-      var phone   = (visibleForm.querySelector('[name="phone"]')  || {}).value || '';
-      var message = (visibleForm.querySelector('[name="message"]')|| {}).value || '';
-
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({
-          'form-name':'contact',
-          name:name,
-          email:email,
-          phone:phone,
-          message:message,
-          page: window.location.pathname
-        })
-      })
-      .then(function(){
-        /* optional auto-reply ping */
-        fetch('/.netlify/functions/auto-reply', {
-          method:'POST',
-          headers:{ 'Content-Type':'application/json' },
-          body: JSON.stringify({ name:name, email:email, phone:phone, page:'/contact' })
-        }).catch(function(){});
-
-        window.location.href = '/thank-you.html';
-      })
-      .catch(function(){ window.location.href = '/thank-you.html'; });
-    }, { passive:false });
-  })();
-  </script>
-  <!-- END: Netlify contact bridge -->
 </body>
 </html>
