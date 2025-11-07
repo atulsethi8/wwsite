@@ -1,180 +1,299 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <!-- 🧭 META & SEO -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dubai Holiday Packages | Wander Wyze Holidays</title>
-  <meta name="description" content="Book Dubai holiday packages with Wander Wyze Holidays. Enjoy city tours, desert safaris, dhow cruises & top attractions with exclusive combo deals.">
-  <meta name="keywords" content="Dubai holiday packages, Dubai tour packages, Dubai combo deals, desert safari, dhow cruise, Wander Wyze Holidays">
-  <meta property="og:title" content="Dubai Holiday Packages | Wander Wyze Holidays">
-  <meta property="og:description" content="Discover Dubai with Wander Wyze Holidays — curated hotel stays, desert safaris, city tours & dhow cruises with exclusive combo offers.">
-  <meta property="og:image" content="https://www.wanderwyze.com/images/dubai-banner.jpg">
-  <meta property="og:url" content="https://www.wanderwyze.com/dubai-combo-deals">
+  <meta charset="utf-8">
+  <title>Dubai Holiday Packages – Desert Safari, City Tour & Dhow Cruise Combos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Best-value Dubai holiday packages with Desert Safari + City Tour + Dhow Cruise combos. Private transfers, handpicked experiences, flexible add-ons. Get a quick quote.">
+  <link rel="canonical" href="https://www.wanderwyze.com/dubai-combo-deals.html">
+  <link rel="icon" href="/images/favicon.png" type="image/png">
+  <meta name="robots" content="index, follow">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Dubai Holiday Packages – Desert Safari, City Tour & Dhow Cruise Combos">
+  <meta property="og:description" content="Best-value Dubai combos with Desert Safari, City Tour, and Dhow Cruise. Private transfers and flexible add-ons.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.wanderwyze.com/dubai-combo-deals.html">
+  <meta property="og:image" content="https://www.wanderwyze.com/images/dubai-hero.jpg">
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="https://www.wanderwyze.com/dubai-combo-deals">
-  <link rel="icon" href="/images/favicon.png" type="image/png" />
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
+  <meta name="twitter:title" content="Dubai Holiday Packages – Desert Safari, City Tour & Dhow Cruise">
+  <meta name="twitter:description" content="Best-value Dubai combos with Desert Safari, City Tour, and Dhow Cruise.">
+  <meta name="twitter:image" content="https://www.wanderwyze.com/images/dubai-hero.jpg">
   <style>
-    body { font-family: 'Poppins', sans-serif; color: #222; }
-    .hero { background: url('/images/dubai-banner.jpg') center/cover no-repeat; }
-    .btn-primary { background: #d89b00; color: #fff; padding: 10px 25px; border-radius: 8px; }
-    .btn-primary:hover { background: #b88600; }
+    :root{
+      --bg:#0b1220; --text:#e5e7eb; --muted:#9ca3af; --brand:#00a67d; --card:#121a2b; --border:#22304b;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:#7eead1;text-decoration:none} a:hover{text-decoration:underline}
+    .container{max-width:1140px;margin:0 auto;padding:0 20px}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.85);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--border)}
+    .nav-inner{display:flex;align-items:center;gap:24px;height:64px}
+    .brand{font-weight:800;font-size:20px;letter-spacing:.2px}
+    .brand em{color:var(--brand);font-style:normal}
+    .nav-links{margin-left:auto;display:flex;gap:22px}
+    .nav-links a{color:var(--text)} .nav-links a:hover{color:#fff}
+    .hero{background:linear-gradient(180deg,#152036 0%,#0b1220 100%);padding:68px 0 40px;border-bottom:1px solid var(--border)}
+    .hero h1{font-size:38px;margin:0 0 8px;font-weight:800}
+    .hero p{color:var(--muted);margin:0 0 16px}
+    .btn{display:inline-flex;align-items:center;gap:10px;background:var(--brand);color:#041d16;padding:12px 18px;border-radius:10px;border:1px solid #19d3a4;font-weight:700}
+    .btn:hover{transform:translateY(-1px)}
+    .section{padding:48px 0;border-bottom:1px solid var(--border)}
+    h2{font-size:26px;margin:0 0 16px}
+    .grid{display:grid;gap:20px}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px}
+    .card h3{margin:0 0 8px}
+    .inc{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+    .pill{background:#0e1a2c;border:1px solid var(--border);padding:6px 10px;border-radius:999px;color:#c2cbe8;font-size:13px}
+    .price{font-weight:800;color:#b8ffe7}
+    .thin{color:var(--muted)}
+    .faq details{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px}
+    .faq summary{cursor:pointer;font-weight:700}
+    .two{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
+    input,textarea,select{width:100%;background:#0d1627;border:1px solid var(--border);color:#dbe2ee;border-radius:10px;padding:12px 14px;font-size:16px}
+    textarea{min-height:120px;resize:vertical}
+    .submit{margin-top:12px;display:inline-flex;gap:10px;align-items:center;background:var(--brand);color:#041d16;padding:12px 18px;border-radius:10px;border:1px solid #19d3a4;font-weight:700;cursor:pointer}
+    .aside{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px}
+    footer{background:#0a111e;border-top:1px solid var(--border);padding:36px 0 60px;margin-top:10px}
+    .foot-grid{display:grid;grid-template-columns:2fr 1fr 1.2fr;gap:24px}
+    @media (max-width:960px){.grid-3{grid-template-columns:1fr}.two{grid-template-columns:1fr}.foot-grid{grid-template-columns:1fr}.hero h1{font-size:30px}}
   </style>
 </head>
+<body>
 
-<body class="bg-gray-50">
+  <!-- NAV -->
+  <div class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Wander <em>Wyze</em>Holidays</div>
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/vietnam-tour-packages.html">Vietnam</a>
+        <a href="/kenya-safari-packages.html">Kenya</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
 
-  <!-- 🌆 HERO SECTION -->
-  <section class="hero h-[75vh] flex flex-col justify-center items-center text-center text-white bg-black/50">
-    <h1 class="text-5xl font-bold mb-3">Dubai Holiday Packages 🏙️</h1>
-    <p class="text-lg mb-6">Stay in style and explore Dubai’s best attractions with Wander Wyze Holidays</p>
-    <a href="https://wa.me/919833834836?text=Hi%20Wander%20Wyze!%20I%20want%20a%20quote%20for%20Dubai%20Holiday%20Packages." 
-       class="btn-primary">Get Free Quote on WhatsApp</a>
-  </section>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <h1>Dubai Holiday Packages</h1>
+      <p>Best-selling combos: <strong>Desert Safari + City Tour + Dhow Cruise</strong> with private transfers & flexible add-ons.</p>
+      <a class="btn" href="#get-quote">Get a Quick Quote</a>
+      <a class="btn" style="margin-left:10px" href="https://wa.me/919833834836?text=Hi%20Wander%20Wyze!%20Interested%20in%20Dubai%20combos." target="_blank" rel="noopener">WhatsApp Us</a>
+    </div>
+  </header>
 
-  <!-- 🌴 PACKAGE HIGHLIGHTS -->
-  <section class="max-w-6xl mx-auto py-16 px-6">
-    <h2 class="text-3xl font-bold mb-6 text-center">Top Experiences in Dubai</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white rounded-2xl shadow p-6">
-        <h3 class="font-semibold text-xl mb-2">Desert Safari with BBQ Dinner</h3>
-        <p>Thrilling dune bashing, camel rides, live shows, and delicious BBQ under the stars — a must-do Dubai experience.</p>
-      </div>
-      <div class="bg-white rounded-2xl shadow p-6">
-        <h3 class="font-semibold text-xl mb-2">Dubai City Tour</h3>
-        <p>Discover Burj Khalifa, Palm Jumeirah, Dubai Frame, and the Old Souks on a guided half-day city tour.</p>
-      </div>
-      <div class="bg-white rounded-2xl shadow p-6">
-        <h3 class="font-semibold text-xl mb-2">Dhow Cruise Dinner</h3>
-        <p>Enjoy an evening aboard a traditional dhow with dinner, music, and stunning Marina or Creek skyline views.</p>
+  <!-- COMBOS -->
+  <section class="section">
+    <div class="container">
+      <h2>Popular Dubai Combos</h2>
+      <div class="grid grid-3">
+        <!-- Combo 1 -->
+        <article class="card" itemscope itemtype="https://schema.org/Product">
+          <h3 itemprop="name">Classic 3-in-1: City Tour + Desert Safari + Dhow Cruise</h3>
+          <p class="thin" itemprop="description">Ideal first-timer combo covering Old & New Dubai highlights, evening desert experience, and Marina cruise.</p>
+          <div class="inc">
+            <span class="pill">Half-day City Tour</span>
+            <span class="pill">Desert Safari (BBQ + Show)</span>
+            <span class="pill">Dhow Cruise (Dinner)</span>
+            <span class="pill">Shared 4x4 Transfers</span>
+          </div>
+          <div class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            from <span itemprop="priceCurrency" content="AED">AED</span> <span itemprop="price" content="349">349</span> / person
+            <link itemprop="availability" href="https://schema.org/InStock">
+          </div>
+          <p class="thin">Add-ons: Burj Khalifa At-the-Top, Dubai Frame, Museum of the Future.</p>
+          <a class="btn" href="#get-quote">Enquire →</a>
+        </article>
+
+        <!-- Combo 2 -->
+        <article class="card" itemscope itemtype="https://schema.org/Product">
+          <h3 itemprop="name">Premium: City Tour + Desert Safari (Premium Camp) + Marina Cruise</h3>
+          <p class="thin" itemprop="description">Upgraded desert camp seating, better buffet, and Marina glass-boat dinner.</p>
+          <div class="inc">
+            <span class="pill">Old + New Dubai</span>
+            <span class="pill">Premium Desert Camp</span>
+            <span class="pill">Marina Glass-Boat</span>
+            <span class="pill">2-way Private Transfers</span>
+          </div>
+          <div class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            from <span itemprop="priceCurrency" content="AED">AED</span> <span itemprop="price" content="499">499</span> / person
+            <link itemprop="availability" href="https://schema.org/InStock">
+          </div>
+          <p class="thin">Popular with families & couples wanting comfort.</p>
+          <a class="btn" href="#get-quote">Enquire →</a>
+        </article>
+
+        <!-- Combo 3 -->
+        <article class="card" itemscope itemtype="https://schema.org/Product">
+          <h3 itemprop="name">Adventure Plus: Desert Safari + Dhow Cruise + Dubai Frame</h3>
+          <p class="thin" itemprop="description">Keep it active with dune bashing + iconic Dubai Frame + relaxing dinner cruise.</p>
+          <div class="inc">
+            <span class="pill">Evening Safari</span>
+            <span class="pill">Dubai Frame Tickets</span>
+            <span class="pill">Creek Dinner Cruise</span>
+            <span class="pill">Hotel Pick-ups</span>
+          </div>
+          <div class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            from <span itemprop="priceCurrency" content="AED">AED</span> <span itemprop="price" content="429">429</span> / person
+            <link itemprop="availability" href="https://schema.org/InStock">
+          </div>
+          <p class="thin">Swap Frame with Museum of the Future on request.</p>
+          <a class="btn" href="#get-quote">Enquire →</a>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- 🏨 POPULAR PACKAGE DEALS -->
-  <section class="bg-gray-100 py-16">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-3xl font-bold mb-8 text-center">Popular Dubai Packages</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-2xl shadow p-6">
-          <h3 class="font-semibold text-xl mb-3">3N/4D Dubai Essentials</h3>
-          <ul class="list-disc list-inside text-gray-700">
-            <li>3-Star Hotel + Breakfast</li>
-            <li>Desert Safari + City Tour</li>
-            <li>Return Airport Transfers</li>
-          </ul>
-          <p class="mt-4 font-bold text-lg text-yellow-600">From ₹38,500 / AED 1,700 per person</p>
-        </div>
+  <!-- WHY US -->
+  <section class="section">
+    <div class="container">
+      <h2>Why book with Wander Wyze?</h2>
+      <ul class="thin">
+        <li>Handpicked suppliers, reliable drivers & guides</li>
+        <li>Private transfers available for all experiences</li>
+        <li>Upfront pricing; no last-minute surprises</li>
+        <li>Dedicated WhatsApp support throughout your trip</li>
+      </ul>
+    </div>
+  </section>
 
-        <div class="bg-white rounded-2xl shadow p-6">
-          <h3 class="font-semibold text-xl mb-3">4N/5D Dubai Premium</h3>
-          <ul class="list-disc list-inside text-gray-700">
-            <li>4-Star Hotel + Breakfast</li>
-            <li>City Tour + Dhow Cruise + Desert Safari</li>
-            <li>Burj Khalifa Ticket + Transfers</li>
-          </ul>
-          <p class="mt-4 font-bold text-lg text-yellow-600">From ₹52,000 / AED 2,300 per person</p>
-        </div>
+  <!-- QUOTE FORM -->
+  <section id="get-quote" class="section">
+    <div class="container two">
+      <div>
+        <h2>Get a Quick Quote</h2>
+        <form name="dubai-quote" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" id="dubai-quote-form">
+          <input type="hidden" name="form-name" value="dubai-quote">
+          <p style="display:none"><label>Don’t fill this out: <input name="bot-field"></label></p>
 
-        <div class="bg-white rounded-2xl shadow p-6">
-          <h3 class="font-semibold text-xl mb-3">Luxury Dubai Experience</h3>
-          <ul class="list-disc list-inside text-gray-700">
-            <li>5-Star Hotel + Breakfast</li>
-            <li>Private Transfers + VIP Desert Safari</li>
-            <li>Dubai Frame + Miracle Garden + Dhow Cruise</li>
-          </ul>
-          <p class="mt-4 font-bold text-lg text-yellow-600">From ₹78,000 / AED 3,400 per person</p>
-        </div>
+          <label>Full Name *</label>
+          <input type="text" name="name" required placeholder="Your full name">
+
+          <label>Email *</label>
+          <input type="email" name="email" required placeholder="you@example.com">
+
+          <label>Phone (with country code)</label>
+          <input type="tel" name="phone" placeholder="+91 98XXXXXXXX">
+
+          <label>Preferred Combo</label>
+          <select name="combo">
+            <option value="Classic 3-in-1">Classic 3-in-1</option>
+            <option value="Premium">Premium</option>
+            <option value="Adventure Plus">Adventure Plus</option>
+            <option value="Not sure">Not sure — suggest best value</option>
+          </select>
+
+          <label>Travel Month</label>
+          <input type="text" name="month" placeholder="e.g., December 2025">
+
+          <label>Message *</label>
+          <textarea name="message" required placeholder="No. of travellers, dates (approx), hotel if any, add-ons (Burj, MOTF)…"></textarea>
+
+          <button class="submit" type="submit">Request Quote</button>
+        </form>
+      </div>
+      <aside class="aside">
+        <h3>Need help now?</h3>
+        <p class="thin">Chat with our expert for fastest replies.</p>
+        <p><a class="btn" href="https://wa.me/919833834836?text=Hi%20Wander%20Wyze!%20Need%20a%20Dubai%20combo%20quote." target="_blank" rel="noopener">WhatsApp: +91 98338 34836</a></p>
+        <p class="thin">Email: <a href="mailto:info@wanderwyze.com">info@wanderwyze.com</a></p>
+        <p class="thin">Also check: <a href="/kenya-safari-packages.html">Kenya Safaris</a> • <a href="/vietnam-tour-packages.html">Vietnam Tours</a></p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container faq">
+      <h2>Dubai Combos – FAQs</h2>
+      <div class="grid" style="gap:14px">
+        <details><summary>What’s the difference between Standard and Premium Desert Safari?</summary>
+          <p class="thin">Premium includes better camp seating (often VIP/sofa), upgraded buffet, sometimes table service and slightly longer dune-bashing. We’ll share both options while quoting.</p>
+        </details>
+        <details><summary>Can I swap Dhow Cruise for Dubai Frame or MOTF?</summary>
+          <p class="thin">Yes, we customise. You can replace or add experiences based on time and budget.</p>
+        </details>
+        <details><summary>Are transfers private?</summary>
+          <p class="thin">Default is shared transfers for standard combos. Private transfers can be added to all items—recommended for comfort and speed.</p>
+        </details>
+        <details><summary>What’s the best time for deals?</summary>
+          <p class="thin">Summer has the sharpest deals; winter is peak with limited availability—book early.</p>
+        </details>
       </div>
     </div>
   </section>
 
-  <!-- 💬 TESTIMONIALS -->
-  <section class="bg-white py-16">
-    <div class="max-w-6xl mx-auto text-center px-6">
-      <h2 class="text-3xl font-bold mb-8">Happy Travelers from Dubai</h2>
-      <div class="grid md:grid-cols-2 gap-8 text-lg leading-relaxed">
-        <div class="p-6 border rounded-2xl shadow-sm">
-          <p>"Booked my family trip through Wander Wyze — excellent service and great value. The desert safari was unforgettable!"</p>
-          <p class="mt-3 font-semibold">— Ashwin Rao</p>
-        </div>
-        <div class="p-6 border rounded-2xl shadow-sm">
-          <p>"Smooth booking process and perfect itinerary. Highly recommended for Dubai trips!"</p>
-          <p class="mt-3 font-semibold">— Shreya Menon</p>
+  <!-- FOOTER -->
+  <footer>
+    <div class="container foot-grid">
+      <div>
+        <div class="brand" style="margin-bottom:10px">Wander <em>Wyze</em>Holidays</div>
+        <p class="thin">Tailor-made trips • Great value • Honest advice</p>
+        <div style="display:flex;gap:10px;margin-top:8px">
+          <a aria-label="Instagram" href="https://instagram.com/wanderwyzeholidays" target="_blank" rel="noopener">📷</a>
+          <a aria-label="WhatsApp" href="https://wa.me/919833834836" target="_blank" rel="noopener">💬</a>
         </div>
       </div>
+      <div>
+        <h4 style="margin:0 0 10px">Quick Links</h4>
+        <div><a href="/">Home</a></div>
+        <div><a href="/vietnam-tour-packages.html">Vietnam Packages</a></div>
+        <div><a href="/kenya-safari-packages.html">Kenya Packages</a></div>
+        <div><a href="/#contact">Contact</a></div>
+      </div>
+      <div>
+        <h4 style="margin:0 0 10px">Contact</h4>
+        <div class="thin">📞 +91 98338 34836</div>
+        <div class="thin">✉️ <a href="mailto:info@wanderwyze.com">info@wanderwyze.com</a></div>
+      </div>
     </div>
-  </section>
-
-  <!-- 🧾 ENQUIRY FORM -->
-  <section class="bg-gray-100 py-16">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-6">Request Your Dubai Holiday Quote</h2>
-      <form name="dubai-quote" method="POST" data-netlify="true" action="/thank-you.html" class="grid gap-4">
-        <input type="hidden" name="form-name" value="dubai-quote">
-        <input type="text" name="name" placeholder="Your Name" required class="p-3 rounded-lg border">
-        <input type="email" name="email" placeholder="Your Email" required class="p-3 rounded-lg border">
-        <input type="tel" name="phone" placeholder="Your Phone" required class="p-3 rounded-lg border">
-        <textarea name="message" placeholder="Tell us your Dubai plan" class="p-3 rounded-lg border"></textarea>
-        <button type="submit" class="btn-primary mt-3">Submit Inquiry</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- 📞 CONTACT FOOTER -->
-  <footer class="bg-gray-900 text-white text-center py-8">
-    <p class="text-lg">🌍 Wander Wyze Holidays — “Your Journey, Our Expertise.”</p>
-    <p>📧 ravi@wanderwyze.com | 📱 +91 98338 34836</p>
-    <p class="text-sm mt-2">© 2025 Wander Wyze Holidays. All rights reserved.</p>
   </footer>
 
-  <!-- 📊 GOOGLE ANALYTICS (replace with your GA4 ID) -->
-  <!-- 📊 GOOGLE ANALYTICS (Live) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QP11YBY48H"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-QP11YBY48H');
-</script>
-
-
-  <!-- 💬 TRACK WHATSAPP CLICKS -->
-  <script>
-    document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        gtag('event', 'whatsapp_click', { 'event_category': 'Lead', 'event_label': window.location.pathname });
-      });
-    });
-  </script>
-
-  <!-- ❓FAQ SCHEMA for Rich Results -->
+  <!-- JSON-LD: FAQs + Breadcrumbs -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
+    "@context":"https://schema.org",
+    "@graph":[
       {
-        "@type": "Question",
-        "name": "What is included in Dubai holiday packages?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Our Dubai packages include hotels, daily breakfast, airport transfers, and popular tours like Desert Safari, City Tour, and Dhow Cruise." }
+        "@type":"FAQPage",
+        "mainEntity":[
+          {"@type":"Question","name":"What’s the difference between Standard and Premium Desert Safari?","acceptedAnswer":{"@type":"Answer","text":"Premium includes better camp seating (often VIP/sofa), upgraded buffet, sometimes table service and slightly longer dune-bashing. We’ll share both options while quoting."}},
+          {"@type":"Question","name":"Can I swap Dhow Cruise for Dubai Frame or MOTF?","acceptedAnswer":{"@type":"Answer","text":"Yes, you can replace or add experiences based on time and budget."}},
+          {"@type":"Question","name":"Are transfers private?","acceptedAnswer":{"@type":"Answer","text":"Default is shared transfers; private transfers can be added to all items."}},
+          {"@type":"Question","name":"What’s the best time for deals?","acceptedAnswer":{"@type":"Answer","text":"Summer has the sharpest deals; winter is peak—book early."}}
+        ]
       },
       {
-        "@type": "Question",
-        "name": "Do I need a visa to visit Dubai?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes, Indian citizens need a UAE tourist visa. Wander Wyze assists with visa processing as part of your package." }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I customize my Dubai itinerary?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely! All Wander Wyze Dubai packages can be customized for families, couples, or group travelers." }
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.wanderwyze.com/"},
+          {"@type":"ListItem","position":2,"name":"Dubai Holiday Packages","item":"https://www.wanderwyze.com/dubai-combo-deals.html"}
+        ]
       }
     ]
   }
   </script>
 
+  <!-- (Optional) Light auto-reply trigger to your function; safe if present -->
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      var f=document.getElementById('dubai-quote-form'); if(!f) return;
+      f.addEventListener('submit',function(){
+        try{
+          var payload={
+            name:(f.querySelector('[name="name"]')||{}).value||'',
+            email:(f.querySelector('[name="email"]')||{}).value||'',
+            phone:(f.querySelector('[name="phone"]')||{}).value||'',
+            combo:(f.querySelector('[name="combo"]')||{}).value||'',
+            page:'/dubai-combo-deals'
+          };
+          fetch('/.netlify/functions/auto-reply',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
+        }catch(e){}
+      });
+    });
+  </script>
 </body>
 </html>
