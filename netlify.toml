@@ -1,45 +1,54 @@
-# ===== Netlify configuration for wanderwyze.com =====
-
 [build]
-  # Your static files live here
-  publish = "public"
+  command = "npm run build"
+  publish = "dist"
 
 [functions]
-  directory    = "netlify/functions"
+  directory = "netlify/functions"
   node_bundler = "esbuild"
 
-# ---------- Pretty URLs for destination pages ----------
+[[redirects]]
+  from = "/explorer-club"
+  to = "/explorer-club.html"
+  status = 200
+
 [[redirects]]
   from = "/vietnam-tour-packages"
-  to   = "/vietnam-tour-packages.html"
+  to = "/vietnam-tour-packages.html"
   status = 200
 
 [[redirects]]
   from = "/dubai-combo-deals"
-  to   = "/dubai-combo-deals.html"
+  to = "/dubai-combo-deals.html"
   status = 200
 
 [[redirects]]
   from = "/kenya-safari-packages"
-  to   = "/kenya-safari-packages.html"
+  to = "/kenya-safari-packages.html"
   status = 200
 
-# ---------- Make /contact open the Contact section on the homepage ----------
+[[redirects]]
+  from = "/maldives-paradise"
+  to = "/maldives-paradise.html"
+  status = 200
+
+[[redirects]]
+  from = "/bali-cultural-journey"
+  to = "/bali-cultural-journey.html"
+  status = 200
+
 [[redirects]]
   from = "/contact"
-  to   = "/#contact"
+  to = "/#contact"
   status = 200
   force = true
 
 [[redirects]]
   from = "/contact.html"
-  to   = "/#contact"
+  to = "/#contact"
   status = 200
   force = true
 
-# (Optional) send anything unknown to the homepage (SPA-style fallback)
-# Uncomment if you ever need it.
-# [[redirects]]
-#   from = "/*"
-#   to   = "/index.html"
-#   status = 200
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
