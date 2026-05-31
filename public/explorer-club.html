@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wander Wyze Explorer Club | Founding Membership</title>
+  <meta name="description" content="Join Wander Wyze Explorer Club for ₹999/year. Get travel credits, member-only deals, priority support, and a chance to win sponsored holidays." />
+  <meta name="keywords" content="Wander Wyze Explorer Club, travel membership India, Goa giveaway, Wander Wyze Holidays, travel deals, travel membership" />
+
+  <meta property="og:title" content="Wander Wyze Explorer Club" />
+  <meta property="og:description" content="Become a founding member. Travel smarter, get rewarded, and get a chance to win sponsored holidays." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.wanderwyze.com/explorer-club" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #152238;
+      background: #f7fbff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid #e6eef7;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 20px;
+      color: #0f3b5f;
+    }
+
+    .brand span {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      color: #5d7188;
+      margin-top: 2px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #0f6b8f;
+      color: #ffffff;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      box-shadow: 0 10px 24px rgba(15, 107, 143, 0.22);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-align: center;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(15, 107, 143, 0.3);
+    }
+
+    .btn.secondary {
+      background: #ffffff;
+      color: #0f6b8f;
+      border: 1px solid #cce4ef;
+      box-shadow: none;
+    }
+
+    .btn.gold {
+      background: #f5a623;
+      color: #1c2430;
+      box-shadow: 0 10px 24px rgba(245, 166, 35, 0.24);
+    }
+
+    .hero {
+      padding: 72px 0 56px;
+      background: linear-gradient(135deg, #eaf8ff 0%, #ffffff 50%, #fff7e8 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: #fff3d6;
+      color: #835400;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.08;
+      margin-bottom: 18px;
+      color: #0d2d49;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #4a5e74;
+      margin-bottom: 24px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .price-box {
+      background: #ffffff;
+      border: 1px solid #e0edf6;
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 20px 50px rgba(13, 45, 73, 0.1);
+    }
+
+    .price-box h2 {
+      font-size: 28px;
+      color: #0f3b5f;
+      margin-bottom: 8px;
+    }
+
+    .price {
+      font-size: 44px;
+      font-weight: 900;
+      color: #0f6b8f;
+      margin: 8px 0;
+    }
+
+    .price small {
+      font-size: 18px;
+      color: #5d7188;
+    }
+
+    .quick-points {
+      margin: 20px 0;
+      list-style: none;
+    }
+
+    .quick-points li {
+      margin: 10px 0;
+      padding-left: 26px;
+      position: relative;
+      color: #31465c;
+    }
+
+    .quick-points li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #0f8f6b;
+      font-weight: 900;
+    }
+
+    .notice {
+      background: #fff9ea;
+      border: 1px solid #f3d89b;
+      color: #705000;
+      border-radius: 18px;
+      padding: 14px 16px;
+      font-size: 14px;
+      margin-top: 18px;
+    }
+
+    section {
+      padding: 58px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 34px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      color: #0d2d49;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #5d7188;
+      font-size: 17px;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e3edf5;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(13, 45, 73, 0.06);
+    }
+
+    .card h3 {
+      color: #0f3b5f;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .card p, .card li {
+      color: #4d6177;
+    }
+
+    .card ul {
+      padding-left: 18px;
+      margin-top: 8px;
+    }
+
+    .highlight {
+      background: #0d2d49;
+      color: #ffffff;
+      border-radius: 32px;
+      padding: 42px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .highlight h2, .highlight h3 {
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    .highlight p, .highlight li {
+      color: #dbe9f5;
+    }
+
+    .highlight ul {
+      margin-left: 18px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .step {
+      background: #ffffff;
+      border: 1px solid #e3edf5;
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #0f6b8f;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .terms, .faq, .contact-box {
+      background: #ffffff;
+      border: 1px solid #e3edf5;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(13, 45, 73, 0.05);
+    }
+
+    .terms ol {
+      padding-left: 20px;
+    }
+
+    .terms li {
+      margin-bottom: 10px;
+      color: #40556b;
+    }
+
+    details {
+      border-bottom: 1px solid #e8eff6;
+      padding: 18px 0;
+    }
+
+    details:last-child {
+      border-bottom: 0;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: #0f3b5f;
+      font-size: 17px;
+    }
+
+    details p {
+      color: #4d6177;
+      margin-top: 10px;
+    }
+
+    .cta {
+      text-align: center;
+      background: linear-gradient(135deg, #0f6b8f, #0d2d49);
+      color: #ffffff;
+      border-radius: 32px;
+      padding: 46px 24px;
+    }
+
+    .cta h2 {
+      color: #ffffff;
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      color: #dbe9f5;
+      margin-bottom: 20px;
+    }
+
+    .cta .btn {
+      background: #ffffff;
+      color: #0f6b8f;
+      margin: 6px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .contact-item {
+      background: #f7fbff;
+      border: 1px solid #e3edf5;
+      border-radius: 18px;
+      padding: 16px;
+      word-break: break-word;
+    }
+
+    .contact-item strong {
+      display: block;
+      color: #0f3b5f;
+      margin-bottom: 4px;
+    }
+
+    footer {
+      padding: 32px 0;
+      text-align: center;
+      color: #63778c;
+      font-size: 14px;
+      background: #ffffff;
+      border-top: 1px solid #e6eef7;
+    }
+
+    .footer-lines p {
+      margin: 5px 0;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .highlight {
+        grid-template-columns: 1fr;
+      }
+
+      .cards, .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .steps {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .cards, .steps, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-actions {
+        justify-content: flex-start;
+      }
+
+      .nav .btn {
+        padding: 10px 14px;
+        font-size: 14px;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .highlight {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="/" class="brand">Wander Wyze Holidays <span>Your Journey, Our Expertise</span></a>
+      <div class="nav-actions">
+        <a href="https://whatsapp.com/channel/0029Vb8lAKRDTkJzwNfDvq3f" target="_blank" rel="noopener" class="btn secondary">WhatsApp Channel</a>
+        <a href="#join" class="btn">Join Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Founding Membership Launch</span>
+          <h1>Become a Founding Member. Travel Smarter. Get Rewarded.</h1>
+          <p>Join the Wander Wyze Explorer Club and become part of our growing travel community. Get travel credits, member-only deals, priority support, and a chance to win sponsored holidays.</p>
+          <div class="hero-buttons">
+            <a href="#join" class="btn">Join Explorer Club</a>
+            <a href="#benefits" class="btn secondary">View Benefits</a>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <h2>Wander Wyze Explorer Club</h2>
+          <p>Founding Membership</p>
+          <div class="price">₹999 <small>/ year</small></div>
+          <ul class="quick-points">
+            <li>Chance to win a sponsored Goa couple holiday</li>
+            <li>₹1,000 Wander Wyze Travel Credit if not selected</li>
+            <li>Member-only travel deals and preferred rates</li>
+            <li>Priority travel support</li>
+            <li>Membership valid for 1 year from activation</li>
+          </ul>
+          <a href="#join" class="btn gold">Become a Founding Member</a>
+          <div class="notice">Payment automation is opening soon. For early interest, join through WhatsApp and our team will guide you.</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="highlight">
+          <div>
+            <h2>First Founding Member Giveaway</h2>
+            <p>To celebrate the launch of Wander Wyze Explorer Club, we are giving one lucky founding member a chance to win a sponsored Goa couple holiday.</p>
+            <p>Once we reach our first <strong>100 founding members</strong>, one lucky member will be selected for a sponsored Goa holiday for 2 people.</p>
+          </div>
+          <div>
+            <h3>Tentative Inclusions</h3>
+            <ul>
+              <li>3 Nights / 4 Days Goa couple holiday</li>
+              <li>Return flights included</li>
+              <li>4-star hotel stay</li>
+              <li>Breakfast included</li>
+              <li>For 2 people</li>
+              <li>Travel assistance by Wander Wyze Holidays</li>
+            </ul>
+            <p style="margin-top:14px;">Final inclusions will depend on availability, travel dates, airline fares, hotel options, and final giveaway terms.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Even If You Don’t Get Selected, You Still Win</h2>
+          <p>Every founding member who is not selected for the sponsored Goa holiday will receive a ₹1,000 Wander Wyze Travel Credit.</p>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <h3>₹1,000 Travel Credit</h3>
+            <p>Use it on eligible upcoming bookings through Wander Wyze Holidays.</p>
+          </div>
+          <div class="card">
+            <h3>Hotels ₹20,000+</h3>
+            <p>Redeem the credit on eligible hotel bookings of ₹20,000 or above.</p>
+          </div>
+          <div class="card">
+            <h3>Packages ₹50,000+</h3>
+            <p>Redeem the credit on eligible holiday packages or flights + hotel bookings of ₹50,000 or above.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="benefits">
+      <div class="container">
+        <div class="section-title">
+          <h2>What You Get as an Explorer Club Member</h2>
+          <p>Your membership is designed to give you real travel value, not just a chance-based reward.</p>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <h3>1. ₹1,000 Travel Credit</h3>
+            <p>Use your travel credit on your next eligible hotel or holiday package booking. The travel credit is valid for 12 months from membership activation.</p>
+          </div>
+          <div class="card">
+            <h3>2. Sponsored Holiday Chances</h3>
+            <p>The first giveaway is a Goa couple holiday. More sponsored holidays and travel rewards may be introduced in the future.</p>
+          </div>
+          <div class="card">
+            <h3>3. Member-Only Deals</h3>
+            <p>Get access to selected member-only hotel, flight, and package deals from time to time.</p>
+          </div>
+          <div class="card">
+            <h3>4. Preferred Travel Rates</h3>
+            <p>Wander Wyze Holidays works with travel suppliers and B2B platforms such as TBO, Tripjack, and other travel partners.</p>
+          </div>
+          <div class="card">
+            <h3>5. Priority Travel Support</h3>
+            <p>Members get priority support for travel planning, hotel suggestions, package quotes, and booking assistance.</p>
+          </div>
+          <div class="card">
+            <h3>6. Early Access to Offers</h3>
+            <p>Get early updates on special travel deals, holiday packages, festive offers, group departures, and partner offers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="highlight">
+          <div>
+            <h2>Better Value Than Online Travel Websites</h2>
+            <p>Our goal is to offer better value than major online travel websites whenever the same hotel, flight, room category, meal plan, travel date, and cancellation policy are available through our supplier network.</p>
+          </div>
+          <div>
+            <p>If you find a better online price before booking, you can share the screenshot or link with us. We will try to match it, beat it, or suggest a better-value alternative wherever possible.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>How It Works</h2>
+          <p>Simple process from joining to receiving your membership ID and benefits.</p>
+        </div>
+
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><h3>Join</h3><p>Register by paying ₹999 yearly membership fee once payment opens.</p></div>
+          <div class="step"><div class="step-num">2</div><h3>Get ID</h3><p>Your membership ID will be sent by email/WhatsApp within 24 hours after successful payment.</p></div>
+          <div class="step"><div class="step-num">3</div><h3>Stay Updated</h3><p>Follow Instagram and WhatsApp channel for updates.</p></div>
+          <div class="step"><div class="step-num">4</div><h3>Giveaway</h3><p>After 100 members, we announce the giveaway process.</p></div>
+          <div class="step"><div class="step-num">5</div><h3>Use Benefits</h3><p>Win the holiday or use your ₹1,000 travel credit.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Who Should Join?</h2>
+          <p>Explorer Club is perfect for travellers who want better value, support, and future travel rewards.</p>
+        </div>
+        <div class="cards">
+          <div class="card"><h3>Couples</h3><p>For couples who love short holidays, weekend escapes, and special stays.</p></div>
+          <div class="card"><h3>Families</h3><p>For families planning holidays, hotel stays, flights, and complete packages.</p></div>
+          <div class="card"><h3>Frequent Travellers</h3><p>For anyone planning multiple trips and wanting preferred travel support.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Important Terms & Conditions</h2>
+          <p>Please read the membership, travel credit, and giveaway terms before joining.</p>
+        </div>
+        <div class="terms">
+          <ol>
+            <li>Wander Wyze Explorer Club membership fee is ₹999 per year.</li>
+            <li>Membership is valid for 1 year from the date of joining / membership activation.</li>
+            <li>Membership is non-refundable once purchased.</li>
+            <li>The sponsored Goa holiday giveaway will be activated after the first 100 founding members have joined.</li>
+            <li>One eligible member will be selected for the sponsored Goa couple holiday as per the final selection process announced by Wander Wyze Holidays.</li>
+            <li>Giveaway inclusions, hotel category, flights, dates, and travel validity are subject to availability and final terms.</li>
+            <li>Travel dates may be fixed or restricted based on flight and hotel availability.</li>
+            <li>The giveaway is not redeemable for cash.</li>
+            <li>The ₹1,000 travel credit is available for members who are not selected for the sponsored holiday.</li>
+            <li>₹1,000 travel credit is valid for 12 months from membership activation.</li>
+            <li>₹1,000 travel credit can be used on eligible hotel bookings of ₹20,000 or above.</li>
+            <li>₹1,000 travel credit can be used on eligible holiday package / flights + hotel bookings of ₹50,000 or above.</li>
+            <li>Travel credit is valid only for bookings made through Wander Wyze Holidays.</li>
+            <li>Travel credit is not redeemable for cash and cannot be transferred unless approved by Wander Wyze Holidays.</li>
+            <li>Member-only rates and preferred travel deals are subject to travel dates, availability, supplier pricing, and booking category.</li>
+            <li>Wander Wyze Holidays will always try to offer members better value than major online travel websites wherever the same hotel, flight, room category, meal plan, travel date, and cancellation policy are available through our supplier network.</li>
+            <li>If a member finds a better online price for the exact same travel option before booking, they can share the screenshot/link with us and we will try to match it, beat it, or suggest a better-value alternative wherever possible.</li>
+            <li>Membership ID will be sent by email/WhatsApp within 24 hours after successful payment.</li>
+            <li>Offers, discounts, and benefits may change from time to time.</li>
+            <li>Final decision regarding eligibility, redemption, offers, and giveaway terms will remain with Wander Wyze Holidays.</li>
+            <li>By joining, the member agrees to receive travel updates, offers, and communication from Wander Wyze Holidays.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq">
+          <details open>
+            <summary>What is Wander Wyze Explorer Club?</summary>
+            <p>Wander Wyze Explorer Club is a yearly travel membership by Wander Wyze Holidays. Members get travel credits, member-only deals, priority support, early access to offers, and a chance to win sponsored holidays.</p>
+          </details>
+          <details>
+            <summary>What is the membership price?</summary>
+            <p>The founding membership price is ₹999 per year.</p>
+          </details>
+          <details>
+            <summary>How long is the membership valid?</summary>
+            <p>The membership is valid for 1 year from the date of joining / membership activation.</p>
+          </details>
+          <details>
+            <summary>What is the Goa giveaway?</summary>
+            <p>Once we reach our first 100 founding members, one lucky member will be selected for a sponsored Goa couple holiday for 2 people.</p>
+          </details>
+          <details>
+            <summary>What is included in the Goa giveaway?</summary>
+            <p>The tentative giveaway includes a 3 Nights / 4 Days Goa couple holiday with return flights, 4-star hotel stay, breakfast, and travel assistance by Wander Wyze Holidays. Final inclusions will depend on dates, availability, flights, hotel options, and final giveaway terms.</p>
+          </details>
+          <details>
+            <summary>What if I don’t win the Goa holiday?</summary>
+            <p>You will still receive a ₹1,000 Wander Wyze Travel Credit, which can be used on eligible future bookings through Wander Wyze Holidays.</p>
+          </details>
+          <details>
+            <summary>How long is the ₹1,000 travel credit valid?</summary>
+            <p>The ₹1,000 travel credit is valid for 12 months from membership activation.</p>
+          </details>
+          <details>
+            <summary>Can I use the ₹1,000 credit on any booking?</summary>
+            <p>The credit can be used on eligible hotel bookings of ₹20,000 or above, or eligible holiday package / flights + hotel bookings of ₹50,000 or above.</p>
+          </details>
+          <details>
+            <summary>Is the ₹1,000 credit cash?</summary>
+            <p>No. It is a travel credit and can only be used on eligible bookings through Wander Wyze Holidays. It is not redeemable for cash.</p>
+          </details>
+          <details>
+            <summary>Will I get cheaper rates than online websites?</summary>
+            <p>As an Explorer Club member, you get access to Wander Wyze member-only deals and preferred travel rates through our supplier network. Our goal is to offer better value than major online travel websites wherever possible. If you find a better online price for the exact same hotel, flight, room category, meal plan, dates, and cancellation policy before booking, you can share it with us. We will try to match it, beat it, or suggest a better-value option wherever available.</p>
+          </details>
+          <details>
+            <summary>How will I get my membership ID?</summary>
+            <p>Membership ID will be sent by email/WhatsApp within 24 hours after successful payment.</p>
+          </details>
+          <details>
+            <summary>Can I cancel my membership and get a refund?</summary>
+            <p>No. The membership fee is non-refundable once purchased.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="join">
+      <div class="container">
+        <div class="cta">
+          <h2>Join Wander Wyze Explorer Club</h2>
+          <p>Become a founding member today and be part of our travel community from the beginning.</p>
+          <p><strong>Founding Membership: ₹999 / year</strong></p>
+          <a class="btn" href="https://wa.me/919833834836?text=Hi%20Wander%20Wyze%2C%20I%20want%20to%20join%20the%20Explorer%20Club%20founding%20membership." target="_blank" rel="noopener">Join via WhatsApp</a>
+          <a class="btn" href="https://whatsapp.com/channel/0029Vb8lAKRDTkJzwNfDvq3f" target="_blank" rel="noopener">Join WhatsApp Channel</a>
+          <p style="margin-top:18px; font-size:14px;">Razorpay payment automation will be added soon. Once payment is live, your membership ID will be sent by email/WhatsApp within 24 hours after successful payment.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact & Business Details</h2>
+          <p>For questions, early membership interest, or travel enquiries, connect with Wander Wyze Holidays.</p>
+        </div>
+        <div class="contact-box">
+          <div class="contact-grid">
+            <div class="contact-item">
+              <strong>WhatsApp</strong>
+              <a href="https://wa.me/919833834836" target="_blank" rel="noopener">+91 98338 34836</a>
+            </div>
+            <div class="contact-item">
+              <strong>Email</strong>
+              <a href="mailto:info@wanderwyze.com">info@wanderwyze.com</a>
+            </div>
+            <div class="contact-item">
+              <strong>Instagram</strong>
+              @wanderwyzeexplorerclub
+            </div>
+          </div>
+          <div class="contact-grid" style="margin-top:16px;">
+            <div class="contact-item">
+              <strong>Company Name</strong>
+              Wander Wyze Holidays
+            </div>
+            <div class="contact-item">
+              <strong>GSTIN</strong>
+              07AAEFW9915G1ZU
+            </div>
+            <div class="contact-item">
+              <strong>Registered Address</strong>
+              Flat No. 3, H-4-28, Mahavir Enclave, Bangali Colony, New Delhi, Delhi - 110045
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-lines">
+      <p><strong>Wander Wyze Holidays</strong> — Your Journey, Our Expertise.</p>
+      <p>WhatsApp: +91 98338 34836 | Email: info@wanderwyze.com | Instagram: @wanderwyzeexplorerclub</p>
+      <p>GSTIN: 07AAEFW9915G1ZU</p>
+      <p>© Wander Wyze Holidays. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
