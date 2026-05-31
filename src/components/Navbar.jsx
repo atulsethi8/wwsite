@@ -19,6 +19,7 @@ const Navbar = () => {
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'Destinations', path: '/destinations' },
+    { name: 'Explorer Club', path: '/explorer-club', external: true },
     { name: 'About Us', path: '/about' },
     { name: 'Contact', path: '/contact' }
   ]
@@ -53,18 +54,31 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                                 className={`nav-link ${
-                   isScrolled ? 'text-gray-800' : 'text-gray-900'
-                 } ${
-                   location.pathname === item.path ? 'text-primary-600' : ''
-                 }`}
-              >
-                {item.name}
-              </Link>
-            ))}
+  item.external ? (
+    <a
+      key={item.name}
+      href={item.path}
+      className={`nav-link ${
+        isScrolled ? 'text-gray-800' : 'text-gray-900'
+      }`}
+    >
+      {item.name}
+    </a>
+  ) : (
+    <Link
+      key={item.name}
+      to={item.path}
+      className={`nav-link ${
+        isScrolled ? 'text-gray-800' : 'text-gray-900'
+      } ${
+        location.pathname === item.path ? 'text-primary-600' : ''
+      }`}
+    >
+      {item.name}
+    </Link>
+  )
+))}
+            
           </div>
 
           {/* Mobile Menu Button */}
@@ -91,17 +105,28 @@ const Navbar = () => {
             <div className="container-custom py-4">
               <div className="flex flex-col space-y-4">
                 {navItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.path}
-                    onClick={() => setIsOpen(false)}
-                    className={`text-gray-800 hover:text-primary-600 font-medium transition-colors duration-300 ${
-                      location.pathname === item.path ? 'text-primary-600' : ''
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+  item.external ? (
+    <a
+      key={item.name}
+      href={item.path}
+      onClick={() => setIsOpen(false)}
+      className="text-gray-800 hover:text-primary-600 font-medium transition-colors duration-300"
+    >
+      {item.name}
+    </a>
+  ) : (
+    <Link
+      key={item.name}
+      to={item.path}
+      onClick={() => setIsOpen(false)}
+      className={`text-gray-800 hover:text-primary-600 font-medium transition-colors duration-300 ${
+        location.pathname === item.path ? 'text-primary-600' : ''
+      }`}
+    >
+      {item.name}
+    </Link>
+  )
+))}
               </div>
             </div>
           </motion.div>
