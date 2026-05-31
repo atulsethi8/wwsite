@@ -1,12 +1,10 @@
 # Serve landing pages directly
+/kenya-safari-packages /kenya-safari-packages.html 200
+/vietnam-tour-packages /vietnam-tour-packages.html 200
+/dubai-combo-deals /dubai-combo-deals.html 200
+/maldives-paradise /maldives-paradise.html 200
+/bali-cultural-journey /bali-cultural-journey.html 200
+/explorer-club /explorer-club.html 200
 
-/kenya-safari-packages      /kenya-safari-packages.html      200
-/vietnam-tour-packages      /vietnam-tour-packages.html      200
-/dubai-combo-deals          /dubai-combo-deals.html          200
-/maldives-paradise          /maldives-paradise.html          200
-/bali-cultural-journey      /bali-cultural-journey.html      200
-/explorer-club              /explorer-club.html              200
-
-# Keep this LAST: SPA fallback for everything else
-
-/*                          /index.html                      200
+# Keep this LAST
+/* /index.html 200
