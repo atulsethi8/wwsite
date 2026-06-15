@@ -707,7 +707,14 @@
       <p>Become a founding member today and be part of our travel community from the beginning.</p>
       <p><strong>Founding Membership: ₹999 / year</strong></p>
 
-      <button class="btn" id="rzp-button" type="button">Pay ₹999 & Join Now</button>
+      <div style="max-width:520px; margin:20px auto; text-align:left;">
+  <input id="memberName" type="text" placeholder="Full Name" required style="width:100%; padding:14px; margin:8px 0; border-radius:10px; border:1px solid #ddd;">
+  <input id="memberMobile" type="tel" placeholder="Mobile Number" required style="width:100%; padding:14px; margin:8px 0; border-radius:10px; border:1px solid #ddd;">
+  <input id="memberEmail" type="email" placeholder="Email Address" required style="width:100%; padding:14px; margin:8px 0; border-radius:10px; border:1px solid #ddd;">
+  <input id="memberCity" type="text" placeholder="City" required style="width:100%; padding:14px; margin:8px 0; border-radius:10px; border:1px solid #ddd;">
+</div>
+
+<button class="btn" id="rzp-button" type="button">Pay ₹999 & Join Now</button>
 
       <a class="btn" href="https://whatsapp.com/channel/0029Vb8lAKRDTkJzwNfDvq3f" target="_blank" rel="noopener">Join WhatsApp Channel</a>
 
@@ -770,6 +777,16 @@
 
 <script>
   document.getElementById("rzp-button").onclick = function (e) {
+    var memberName = document.getElementById("memberName").value.trim();
+    var memberMobile = document.getElementById("memberMobile").value.trim();
+    var memberEmail = document.getElementById("memberEmail").value.trim();
+    var memberCity = document.getElementById("memberCity").value.trim();
+
+    if (!memberName || !memberMobile || !memberEmail || !memberCity) {
+      alert("Please fill Full Name, Mobile Number, Email and City before payment.");
+      return;
+    }
+
     var options = {
       "key": "rzp_live_T1tYQ73avJUBVV",
       "amount": "99900",
@@ -779,17 +796,21 @@
       "image": "",
       "handler": function (response) {
         alert("Payment successful! Your Payment ID is: " + response.razorpay_payment_id);
-        window.location.href = "/payment-success.html?payment_id=" + response.razorpay_payment_id;
+        window.location.href = "/payment-success.html?payment_id=" + response.razorpay_payment_id + "&name=" + encodeURIComponent(memberName) + "&mobile=" + encodeURIComponent(memberMobile) + "&email=" + encodeURIComponent(memberEmail) + "&city=" + encodeURIComponent(memberCity);
       },
       "prefill": {
-        "name": "",
-        "email": "",
-        "contact": ""
-      },
+  "name": memberName,
+  "email": memberEmail,
+  "contact": memberMobile
+},
       "notes": {
-        "membership": "Wander Wyze Explorer Club",
-        "plan": "Founding Membership"
-      },
+  "membership": "Wander Wyze Explorer Club",
+  "plan": "Founding Membership",
+  "name": memberName,
+  "mobile": memberMobile,
+  "email": memberEmail,
+  "city": memberCity
+},
       "theme": {
         "color": "#0f6b8f"
       }
