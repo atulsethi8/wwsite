@@ -779,7 +779,7 @@
       "image": "",
       "handler": function (response) {
         alert("Payment successful! Your Payment ID is: " + response.razorpay_payment_id);
-        window.location.href = "https://wa.me/919833834836?text=Hi%20Wander%20Wyze%2C%20I%20have%20paid%20for%20Explorer%20Club.%20My%20Payment%20ID%20is%20" + response.razorpay_payment_id;
+        window.location.href = "/payment-success.html?payment_id=" + response.razorpay_payment_id;
       },
       "prefill": {
         "name": "",
