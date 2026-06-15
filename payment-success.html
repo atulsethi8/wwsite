@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Successful | Wander Wyze Explorer Club</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#f7fbff;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+margin:0;
+padding:20px;
+}
+
+.card{
+background:#fff;
+max-width:700px;
+width:100%;
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.tick{
+font-size:70px;
+color:#28a745;
+margin-bottom:15px;
+}
+
+h1{
+color:#0f3b5f;
+margin-bottom:15px;
+}
+
+p{
+color:#555;
+line-height:1.6;
+}
+
+.payment-id{
+background:#f5f8fb;
+padding:12px;
+border-radius:10px;
+margin:20px 0;
+font-weight:bold;
+}
+
+.btn{
+display:inline-block;
+background:#0f6b8f;
+color:#fff;
+padding:14px 24px;
+border-radius:30px;
+text-decoration:none;
+margin:10px;
+font-weight:bold;
+}
+
+.btn:hover{
+opacity:.9;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="tick">✅</div>
+
+<h1>Payment Successful!</h1>
+
+<p>
+Welcome to the Wander Wyze Explorer Club.
+Your payment has been received successfully.
+</p>
+
+<div class="payment-id" id="payment-id">
+Payment ID: Loading...
+</div>
+
+<p>
+Your membership will be activated within 24 hours and your Membership ID will be shared via WhatsApp or Email.
+</p>
+
+<a class="btn" href="https://wanderwyze.com">
+Back to Website
+</a>
+
+<a class="btn" href="https://whatsapp.com/channel/0029Vb8lAKRDTkJzwNfDvq3f" target="_blank">
+Join WhatsApp Channel
+</a>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const paymentId = params.get('payment_id');
+
+if(paymentId){
+document.getElementById('payment-id').innerHTML =
+'Payment ID: ' + paymentId;
+}
+</script>
+
+</body>
+</html>
