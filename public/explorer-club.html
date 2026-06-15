@@ -481,7 +481,7 @@
             <li>Membership valid for 1 year from activation</li>
           </ul>
           <a href="#join" class="btn gold">Become a Founding Member</a>
-          <div class="notice">Payment automation is opening soon. For early interest, join through WhatsApp and our team will guide you.</div>
+          <div class="notice">Secure payment powered by Razorpay. Membership ID will be shared within 24 hours after successful payment.</div>
         </div>
       </div>
     </section>
@@ -701,17 +701,22 @@
     </section>
 
     <section id="join">
-      <div class="container">
-        <div class="cta">
-          <h2>Join Wander Wyze Explorer Club</h2>
-          <p>Become a founding member today and be part of our travel community from the beginning.</p>
-          <p><strong>Founding Membership: ₹999 / year</strong></p>
-          <a class="btn" href="https://wa.me/919833834836?text=Hi%20Wander%20Wyze%2C%20I%20want%20to%20join%20the%20Explorer%20Club%20founding%20membership." target="_blank" rel="noopener">Join via WhatsApp</a>
-          <a class="btn" href="https://whatsapp.com/channel/0029Vb8lAKRDTkJzwNfDvq3f" target="_blank" rel="noopener">Join WhatsApp Channel</a>
-          <p style="margin-top:18px; font-size:14px;">Razorpay payment automation will be added soon. Once payment is live, your membership ID will be sent by email/WhatsApp within 24 hours after successful payment.</p>
-        </div>
-      </div>
-    </section>
+  <div class="container">
+    <div class="cta">
+      <h2>Join Wander Wyze Explorer Club</h2>
+      <p>Become a founding member today and be part of our travel community from the beginning.</p>
+      <p><strong>Founding Membership: ₹999 / year</strong></p>
+
+      <button class="btn" id="rzp-button" type="button">Pay ₹999 & Join Now</button>
+
+      <a class="btn" href="https://whatsapp.com/channel/0029Vb8lAKRDTkJzwNfDvq3f" target="_blank" rel="noopener">Join WhatsApp Channel</a>
+
+      <p style="margin-top:18px; font-size:14px;">
+        After successful payment, your membership ID will be sent by email/WhatsApp within 24 hours.
+      </p>
+    </div>
+  </div>
+</section>
 
     <section>
       <div class="container">
@@ -761,5 +766,39 @@
       <p>© Wander Wyze Holidays. All rights reserved.</p>
     </div>
   </footer>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+  document.getElementById("rzp-button").onclick = function (e) {
+    var options = {
+      "key": "rzp_live_T1tYQ73avJUBVV",
+      "amount": "99900",
+      "currency": "INR",
+      "name": "Wander Wyze Holidays",
+      "description": "Explorer Club Founding Membership - 1 Year",
+      "image": "",
+      "handler": function (response) {
+        alert("Payment successful! Your Payment ID is: " + response.razorpay_payment_id);
+        window.location.href = "https://wa.me/919833834836?text=Hi%20Wander%20Wyze%2C%20I%20have%20paid%20for%20Explorer%20Club.%20My%20Payment%20ID%20is%20" + response.razorpay_payment_id;
+      },
+      "prefill": {
+        "name": "",
+        "email": "",
+        "contact": ""
+      },
+      "notes": {
+        "membership": "Wander Wyze Explorer Club",
+        "plan": "Founding Membership"
+      },
+      "theme": {
+        "color": "#0f6b8f"
+      }
+    };
+
+    var rzp1 = new Razorpay(options);
+    rzp1.open();
+    e.preventDefault();
+  };
+</script>
 </body>
 </html>
