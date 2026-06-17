@@ -794,23 +794,33 @@
       "name": "Wander Wyze Holidays",
       "description": "Explorer Club Founding Membership - 1 Year",
       "image": "",
-      "handler": function (response) {
-  fetch("https://script.google.com/macros/s/AKfycbz5TsDgjTj468wiFAe94L4s3ej68CuBlRCyg6TAcOKUM-AI4uk79ivbm_MKpiGuuF8BPg/exec", {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      name: memberName,
-      mobile: memberMobile,
-      email: memberEmail,
-      city: memberCity,
-      paymentId: response.razorpay_payment_id
-    })
-  });
+      "handler": async function (response) {
+  try {
+    await fetch("https://script.google.com/macros/s/AKfycbz5TsDgjTj468wiFAe94L4s3ej68CuBlRCyg6TAcOKUM-AI4uk79ivbm_MKpiGuuF8BPg/exec", {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: memberName,
+        mobile: memberMobile,
+        email: memberEmail,
+        city: memberCity,
+        paymentId: response.razorpay_payment_id
+      })
+    });
 
-  window.location.href = "/payment-success.html?payment_id=" + response.razorpay_payment_id + "&name=" + encodeURIComponent(memberName) + "&mobile=" + encodeURIComponent(memberMobile) + "&email=" + encodeURIComponent(memberEmail) + "&city=" + encodeURIComponent(memberCity);
+    window.location.href =
+      "/payment-success.html?payment_id=" + response.razorpay_payment_id +
+      "&name=" + encodeURIComponent(memberName) +
+      "&mobile=" + encodeURIComponent(memberMobile) +
+      "&email=" + encodeURIComponent(memberEmail) +
+      "&city=" + encodeURIComponent(memberCity);
+
+  } catch (error) {
+    alert("Payment successful, but there was a delay in membership confirmation. Please WhatsApp us with your payment ID: " + response.razorpay_payment_id);
+  }
 },
       "prefill": {
   "name": memberName,
