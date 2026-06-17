@@ -1,113 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Payment Successful | Wander Wyze Explorer Club</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Successful | Wander Wyze Explorer Club</title>
+  <meta name="description" content="Your Wander Wyze Explorer Club membership payment was successful." />
 
-<style>
-body{
-font-family:Arial,sans-serif;
-background:#f7fbff;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-margin:0;
-padding:20px;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-.card{
-background:#fff;
-max-width:700px;
-width:100%;
-padding:40px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
-text-align:center;
-}
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #eaf8ff 0%, #ffffff 50%, #fff7e8 100%);
+      color: #152238;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
 
-.tick{
-font-size:70px;
-color:#28a745;
-margin-bottom:15px;
-}
+    header {
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid #e6eef7;
+      padding: 16px 0;
+    }
 
-h1{
-color:#0f3b5f;
-margin-bottom:15px;
-}
+    .container {
+      width: min(900px, 92%);
+      margin: 0 auto;
+    }
 
-p{
-color:#555;
-line-height:1.6;
-}
+    .brand {
+      font-weight: 800;
+      font-size: 20px;
+      color: #0f3b5f;
+      text-decoration: none;
+    }
 
-.payment-id{
-background:#f5f8fb;
-padding:12px;
-border-radius:10px;
-margin:20px 0;
-font-weight:bold;
-}
+    .brand span {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      color: #5d7188;
+      margin-top: 2px;
+    }
 
-.btn{
-display:inline-block;
-background:#0f6b8f;
-color:#fff;
-padding:14px 24px;
-border-radius:30px;
-text-decoration:none;
-margin:10px;
-font-weight:bold;
-}
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 46px 0;
+    }
 
-.btn:hover{
-opacity:.9;
-}
-</style>
+    .success-card {
+      background: #ffffff;
+      border: 1px solid #e0edf6;
+      border-radius: 30px;
+      padding: 36px;
+      box-shadow: 0 20px 50px rgba(13, 45, 73, 0.1);
+      text-align: center;
+    }
+
+    .check {
+      width: 74px;
+      height: 74px;
+      border-radius: 50%;
+      background: #0f8f6b;
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      color: #0d2d49;
+      font-size: clamp(30px, 5vw, 46px);
+      margin-bottom: 12px;
+      line-height: 1.15;
+    }
+
+    .subtitle {
+      color: #4a5e74;
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+
+    .details {
+      background: #f7fbff;
+      border: 1px solid #e3edf5;
+      border-radius: 22px;
+      padding: 20px;
+      text-align: left;
+      margin: 22px auto;
+      max-width: 580px;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      border-bottom: 1px solid #e6eef7;
+      padding: 10px 0;
+      word-break: break-word;
+    }
+
+    .detail-row:last-child {
+      border-bottom: 0;
+    }
+
+    .detail-row strong {
+      color: #0f3b5f;
+      min-width: 130px;
+    }
+
+    .notice {
+      background: #fff9ea;
+      border: 1px solid #f3d89b;
+      color: #705000;
+      border-radius: 18px;
+      padding: 14px 16px;
+      font-size: 15px;
+      margin: 20px auto;
+      max-width: 650px;
+    }
+
+    .next-steps {
+      text-align: left;
+      max-width: 650px;
+      margin: 24px auto 0;
+    }
+
+    .next-steps h2 {
+      color: #0f3b5f;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .next-steps ul {
+      padding-left: 22px;
+      color: #40556b;
+    }
+
+    .next-steps li {
+      margin: 8px 0;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #0f6b8f;
+      color: #ffffff;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(15, 107, 143, 0.22);
+    }
+
+    .btn.gold {
+      background: #f5a623;
+      color: #1c2430;
+    }
+
+    .btn.secondary {
+      background: #ffffff;
+      color: #0f6b8f;
+      border: 1px solid #cce4ef;
+      box-shadow: none;
+    }
+
+    footer {
+      padding: 24px 0;
+      text-align: center;
+      color: #63778c;
+      font-size: 14px;
+      background: #ffffff;
+      border-top: 1px solid #e6eef7;
+    }
+
+    @media (max-width: 620px) {
+      .success-card {
+        padding: 26px 18px;
+      }
+
+      .detail-row {
+        flex-direction: column;
+        gap: 2px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <header>
+    <div class="container">
+      <a href="/" class="brand">
+        Wander Wyze Holidays
+        <span>Your Journey, Our Expertise</span>
+      </a>
+    </div>
+  </header>
 
-<div class="card">
+  <main>
+    <div class="container">
+      <div class="success-card">
+        <div class="check">✓</div>
 
-<div class="tick">✅</div>
+        <h1>Payment Successful</h1>
+        <p class="subtitle">
+          Thank you for joining Wander Wyze Explorer Club.
+        </p>
 
-<h1>Payment Successful!</h1>
+        <div class="details">
+          <div class="detail-row">
+            <strong>Name</strong>
+            <span id="displayName">-</span>
+          </div>
 
-<p>
-Welcome to the Wander Wyze Explorer Club.
-Your payment has been received successfully.
-</p>
+          <div class="detail-row">
+            <strong>Email</strong>
+            <span id="displayEmail">-</span>
+          </div>
 
-<div class="payment-id" id="payment-id">
-Payment ID: Loading...
-</div>
+          <div class="detail-row">
+            <strong>Mobile</strong>
+            <span id="displayMobile">-</span>
+          </div>
 
-<p>
-Your membership will be activated within 24 hours and your Membership ID will be shared via WhatsApp or Email.
-</p>
+          <div class="detail-row">
+            <strong>Payment ID</strong>
+            <span id="displayPayment">-</span>
+          </div>
+        </div>
 
-<a class="btn" href="https://wanderwyze.com">
-Back to Website
-</a>
+        <div class="notice">
+          Your membership has been received successfully. Your welcome email with membership details should arrive shortly. Your digital membership card will be shared on WhatsApp/email within 24 hours.
+        </div>
 
-<a class="btn" href="https://whatsapp.com/channel/0029Vb8lAKRDTkJzwNfDvq3f" target="_blank">
-Join WhatsApp Channel
-</a>
+        <div class="next-steps">
+          <h2>What happens next?</h2>
+          <ul>
+            <li>Your Wander Wyze Explorer Club membership will be recorded in our system.</li>
+            <li>You should receive your welcome email with membership details shortly.</li>
+            <li>Your digital membership card will be shared on WhatsApp/email within 24 hours.</li>
+            <li>You can now follow our WhatsApp Channel for member updates, deals and giveaway announcements.</li>
+          </ul>
+        </div>
 
-</div>
+        <div class="buttons">
+          <a class="btn gold" href="https://whatsapp.com/channel/0029Vb8lAKRDTkJzwNfDvq3f" target="_blank" rel="noopener">
+            Join WhatsApp Channel
+          </a>
 
-<script>
-const params = new URLSearchParams(window.location.search);
-const paymentId = params.get('payment_id');
+          <a class="btn" id="whatsappHelp" href="https://wa.me/919833834836" target="_blank" rel="noopener">
+            Message Us on WhatsApp
+          </a>
 
-if(paymentId){
-document.getElementById('payment-id').innerHTML =
-'Payment ID: ' + paymentId;
-}
-</script>
+          <a class="btn secondary" href="/">
+            Back to Website
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
 
+  <footer>
+    <div class="container">
+      <p><strong>Wander Wyze Holidays</strong> — Your Journey, Our Expertise.</p>
+      <p>WhatsApp: +91 98338 34836 | Email: info@wanderwyze.com | Instagram: @wanderwyzeexplorerclub</p>
+    </div>
+  </footer>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    const name = params.get("name") || "";
+    const email = params.get("email") || "";
+    const mobile = params.get("mobile") || "";
+    const paymentId = params.get("payment_id") || "";
+
+    document.getElementById("displayName").textContent = name || "-";
+    document.getElementById("displayEmail").textContent = email || "-";
+    document.getElementById("displayMobile").textContent = mobile || "-";
+    document.getElementById("displayPayment").textContent = paymentId || "-";
+
+    const whatsappText =
+      "Hi Wander Wyze, I have successfully joined Wander Wyze Explorer Club." +
+      "%0A%0AName: " + encodeURIComponent(name) +
+      "%0AMobile: " + encodeURIComponent(mobile) +
+      "%0AEmail: " + encodeURIComponent(email) +
+      "%0APayment ID: " + encodeURIComponent(paymentId) +
+      "%0A%0APlease share my digital membership card.";
+
+    document.getElementById("whatsappHelp").href =
+      "https://wa.me/919833834836?text=" + whatsappText;
+  </script>
 </body>
 </html>
