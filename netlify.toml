@@ -57,6 +57,46 @@
   status = 200
 
 [[redirects]]
+  from = "/sri-lanka-tour-packages"
+  to = "/sri-lanka-tour-packages.html"
+  status = 200
+
+[[redirects]]
+  from = "/mauritius-holiday-packages"
+  to = "/mauritius-holiday-packages.html"
+  status = 200
+
+[[redirects]]
+  from = "/azerbaijan-baku-packages"
+  to = "/azerbaijan-baku-packages.html"
+  status = 200
+
+[[redirects]]
+  from = "/georgia-tour-packages"
+  to = "/georgia-tour-packages.html"
+  status = 200
+
+[[redirects]]
+  from = "/europe-tour-packages"
+  to = "/europe-tour-packages.html"
+  status = 200
+
+[[redirects]]
+  from = "/albania-montenegro-packages"
+  to = "/albania-montenegro-packages.html"
+  status = 200
+
+[[redirects]]
+  from = "/andaman-tour-packages"
+  to = "/andaman-tour-packages.html"
+  status = 200
+
+[[redirects]]
+  from = "/meghalaya-shillong-packages"
+  to = "/meghalaya-shillong-packages.html"
+  status = 200
+
+[[redirects]]
   from = "/contact"
   to = "/#contact"
   status = 200
