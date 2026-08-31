@@ -1,15 +1,15 @@
 import { useState, useMemo } from "react";
-import { Star } from "lucide-react";
+import { Star, ExternalLink } from "lucide-react";
 
 const GOOGLE_REVIEWS_URL =
-  "https://www.google.com/search?kgmid=/g/11wnmq6793&hl=en-IN&q=Wander+Wyze+Holidays&shndl=30&shem=lcuae,lsptbl1c,sdl1pfh&source=sh/x/loc/osrp/m5/1&kgs=f33c1bdf7ecdfe72&utm_source=lcuae,lsptbl1c,sdl1pfh,sh/x/loc/osrp/m5/1#lrd=0x390d0181e6b3ed1b:0x58695912a3a6a8fe,1";
+  "https://www.google.com/search?q=wander+wyze+holidays+delhi&oq=wand&gs_lcrp=EgZjaHJvbWUqCAgCEEUYJxg7MgYIABBFGDwyBggBEEUYQTIICAIQRRgnGDsyCAgDEEUYJxg7MgYIBBBFGDkyBggFEEUYPDIGCAYQRRg8MgYIBxBFGDzSAQg2OTE5ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8#lrd=0x390d0181e6b3ed1b:0x58695912a3a6a8fe,1,,,,";
 
 const slides = [
   {
     id: "hema",
     name: "Hema Jyala",
     location: "Maldives",
-    title: "The Trust Builder!",
+    title: "Flawless Maldives Planning",
     rating: 5,
     img: "/images/testimonials/hema-jyala.png",
     text:
@@ -19,7 +19,7 @@ const slides = [
     id: "riddhi",
     name: "Riddhi Khandelwal",
     location: "Dubai",
-    title: "The Reliability Champion!",
+    title: "Smooth & Stress-Free Dubai Trip",
     rating: 5,
     img: "/images/testimonials/riddhi-khandelwal.png",
     text:
@@ -29,7 +29,7 @@ const slides = [
     id: "pawan",
     name: "Pawan Dabas",
     location: "Australia & Singapore",
-    title: "The Personalization Powerhouse",
+    title: "Personalised Multi-Country Planning",
     rating: 5,
     img: "/images/testimonials/pawan-dabas.png",
     text:
@@ -39,7 +39,7 @@ const slides = [
     id: "mayank",
     name: "Mayank Awasthi",
     location: "",
-    title: "The Value Proposition!",
+    title: "Great Deals & Value",
     rating: 5,
     img: "/images/testimonials/mayank-awasthi.png",
     text:
@@ -49,7 +49,7 @@ const slides = [
     id: "jaikrit",
     name: "Jaikrit Singh Rawat",
     location: "Azerbaijan",
-    title: "The Professional Seal",
+    title: "Seamless Azerbaijan Experience",
     rating: 5,
     img: "/images/testimonials/jaikrit-singh-rawat.png",
     text:
@@ -59,7 +59,7 @@ const slides = [
     id: "bhavya",
     name: "Bhavya Bhardwaj",
     location: "Dubai",
-    title: "The Ultimate Experience Creator",
+    title: "Thoughtfully Curated From Start to Finish",
     rating: 5,
     img: "/images/testimonials/bhavya-bhardwaj.png",
     text:
@@ -137,6 +137,9 @@ export default function TestimonialsCarousel() {
               </div>
 
               <div className="pt-8 text-center">
+                <div className="mb-2 inline-flex items-center gap-1 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">
+                  Google Review
+                </div>
                 <h3 className="text-lg font-bold text-gray-900">
                   {s.name} {s.location ? <span className="text-gray-500">({s.location})</span> : null}
                 </h3>
@@ -149,7 +152,6 @@ export default function TestimonialsCarousel() {
 
                 <p className="mt-2 text-primary-600 font-semibold">{s.title}</p>
 
-                {/* EXACT 5 lines with ellipsis – no quotes, no manual trimming */}
                 <p
                   className="mt-3 text-gray-700"
                   style={{
@@ -166,10 +168,10 @@ export default function TestimonialsCarousel() {
                 <a
                   href={GOOGLE_REVIEWS_URL}
                   target="_blank"
-                  rel="noopener"
-                  className="mt-4 inline-block text-primary-600 hover:text-primary-700 font-semibold"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-1.5 text-primary-600 hover:text-primary-700 font-semibold"
                 >
-                  Read full review on Google
+                  Read on Google <ExternalLink className="h-3.5 w-3.5" />
                 </a>
               </div>
             </article>
@@ -188,6 +190,18 @@ export default function TestimonialsCarousel() {
             />
           ))}
         </div>
+      </div>
+
+      <div className="mt-10 text-center">
+        <a
+          href={GOOGLE_REVIEWS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-6 py-3 font-bold text-gray-800 shadow-sm transition hover:border-primary-500 hover:text-primary-600"
+        >
+          View All Google Reviews <ExternalLink className="h-4 w-4" />
+        </a>
+        <p className="mt-3 text-sm text-gray-500">More verified reviews can be added to this carousel as they are supplied from the Google listing.</p>
       </div>
     </div>
   );
