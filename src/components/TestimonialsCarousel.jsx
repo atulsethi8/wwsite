@@ -201,7 +201,7 @@ export default function TestimonialsCarousel() {
         >
           View All Google Reviews <ExternalLink className="h-4 w-4" />
         </a>
-        <p className="mt-3 text-sm text-gray-500">More verified reviews can be added to this carousel as they are supplied from the Google listing.</p>
+        <p className="mt-3 text-sm text-gray-500">Visit our Google listing to see the latest client reviews.</p>
       </div>
     </div>
   );
