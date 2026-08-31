@@ -1,4 +1,4 @@
-import { Clock, MapPin, Star } from "lucide-react";
+import { Clock, MapPin } from "lucide-react";
 
 const DestinationCard = ({ destination, index }) => {
   const {
@@ -6,24 +6,17 @@ const DestinationCard = ({ destination, index }) => {
     location,
     description,
     image,
-    price,
-    rating,
     duration,
-    url, // static itinerary page (in /public)
+    url,
   } = destination;
 
   const linkTarget = url || "/contact#contact-form";
-
-  // Ensure we don't double the currency symbol if price already includes ₹
-  const displayPrice =
-    typeof price === "string" && price.trim().startsWith("₹") ? price : (price ? `₹${price}` : "");
 
   return (
     <div
       className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group"
       style={{ animationDelay: `${index * 100}ms` }}
     >
-      {/* Image */}
       <a href={linkTarget} className="block">
         <div className="relative h-56 overflow-hidden">
           <img
@@ -32,15 +25,12 @@ const DestinationCard = ({ destination, index }) => {
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
             loading="lazy"
           />
-          {displayPrice && (
-            <div className="absolute top-4 right-4 bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-              {displayPrice}
-            </div>
-          )}
+          <div className="absolute top-4 right-4 bg-slate-900/85 text-white px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">
+            Tailor-made
+          </div>
         </div>
       </a>
 
-      {/* Content */}
       <div className="p-6">
         <a href={linkTarget} className="no-underline">
           <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
@@ -53,12 +43,6 @@ const DestinationCard = ({ destination, index }) => {
             <MapPin className="h-4 w-4" />
             <span>{location}</span>
           </span>
-          {rating && (
-            <span className="inline-flex items-center space-x-1">
-              <Star className="h-4 w-4 text-yellow-500" />
-              <span>{rating}</span>
-            </span>
-          )}
           {duration && (
             <span className="inline-flex items-center space-x-1">
               <Clock className="h-4 w-4" />
@@ -71,7 +55,7 @@ const DestinationCard = ({ destination, index }) => {
 
         <div className="flex justify-between items-center">
           <a href={linkTarget} className="btn-primary px-5 py-3">
-            View Itinerary
+            View Packages
           </a>
         </div>
       </div>
