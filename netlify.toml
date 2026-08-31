@@ -37,6 +37,26 @@
   status = 200
 
 [[redirects]]
+  from = "/thailand-family-fun"
+  to = "/thailand-family-fun.html"
+  status = 200
+
+[[redirects]]
+  from = "/singapore-city-break"
+  to = "/singapore-city-break.html"
+  status = 200
+
+[[redirects]]
+  from = "/switzerland-alpine-magic"
+  to = "/switzerland-alpine-magic.html"
+  status = 200
+
+[[redirects]]
+  from = "/ladakh-adventure"
+  to = "/ladakh-adventure.html"
+  status = 200
+
+[[redirects]]
   from = "/contact"
   to = "/#contact"
   status = 200
