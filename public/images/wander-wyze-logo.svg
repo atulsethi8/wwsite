@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 145" role="img" aria-labelledby="title desc">
+  <title id="title">Wander Wyze Holidays</title>
+  <desc id="desc">Gold tropical island emblem with Wander Wyze Holidays wordmark.</desc>
+  <g fill="none" stroke="#d8a12b" stroke-width="4">
+    <circle cx="69" cy="72" r="55"/>
+  </g>
+  <g fill="#d8a12b">
+    <path d="M34 105c11-9 20-13 30-13 12 0 21 5 31 15-10-2-20-3-31-3-10 0-20 0-30 1Z"/>
+    <path d="M34 108c18 5 37 5 58-1-17 11-38 13-58 1Z"/>
+    <path d="M59 91c2-18 4-31 8-42l5 1c-5 13-7 27-8 42h-5Z"/>
+    <path d="M69 52c-11-11-22-13-34-8 8 2 14 6 18 12-8-2-15 0-22 5 14 0 24 4 30 12 2-9 5-16 8-21Z"/>
+    <path d="M69 52c7-11 17-16 29-14-7 4-11 8-14 14 8-3 15-2 21 2-12 3-21 8-27 16-1-7-4-13-9-18Z"/>
+    <path d="M87 94c1-11 2-20 5-28l4 1c-3 9-4 18-5 28h-4Z"/>
+    <path d="M93 68c-7-7-14-9-22-6 5 2 9 4 12 8-5-1-10 0-14 4 9 0 16 3 20 8 1-6 2-10 4-14Z"/>
+    <path d="M93 68c5-7 11-10 19-9-4 2-7 5-9 9 5-2 9-1 13 1-8 2-14 5-18 10-1-4-2-8-5-11Z"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="145" y="66" fill="#ffffff" font-size="35" font-weight="700" letter-spacing="3">WANDER WYZE</text>
+    <text x="147" y="105" fill="#d8a12b" font-size="25" font-weight="600" letter-spacing="9">HOLIDAYS</text>
+  </g>
+</svg>
