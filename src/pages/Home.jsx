@@ -76,16 +76,23 @@ const Home = () => {
   ];
 
   const moreDestinations = [
-    { name: "Switzerland", url: "/switzerland-alpine-magic" },
-    { name: "Singapore", url: "/singapore-city-break" },
-    { name: "Ladakh", url: "/ladakh-adventure" },
+    { name: "Sri Lanka", note: "Kandy • Nuwara Eliya • Bentota", icon: "🇱🇰", url: "/sri-lanka-tour-packages" },
+    { name: "Mauritius", note: "Beach resorts • Honeymoon • Family", icon: "🏝️", url: "/mauritius-holiday-packages" },
+    { name: "Azerbaijan", note: "Baku • Gabala • Gobustan", icon: "🇦🇿", url: "/azerbaijan-baku-packages" },
+    { name: "Georgia", note: "Tbilisi • Kazbegi • Batumi", icon: "🇬🇪", url: "/georgia-tour-packages" },
+    { name: "Europe", note: "Switzerland • Paris • Austria & more", icon: "🇪🇺", url: "/europe-tour-packages" },
+    { name: "Albania + Montenegro", note: "Tirana • Kotor • Budva", icon: "⛵", url: "/albania-montenegro-packages" },
+    { name: "Andaman", note: "Port Blair • Havelock • Neil", icon: "🌊", url: "/andaman-tour-packages" },
+    { name: "Meghalaya", note: "Shillong • Cherrapunji • Dawki", icon: "🌧️", url: "/meghalaya-shillong-packages" },
+    { name: "Switzerland", note: "Lucerne • Interlaken • Zermatt", icon: "🇨🇭", url: "/switzerland-alpine-magic" },
+    { name: "Singapore", note: "Sentosa • Universal • Marina Bay", icon: "🇸🇬", url: "/singapore-city-break" },
+    { name: "Ladakh", note: "Leh • Nubra • Pangong", icon: "🏔️", url: "/ladakh-adventure" },
   ];
 
   return (
     <div>
       <Hero />
 
-      {/* Featured Destinations */}
       <section className="section-padding bg-white">
         <div className="container-custom">
           <motion.div
@@ -117,23 +124,41 @@ const Home = () => {
             ))}
           </div>
 
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <span className="text-sm font-semibold text-gray-500 mr-1">More favourites:</span>
-            {moreDestinations.map((destination) => (
-              <a
-                key={destination.name}
-                href={destination.url}
-                className="rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 transition hover:border-primary-500 hover:text-primary-600"
-              >
-                {destination.name}
-              </a>
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="mt-16 rounded-3xl bg-slate-950 px-6 py-10 lg:px-10 lg:py-12"
+          >
+            <div className="text-center mb-8">
+              <p className="uppercase tracking-widest text-sm text-amber-300 mb-2">More places we plan</p>
+              <h3 className="text-3xl lg:text-4xl font-bold text-white mb-3">More destinations, same personalised planning.</h3>
+              <p className="text-gray-300 max-w-2xl mx-auto">Tap a destination to see a sample route, best-time guidance and enquiry options.</p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {moreDestinations.map((destination) => (
+                <a
+                  key={destination.name}
+                  href={destination.url}
+                  className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 transition hover:-translate-y-0.5 hover:border-amber-300/60 hover:bg-white/10"
+                >
+                  <span className="text-2xl" aria-hidden="true">{destination.icon}</span>
+                  <span className="min-w-0">
+                    <span className="block font-bold text-white group-hover:text-amber-300 transition-colors">{destination.name}</span>
+                    <span className="block text-sm text-gray-400 truncate">{destination.note}</span>
+                  </span>
+                  <ArrowRight className="h-4 w-4 text-gray-500 ml-auto group-hover:text-amber-300" />
+                </a>
+              ))}
+            </div>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
             className="text-center mt-12"
           >
@@ -148,7 +173,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
       <section id="testimonials" className="section-padding bg-gray-50">
         <div className="container-custom">
           <motion.div
@@ -173,7 +197,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="section-padding bg-gradient-to-r from-primary-600 to-teal-600">
         <div className="container-custom text-center">
           <motion.div
