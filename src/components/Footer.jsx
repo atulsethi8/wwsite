@@ -1,26 +1,25 @@
 import { Link } from 'react-router-dom'
-import { Globe, Instagram, MessageCircle, Mail, Phone, MapPin } from 'lucide-react'
+import { Instagram, MessageCircle, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react'
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-[#071f24] text-white">
       {/* Main Footer */}
       <div className="container-custom py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="mb-6">
-              <h3 className="text-2xl font-bold mb-4">Wander Wyze Holidays</h3>
-              <p className="text-gray-300 leading-relaxed mb-6">
-                Crafting bespoke travel experiences for discerning travelers. We specialize in 
-                custom itineraries that create unforgettable memories across the globe.
+              <h3 className="text-3xl font-medium mb-4">Wander Wyze <span className="italic text-[#d7b56d]">Holidays</span></h3>
+              <p className="max-w-xl text-white/60 leading-relaxed mb-6">
+                Bespoke journeys, designed with care and supported by real people from first idea to final flight home.
               </p>
               <div className="flex space-x-4">
                 <a 
                   href="https://www.instagram.com/wanderwyzeholidays/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-primary-600 hover:bg-primary-700 p-3 rounded-none transition-colors"
+                  className="border border-white/20 p-3 transition-colors hover:border-[#d7b56d] hover:text-[#d7b56d]"
                 >
                   <Instagram className="h-5 w-5" />
                 </a>
@@ -28,7 +27,7 @@ const Footer = () => {
                   href="https://wa.me/919833834836" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-green-600 hover:bg-green-700 p-3 rounded-none transition-colors"
+                  className="border border-white/20 p-3 transition-colors hover:border-[#d7b56d] hover:text-[#d7b56d]"
                 >
                   <MessageCircle className="h-5 w-5" />
                 </a>
@@ -38,7 +37,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#d7b56d] mb-6">Explore</h4>
             <ul className="space-y-3">
               <li>
                 <Link to="/" className="text-gray-300 hover:text-white transition-colors">
@@ -81,7 +80,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Contact Information</h4>
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#d7b56d] mb-6">Talk to us</h4>
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-primary-400" />
@@ -89,7 +88,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-primary-400" />
-                <span className="text-gray-300">ravi@wanderwyze.com</span>
+                <a href="mailto:info@wanderwyze.com" className="text-gray-300 hover:text-white">info@wanderwyze.com</a>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-primary-400 mt-1" />
@@ -101,25 +100,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Newsletter Signup */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
-          <div className="max-w-md">
-            <h4 className="text-lg font-semibold mb-4">Stay Updated</h4>
-            <p className="text-gray-300 mb-4">
-              Subscribe to our newsletter for exclusive travel insights and special offers.
-            </p>
-            <div className="flex">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-primary-500"
-              />
-              <button className="bg-primary-600 hover:bg-primary-700 px-6 py-3 text-white font-semibold transition-colors">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
+        <div className="mt-12 flex flex-col justify-between gap-5 border-t border-white/10 pt-8 sm:flex-row sm:items-center"><p className="font-serif text-2xl">Have a place in mind?</p><a href="/#design-trip" className="inline-flex items-center gap-2 text-sm font-bold text-[#d7b56d]">Design your journey <ArrowUpRight className="h-4 w-4" /></a></div>
       </div>
 
       {/* Bottom Footer */}
@@ -127,7 +108,7 @@ const Footer = () => {
         <div className="container-custom py-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2024 Wander Wyze Holidays. All rights reserved.
+              © {new Date().getFullYear()} Wander Wyze Holidays. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link to="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">
