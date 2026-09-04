@@ -1,119 +1,25 @@
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+import { ArrowDownRight, Star } from 'lucide-react'
 import VideoBackground from './VideoBackground'
 
-const Hero = () => {
-  return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
-                           <VideoBackground />
-
-      {/* Content */}
-      <div className="relative z-20 text-center text-white px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="max-w-5xl mx-auto pt-16 sm:pt-20 md:pt-24"
-        >
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 leading-tight text-shadow"
-          >
-            Wander Wyze Holidays
-          </motion.h1>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="flex items-center justify-center space-x-1 sm:space-x-2 mb-6"
-          >
-            <div className="flex space-x-1">
-              {[...Array(5)].map((_, i) => (
-                <span key={i} className="text-yellow-400 text-lg sm:text-xl md:text-2xl">⭐</span>
-              ))}
-            </div>
-            <span className="text-white text-base sm:text-lg md:text-xl font-semibold ml-1 sm:ml-2">5.0</span>
-            <span className="text-gray-200 text-base sm:text-lg md:text-xl">Google Reviews</span>
-          </motion.div>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-6 text-gray-100 font-light leading-relaxed max-w-4xl mx-auto px-4"
-          >
-            Tailored experience | Flights | Hotels | Group Tours | Visa 🌍
-          </motion.p>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-10 md:mb-12 text-white px-4"
-          >
-            <div className="flex items-center justify-center space-x-2 sm:space-x-3 text-sm sm:text-base md:text-lg">
-              <span className="text-lg sm:text-xl md:text-2xl">🏡</span>
-              <span>Customise Trips</span>
-            </div>
-            <div className="flex items-center justify-center space-x-2 sm:space-x-3 text-sm sm:text-base md:text-lg">
-              <span className="text-lg sm:text-xl md:text-2xl">💰</span>
-              <span>Best Price Guarantee</span>
-            </div>
-            <div className="flex items-center justify-center space-x-2 sm:space-x-3 text-sm sm:text-base md:text-lg">
-              <span className="text-lg sm:text-xl md:text-2xl">📞</span>
-              <span>24/7 Support</span>
-            </div>
-          </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4"
-          >
-            <Link to="/contact#contact-form" className="btn-primary text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 flex items-center justify-center space-x-2 sm:space-x-3 w-full sm:w-auto">
-              <span>Plan Your Journey</span>
-              <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
-            </Link>
-            
-            <a 
-              href="https://g.co/kgs/YzD3cJJ" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="btn-secondary text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 flex items-center justify-center space-x-2 sm:space-x-3 w-full sm:w-auto"
-            >
-              <span className="text-yellow-400 text-lg sm:text-xl">⭐</span>
-              <span>Read Our Reviews</span>
-            </a>
-          </motion.div>
-        </motion.div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-white rounded-full flex justify-center"
-        >
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-3 bg-white rounded-full mt-2"
-          ></motion.div>
-        </motion.div>
+const Hero = () => (
+  <section className="relative min-h-[92vh] overflow-hidden bg-slate-950 text-white">
+    <VideoBackground />
+    <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#071b22]/95 via-[#071b22]/65 to-transparent" />
+    <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#071b22] via-transparent to-transparent" />
+    <div className="container-custom relative z-20 flex min-h-[92vh] items-end pb-16 pt-36 lg:items-center lg:pb-8">
+      <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }} className="max-w-4xl">
+        <div className="mb-7 inline-flex items-center gap-3 border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] backdrop-blur-md"><span className="h-1.5 w-1.5 rounded-full bg-[#d7b56d]" />Private journeys, thoughtfully made</div>
+        <h1 className="max-w-3xl text-5xl font-medium leading-[0.98] sm:text-6xl lg:text-[5.6rem]">Travel that feels <span className="italic text-[#e2c88e]">entirely yours.</span></h1>
+        <p className="mt-7 max-w-2xl text-lg leading-relaxed text-white/80 sm:text-xl">Bespoke holidays for couples, families and private groups—designed around your pace, your taste and the moments you want to remember.</p>
+        <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <a href="/#design-trip" className="premium-button group">Design my journey <ArrowDownRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:translate-y-1" /></a>
+          <a href="https://g.co/kgs/YzD3cJJ" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center justify-center gap-2 border border-white/30 px-6 text-sm font-semibold text-white transition hover:bg-white hover:text-[#071b22]"><Star className="h-4 w-4 fill-[#d7b56d] text-[#d7b56d]" /> 5.0 on Google</a>
+        </div>
       </motion.div>
-    </section>
-  )
-}
+    </div>
+    <div className="absolute bottom-6 right-8 z-20 hidden text-right text-xs uppercase tracking-[0.2em] text-white/60 lg:block">Wander further<br /><span className="text-white">We handle the details</span></div>
+  </section>
+)
 
 export default Hero
