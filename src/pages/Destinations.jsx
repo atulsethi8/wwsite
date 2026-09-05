@@ -42,14 +42,14 @@ const Destinations = () => {
     <div className="min-h-screen bg-[#fbf8f1] pt-20 text-[#173b40]">
       <section className="relative overflow-hidden bg-[#071f24] py-14 text-white lg:py-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_38%,rgba(202,165,92,0.16),transparent_34%)]" />
-        <div className="container-custom relative grid items-center gap-10 lg:grid-cols-[1fr_340px]">
+        <div className="container-custom relative grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-4xl">
             <p className="eyebrow text-[#d7b56d]">Find your next journey</p>
             <h1 className="max-w-3xl font-serif text-5xl font-medium leading-[1.02] sm:text-6xl lg:text-7xl">Where will your story <span className="italic text-[#e2c88e]">take you?</span></h1>
             <p className="mt-7 max-w-2xl text-lg leading-relaxed text-white/70">Explore places by travel style, then use each guide to understand routes, seasons and the choices that shape the experience.</p>
           </motion.div>
-          <motion.div initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.1 }} className="relative mx-auto w-full max-w-[340px] overflow-hidden border border-white/15 bg-black shadow-[0_24px_80px_rgba(0,0,0,0.4)]">
-            <video className="h-[430px] w-full object-contain sm:h-[500px]" autoPlay muted loop playsInline controls preload="metadata" aria-label="Wander Wyze destination inspiration video">
+          <motion.div initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.1 }} className="relative mx-auto w-full overflow-hidden border border-white/15 bg-black shadow-[0_24px_80px_rgba(0,0,0,0.4)]">
+            <video className="h-[430px] w-full object-contain sm:h-[500px] lg:h-[520px]" autoPlay muted loop playsInline controls preload="metadata" aria-label="Wander Wyze destination inspiration video">
               <source src="/videos/Destinations.mp4" type="video/mp4" />
             </video>
           </motion.div>
