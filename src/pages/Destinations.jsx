@@ -25,6 +25,11 @@ const destinations = [
 
 const filters = ['All', 'Beach', 'Safari', 'Europe', 'Asia', 'India', 'Family', 'Honeymoon', 'Short Breaks']
 
+const travelFilms = [
+  { id: 'DSfrxYgCAdN', title: 'A journey worth remembering', url: 'https://www.instagram.com/p/DSfrxYgCAdN/' },
+  { id: 'DSkt2vIEu22', title: 'A closer look at the experience', url: 'https://www.instagram.com/p/DSkt2vIEu22/' },
+]
+
 const Destinations = () => {
   const [activeFilter, setActiveFilter] = useState('All')
   const [query, setQuery] = useState('')
@@ -71,6 +76,39 @@ const Destinations = () => {
         <div className="container-custom">
           <div className="mb-9 flex flex-col justify-between gap-3 sm:flex-row sm:items-end"><div><p className="eyebrow">Curated places</p><h2 className="font-serif text-4xl font-medium text-[#123d43]">{activeFilter === 'All' ? 'All journeys' : `${activeFilter} journeys`}</h2></div><p className="text-sm text-[#718183]">Showing {visibleDestinations.length} of {destinations.length} destinations</p></div>
           {visibleDestinations.length ? <motion.div layout className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">{visibleDestinations.map((destination, index) => <DestinationCard key={destination.id} destination={destination} index={index} />)}</motion.div> : <div className="border border-[#173b40]/10 bg-white px-6 py-20 text-center"><Sparkles className="mx-auto h-7 w-7 text-[#c2923f]" /><h3 className="mt-5 font-serif text-3xl">No exact match yet</h3><p className="mx-auto mt-3 max-w-lg text-[#607477]">Try another search or tell us the kind of holiday you want—we plan destinations beyond this collection too.</p><button onClick={() => { setQuery(''); setActiveFilter('All') }} className="editorial-link mt-6">View all destinations <ArrowRight className="h-4 w-4" /></button></div>}
+        </div>
+      </section>
+
+      <section className="overflow-hidden border-y border-[#173b40]/10 bg-[#eee5d6] py-20 sm:py-24">
+        <div className="container-custom">
+          <div className="mb-10 grid gap-5 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+            <div>
+              <p className="eyebrow">Journeys in motion</p>
+              <h2 className="font-serif text-4xl font-medium leading-tight text-[#123d43] sm:text-5xl">See the feeling <span className="italic text-[#9b7440]">before you go.</span></h2>
+            </div>
+            <p className="max-w-2xl text-base leading-relaxed text-[#5c6f71] lg:justify-self-end">Real travel moments, destination inspiration and the details that turn a place into a story worth keeping.</p>
+          </div>
+
+          <div className="grid gap-7 lg:grid-cols-2">
+            {travelFilms.map((film, index) => (
+              <motion.article key={film.id} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.6, delay: index * 0.1 }} className="overflow-hidden border border-[#173b40]/10 bg-white shadow-[0_18px_55px_rgba(23,59,64,0.10)]">
+                <div className="bg-[#f8f5ef] p-2 sm:p-4">
+                  <iframe
+                    src={`https://www.instagram.com/p/${film.id}/embed/captioned`}
+                    title={film.title}
+                    className="mx-auto block h-[650px] w-full max-w-[540px] border-0 bg-white sm:h-[690px]"
+                    loading="lazy"
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="flex items-center justify-between gap-4 border-t border-[#173b40]/10 px-5 py-4 sm:px-6">
+                  <p className="font-serif text-xl text-[#173b40]">{film.title}</p>
+                  <a href={film.url} target="_blank" rel="noopener noreferrer" className="editorial-link shrink-0" aria-label={`Watch ${film.title} on Instagram`}>Watch reel <ArrowRight className="h-4 w-4" /></a>
+                </div>
+              </motion.article>
+            ))}
+          </div>
         </div>
       </section>
 
