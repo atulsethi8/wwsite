@@ -54,10 +54,10 @@ const Destinations = () => {
             <h1 className="max-w-3xl font-serif text-5xl font-medium leading-[1.02] sm:text-6xl lg:text-7xl">Where will your story <span className="italic text-[#e2c88e]">take you?</span></h1>
             <p className="mt-7 max-w-2xl text-lg leading-relaxed text-white/70">Explore places by travel style, then use each guide to understand routes, seasons and the choices that shape the experience.</p>
           </motion.div>
-          <motion.div initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.1 }} className="relative mx-auto grid w-full grid-cols-3 overflow-hidden border border-white/15 bg-[#061b1f] shadow-[0_24px_80px_rgba(0,0,0,0.4)] lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:border-0 lg:shadow-none">
+          <motion.div initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.1 }} className="relative mx-auto grid w-full grid-cols-3 overflow-hidden border border-white/15 bg-[#061b1f] shadow-[0_24px_80px_rgba(0,0,0,0.4)] lg:w-full lg:border-0 lg:shadow-none">
             {heroVideos.map((video, index) => (
-              <div key={video} className="relative flex h-[320px] min-w-0 items-center justify-center overflow-hidden border-r border-white/10 last:border-r-0 sm:h-[430px] lg:h-full">
-                <video className="h-full w-full object-contain" autoPlay muted loop playsInline controls preload={index === 0 ? 'auto' : 'metadata'} aria-label={`Wander Wyze destination inspiration video ${index + 1}`}>
+              <div key={video} className="relative aspect-[9/16] min-w-0 overflow-hidden border-r border-white/10 last:border-r-0">
+                <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline preload={index === 0 ? 'auto' : 'metadata'} aria-label={`Wander Wyze destination inspiration video ${index + 1}`}>
                   <source src={video} type="video/mp4" />
                 </video>
               </div>
