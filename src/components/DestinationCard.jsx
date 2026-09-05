@@ -1,66 +1,26 @@
-import { Clock, MapPin } from "lucide-react";
+import { ArrowUpRight, Clock, MapPin } from 'lucide-react'
 
 const DestinationCard = ({ destination, index }) => {
-  const {
-    name,
-    location,
-    description,
-    image,
-    duration,
-    url,
-  } = destination;
-
-  const linkTarget = url || "/contact#contact-form";
+  const { name, location, description, image, duration, url, styles = [] } = destination
+  const linkTarget = url || '/contact#contact-form'
 
   return (
-    <div
-      className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group"
-      style={{ animationDelay: `${index * 100}ms` }}
-    >
-      <a href={linkTarget} className="block">
-        <div className="relative h-56 overflow-hidden">
-          <img
-            src={image}
-            alt={name}
-            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-            loading="lazy"
-          />
-          <div className="absolute top-4 right-4 bg-slate-900/85 text-white px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">
-            Tailor-made
-          </div>
-        </div>
+    <article className="group flex h-full flex-col overflow-hidden border border-[#173b40]/10 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_60px_rgba(18,61,67,0.12)]" style={{ animationDelay: `${index * 70}ms` }}>
+      <a href={linkTarget} className="relative block h-64 overflow-hidden">
+        <img src={image} alt={name} className="h-full w-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#071f24]/70 via-transparent to-transparent" />
+        <span className="absolute left-5 top-5 bg-[#fbf8f1]/95 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-[#173b40] backdrop-blur">Tailor-made</span>
+        <span className="absolute bottom-5 right-5 grid h-11 w-11 place-items-center rounded-full border border-white/45 bg-[#071f24]/25 text-white backdrop-blur transition group-hover:bg-white group-hover:text-[#173b40]"><ArrowUpRight className="h-4 w-4" /></span>
       </a>
-
-      <div className="p-6">
-        <a href={linkTarget} className="no-underline">
-          <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
-            {name}
-          </h3>
-        </a>
-
-        <div className="flex items-center text-gray-600 text-sm mb-3 space-x-4">
-          <span className="inline-flex items-center space-x-1">
-            <MapPin className="h-4 w-4" />
-            <span>{location}</span>
-          </span>
-          {duration && (
-            <span className="inline-flex items-center space-x-1">
-              <Clock className="h-4 w-4" />
-              <span>{duration}</span>
-            </span>
-          )}
-        </div>
-
-        <p className="text-gray-600 mb-6 line-clamp-3">{description}</p>
-
-        <div className="flex justify-between items-center">
-          <a href={linkTarget} className="btn-primary px-5 py-3">
-            View Packages
-          </a>
-        </div>
+      <div className="flex flex-1 flex-col p-6">
+        <div className="flex flex-wrap gap-2">{styles.slice(0, 2).map(style => <span key={style} className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#91713e]">{style}</span>)}</div>
+        <a href={linkTarget}><h3 className="mt-3 font-serif text-2xl font-medium leading-tight text-[#123d43] transition group-hover:text-[#91713e]">{name}</h3></a>
+        <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-[#718183]"><span className="inline-flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" />{location}</span>{duration && <span className="inline-flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" />{duration}</span>}</div>
+        <p className="mt-4 flex-1 leading-relaxed text-[#5c6f71]">{description}</p>
+        <a href={linkTarget} className="editorial-link mt-6 self-start">Explore journey <ArrowUpRight className="h-4 w-4" /></a>
       </div>
-    </div>
-  );
-};
+    </article>
+  )
+}
 
-export default DestinationCard;
+export default DestinationCard
