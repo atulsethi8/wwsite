@@ -1,6 +1,6 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, Search, Sparkles } from 'lucide-react'
+import { ArrowRight, Search, Sparkles, Volume2, VolumeX } from 'lucide-react'
 import DestinationCard from '../components/DestinationCard'
 
 const destinations = [
@@ -34,6 +34,33 @@ const heroVideos = [
 const Destinations = () => {
   const [activeFilter, setActiveFilter] = useState('All')
   const [query, setQuery] = useState('')
+  const [activeVideo, setActiveVideo] = useState(0)
+  const [isMuted, setIsMuted] = useState(true)
+  const videoRefs = useRef([])
+
+  useEffect(() => {
+    videoRefs.current.forEach((video, index) => {
+      if (!video) return
+      if (index === activeVideo) {
+        video.muted = isMuted
+        video.play().catch(() => {})
+      } else {
+        video.pause()
+        video.currentTime = 0
+        video.muted = true
+      }
+    })
+  }, [activeVideo, isMuted])
+
+  const toggleSound = () => {
+    const nextMuted = !isMuted
+    setIsMuted(nextMuted)
+    const currentVideo = videoRefs.current[activeVideo]
+    if (currentVideo) {
+      currentVideo.muted = nextMuted
+      currentVideo.play().catch(() => {})
+    }
+  }
 
   const visibleDestinations = useMemo(() => {
     const search = query.trim().toLowerCase()
@@ -56,12 +83,16 @@ const Destinations = () => {
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.1 }} className="relative mx-auto grid w-full grid-cols-3 overflow-hidden border border-white/15 bg-[#061b1f] shadow-[0_24px_80px_rgba(0,0,0,0.4)] lg:w-full lg:border-0 lg:shadow-none">
             {heroVideos.map((video, index) => (
-              <div key={video} className="relative aspect-[9/16] min-w-0 overflow-hidden border-r border-white/10 last:border-r-0">
-                <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline preload={index === 0 ? 'auto' : 'metadata'} aria-label={`Wander Wyze destination inspiration video ${index + 1}`}>
+              <div key={video} className={`relative aspect-[9/16] min-w-0 overflow-hidden border-r border-white/10 transition-opacity duration-500 last:border-r-0 ${activeVideo === index ? 'opacity-100' : 'opacity-55'}`}>
+                <video ref={element => { videoRefs.current[index] = element }} className="absolute inset-0 h-full w-full object-cover" autoPlay={index === 0} muted={isMuted || activeVideo !== index} playsInline preload={index === 0 ? 'auto' : 'metadata'} onEnded={() => setActiveVideo((index + 1) % heroVideos.length)} aria-label={`Wander Wyze destination inspiration video ${index + 1}`}>
                   <source src={video} type="video/mp4" />
                 </video>
               </div>
             ))}
+            <button type="button" onClick={toggleSound} className="absolute bottom-4 right-4 z-20 flex items-center gap-2 rounded-full border border-white/25 bg-black/65 px-4 py-2.5 text-sm font-semibold text-white shadow-lg backdrop-blur-md transition hover:bg-black/80 focus:outline-none focus:ring-2 focus:ring-[#e2c88e]" aria-label={isMuted ? 'Unmute destination videos' : 'Mute destination videos'}>
+              {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
+              {isMuted ? 'Unmute' : 'Mute'}
+            </button>
           </motion.div>
         </div>
       </section>
