@@ -25,9 +25,10 @@ const destinations = [
 
 const filters = ['All', 'Beach', 'Safari', 'Europe', 'Asia', 'India', 'Family', 'Honeymoon', 'Short Breaks']
 
-const travelFilms = [
-  { id: 'DSfrxYgCAdN', title: 'A journey worth remembering', url: 'https://www.instagram.com/p/DSfrxYgCAdN/' },
-  { id: 'DSkt2vIEu22', title: 'A closer look at the experience', url: 'https://www.instagram.com/p/DSkt2vIEu22/' },
+const heroVideos = [
+  '/videos/Destinations.mp4',
+  '/videos/destination-journey-one.mp4',
+  '/videos/destination-journey-two.mp4',
 ]
 
 const Destinations = () => {
@@ -53,10 +54,14 @@ const Destinations = () => {
             <h1 className="max-w-3xl font-serif text-5xl font-medium leading-[1.02] sm:text-6xl lg:text-7xl">Where will your story <span className="italic text-[#e2c88e]">take you?</span></h1>
             <p className="mt-7 max-w-2xl text-lg leading-relaxed text-white/70">Explore places by travel style, then use each guide to understand routes, seasons and the choices that shape the experience.</p>
           </motion.div>
-          <motion.div initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.1 }} className="relative mx-auto w-full overflow-hidden border border-white/15 bg-black shadow-[0_24px_80px_rgba(0,0,0,0.4)] lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:border-0 lg:shadow-none">
-            <video className="h-[430px] w-full object-contain sm:h-[500px] lg:h-full lg:object-cover" autoPlay muted loop playsInline controls preload="metadata" aria-label="Wander Wyze destination inspiration video">
-              <source src="/videos/Destinations.mp4" type="video/mp4" />
-            </video>
+          <motion.div initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.1 }} className="relative mx-auto grid w-full grid-cols-3 overflow-hidden border border-white/15 bg-[#061b1f] shadow-[0_24px_80px_rgba(0,0,0,0.4)] lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:border-0 lg:shadow-none">
+            {heroVideos.map((video, index) => (
+              <div key={video} className="relative flex h-[320px] min-w-0 items-center justify-center overflow-hidden border-r border-white/10 last:border-r-0 sm:h-[430px] lg:h-full">
+                <video className="h-full w-full object-contain" autoPlay muted loop playsInline controls preload={index === 0 ? 'auto' : 'metadata'} aria-label={`Wander Wyze destination inspiration video ${index + 1}`}>
+                  <source src={video} type="video/mp4" />
+                </video>
+              </div>
+            ))}
           </motion.div>
         </div>
       </section>
@@ -76,39 +81,6 @@ const Destinations = () => {
         <div className="container-custom">
           <div className="mb-9 flex flex-col justify-between gap-3 sm:flex-row sm:items-end"><div><p className="eyebrow">Curated places</p><h2 className="font-serif text-4xl font-medium text-[#123d43]">{activeFilter === 'All' ? 'All journeys' : `${activeFilter} journeys`}</h2></div><p className="text-sm text-[#718183]">Showing {visibleDestinations.length} of {destinations.length} destinations</p></div>
           {visibleDestinations.length ? <motion.div layout className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">{visibleDestinations.map((destination, index) => <DestinationCard key={destination.id} destination={destination} index={index} />)}</motion.div> : <div className="border border-[#173b40]/10 bg-white px-6 py-20 text-center"><Sparkles className="mx-auto h-7 w-7 text-[#c2923f]" /><h3 className="mt-5 font-serif text-3xl">No exact match yet</h3><p className="mx-auto mt-3 max-w-lg text-[#607477]">Try another search or tell us the kind of holiday you want—we plan destinations beyond this collection too.</p><button onClick={() => { setQuery(''); setActiveFilter('All') }} className="editorial-link mt-6">View all destinations <ArrowRight className="h-4 w-4" /></button></div>}
-        </div>
-      </section>
-
-      <section className="overflow-hidden border-y border-[#173b40]/10 bg-[#eee5d6] py-20 sm:py-24">
-        <div className="container-custom">
-          <div className="mb-10 grid gap-5 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-            <div>
-              <p className="eyebrow">Journeys in motion</p>
-              <h2 className="font-serif text-4xl font-medium leading-tight text-[#123d43] sm:text-5xl">See the feeling <span className="italic text-[#9b7440]">before you go.</span></h2>
-            </div>
-            <p className="max-w-2xl text-base leading-relaxed text-[#5c6f71] lg:justify-self-end">Real travel moments, destination inspiration and the details that turn a place into a story worth keeping.</p>
-          </div>
-
-          <div className="grid gap-7 lg:grid-cols-2">
-            {travelFilms.map((film, index) => (
-              <motion.article key={film.id} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.6, delay: index * 0.1 }} className="overflow-hidden border border-[#173b40]/10 bg-white shadow-[0_18px_55px_rgba(23,59,64,0.10)]">
-                <div className="bg-[#f8f5ef] p-2 sm:p-4">
-                  <iframe
-                    src={`https://www.instagram.com/p/${film.id}/embed/captioned`}
-                    title={film.title}
-                    className="mx-auto block h-[650px] w-full max-w-[540px] border-0 bg-white sm:h-[690px]"
-                    loading="lazy"
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                    allowFullScreen
-                  />
-                </div>
-                <div className="flex items-center justify-between gap-4 border-t border-[#173b40]/10 px-5 py-4 sm:px-6">
-                  <p className="font-serif text-xl text-[#173b40]">{film.title}</p>
-                  <a href={film.url} target="_blank" rel="noopener noreferrer" className="editorial-link shrink-0" aria-label={`Watch ${film.title} on Instagram`}>Watch reel <ArrowRight className="h-4 w-4" /></a>
-                </div>
-              </motion.article>
-            ))}
-          </div>
         </div>
       </section>
 
